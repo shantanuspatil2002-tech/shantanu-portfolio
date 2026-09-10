@@ -1,7 +1,7 @@
 import { hero } from '../content'
 import { Stat } from './ui'
 
-/** Schematic connector-trace motif — understated, not clipart. */
+/** Schematic connector-trace motif - understated, not clipart. */
 function BlueprintMotif() {
   return (
     <svg
@@ -29,7 +29,7 @@ function BlueprintMotif() {
         <circle cx="480" cy="360" r="5" fill="currentColor" />
       </g>
       <text x="40" y="28" className="stat" fill="currentColor" fontSize="11" opacity="0.5">
-        FIG. 01 — CCS2 / IS 17017
+        FIG. 01 - CCS2 / IS 17017
       </text>
     </svg>
   )
@@ -55,7 +55,17 @@ export default function Hero() {
         </h1>
 
         <p className="mt-5 max-w-2xl text-lg font-medium text-ink sm:text-xl">
-          {hero.positioning}
+          {(() => {
+            // Break the positioning line at the "|" so the second half
+            // ("EV, Automotive & Mobility") always sits on its own line.
+            const [primary, secondary] = hero.positioning.split(' | ')
+            return (
+              <>
+                {primary}
+                {secondary && <span className="block">{secondary}</span>}
+              </>
+            )
+          })()}
         </p>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">{hero.sub}</p>
 

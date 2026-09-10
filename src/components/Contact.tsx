@@ -9,7 +9,13 @@ export default function Contact() {
         <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
           {contact.heading}
         </h2>
-        <p className="mt-4 text-lg font-medium text-ink">{contact.line}</p>
+        <p className="mt-4 text-lg font-medium text-ink">
+          {contact.line.split(' | ').map((part, i) => (
+            <span key={i} className="block">
+              {part}
+            </span>
+          ))}
+        </p>
         <p className="mt-2 text-base text-muted">{contact.sub}</p>
 
         <div className="mt-8 flex flex-wrap gap-3">

@@ -46,7 +46,7 @@ export function useTheme() {
       try {
         localStorage.setItem(STORAGE_KEY, next)
       } catch {
-        /* private mode / storage disabled — theme still applies for this session */
+        /* private mode / storage disabled - theme still applies for this session */
       }
       return next
     })

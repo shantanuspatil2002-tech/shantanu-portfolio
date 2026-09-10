@@ -20,7 +20,7 @@ export function Reveal({
     const el = ref.current
     if (!el) return
 
-    // Fallback: never keep content hidden longer than this — covers browsers
+    // Fallback: never keep content hidden longer than this - covers browsers
     // with no IntersectionObserver and unusual scroll containers where it never
     // fires.
     const fallback = window.setTimeout(() => setShown(true), 600)
@@ -103,7 +103,7 @@ export function SectionHeading({
   )
 }
 
-/** Monospace metric — the site's single visual tell for "verified fact". */
+/** Monospace metric - the site's single visual tell for "verified fact". */
 export function Stat({
   value,
   label,
@@ -131,7 +131,7 @@ export function Stat({
   )
 }
 
-/** Ruled divider with tick marks — a drawing's scale bar. Marks the blueprint→boardroom shift. */
+/** Ruled divider with tick marks - a drawing's scale bar. Marks the blueprint→boardroom shift. */
 export function ScaleBar({ label }: { label?: string }) {
   return (
     <div className="mx-auto w-full max-w-content px-5 sm:px-8">

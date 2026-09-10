@@ -1,5 +1,5 @@
 /* ============================================================================
-   content.ts — all copy for the portfolio lives here.
+   content.ts - all copy for the portfolio lives here.
    Edit this file to update text; layout components never hard-code copy.
 
    Rules that were baked into this content (keep them if you edit):
@@ -21,7 +21,7 @@ export const site = {
   thesis:
     'An engineer who has already done operations consulting, moving into strategy consulting, anchored in automotive, EV and mobility.',
   metaDescription:
-    'Shantanu Patil — mechanical engineer and EV charger compliance specialist (ARAI) moving into operations and strategy consulting. Quantified pro-bono turnarounds, international motorsport results, MBA-equivalent at Masters’ Union.',
+    'Shantanu Patil - mechanical engineer and EV charger compliance specialist (ARAI) moving into operations and strategy consulting. Quantified pro-bono turnarounds, international motorsport results, MBA-equivalent at Masters’ Union.',
   email: 'shantanuspatil2002@gmail.com',
   linkedin: 'https://www.linkedin.com/in/shantanuspatil1/',
   // TODO(shantanu): add this file to /public before publishing.
@@ -74,31 +74,31 @@ export const about = {
       tag: 'Foundation',
       title: 'Engineer, from the shop floor up',
       body:
-        'B.E. in Mechanical Engineering from D.Y. Patil College of Engineering, Pune (8.35 CGPA), entered from a diploma background rather than a straight-through degree path — hands-on manufacturing exposure most peers entering engineering degrees directly did not have.',
+        'B.E. in Mechanical Engineering from D.Y. Patil College of Engineering, Pune (8.35 CGPA), entered from a diploma background rather than a straight-through degree path - hands-on manufacturing exposure most peers entering engineering degrees directly did not have.',
     },
     {
       tag: 'Proving ground',
-      title: 'BAJA SAE — where the commercial instinct started',
+      title: 'BAJA SAE - where the commercial instinct started',
       body:
-        'Led sponsorship strategy, team strategy and the sales presentation for Team Predators Racing across BAJA SAE India and BAJA SAE International (New York). AIR 1 nationally at eBAJA 2023; World Rank 4 of 88 at the international sales presentation. First exposure to raising money, building a commercial case and defending it under judging pressure — the skills the rest of this arc is built on.',
+        'Led sponsorship strategy, team strategy and the sales presentation for Team Predators Racing across BAJA SAE India and BAJA SAE International (New York). AIR 1 nationally at eBAJA 2023; World Rank 4 of 88 at the international sales presentation. First exposure to raising money, building a commercial case and defending it under judging pressure - the skills the rest of this arc is built on.',
     },
     {
       tag: 'Engineer',
       title: 'EV charger compliance at ARAI',
       body:
-        'Around 3 years as a Research Engineer at the Automotive Research Association of India (ARAI), India’s apex automotive homologation and certification body — specialising in EV charger compliance testing (IEC 61851, IS 17017, AIS, CMVR) for OEM clients including Tesla, VinFast and Tata Motors / Tata AutoComp.',
+        'Around 3 years as a Research Engineer at the Automotive Research Association of India (ARAI), India’s apex automotive homologation and certification body - specialising in EV charger compliance testing (IEC 61851, IS 17017, AIS, CMVR) for OEM clients including Tesla, VinFast and Tata Motors / Tata AutoComp.',
     },
     {
       tag: 'Operator',
       title: 'Operations consulting, pro bono',
       body:
-        'In parallel, ran an 18-month pro-bono engagement (Prodmax Global) applying lean and Six Sigma methods to a real manufacturing business — not a case study, an actual P&L impact, CEO-verified in writing.',
+        'In parallel, ran an 18-month pro-bono engagement (Prodmax Global) applying lean and Six Sigma methods to a real manufacturing business - not a case study, an actual P&L impact, CEO-verified in writing.',
     },
     {
       tag: 'Strategist-in-progress',
       title: 'MBA, pivoting into strategy',
       body:
-        'Now a PGP-TBM (MBA-equivalent) student at Masters’ Union, Gurugram, targeting tier-1 / tier-2 operations and strategy consulting roles in automotive, EV and mobility — treating the domain expertise as a wedge, not a constraint.',
+        'Now a PGP-TBM (MBA-equivalent) student at Masters’ Union, Gurugram, targeting tier-1 / tier-2 operations and strategy consulting roles in automotive, EV and mobility - treating the domain expertise as a wedge, not a constraint.',
     },
   ],
   close: 'Most people get into consulting and then learn an industry. I learned the industry first.',
@@ -110,10 +110,10 @@ export const motorsport = {
   heading: 'Motorsport & Team Leadership',
   org: 'Team Predators Racing · BAJA SAE India & BAJA SAE International',
   lede:
-    'BAJA SAE is a design-build-race competition for an off-road vehicle, judged on the engineering and on the business case — a costed manufacturing report and a live sales presentation to industry judges. It is where the commercial, leadership and under-pressure engineering experience the rest of this portfolio depends on actually came from.',
+    'BAJA SAE is a design-build-race competition for an off-road vehicle, judged on the engineering and on the business case - a costed manufacturing report and a live sales presentation to industry judges. It is where the commercial, leadership and under-pressure engineering experience the rest of this portfolio depends on actually came from.',
   intro: [
-    'Over two years with Team Predators Racing I owned sponsorship strategy, team strategy and the sales presentation — running the commercial side of a student team the way a small company runs a funding round: prospecting sponsors, building the pitch, holding ROI conversations, and closing the money that put a car on the track.',
-    'At the international round in New York I built and delivered the sales presentation against 87 other university teams from around the world. The engineering and the business case are scored separately; the commercial case is a consulting deliverable in everything but name — market, cost structure, positioning, and a defence of the numbers in the room.',
+    'Over two years with Team Predators Racing I owned sponsorship strategy, team strategy and the sales presentation - running the commercial side of a student team the way a small company runs a funding round: prospecting sponsors, building the pitch, holding ROI conversations, and closing the money that put a car on the track.',
+    'At the international round in New York I built and delivered the sales presentation against 87 other university teams from around the world. The engineering and the business case are scored separately; the commercial case is a consulting deliverable in everything but name - market, cost structure, positioning, and a defence of the numbers in the room.',
   ],
   stats: [
     { value: 'AIR 1', label: 'BAJA SAE India eBAJA 2023 · 1 of 81 teams' },
@@ -124,7 +124,7 @@ export const motorsport = {
     {
       title: 'Sponsorship is B2B sales',
       body:
-        'Cold outreach, tailored decks, sponsor-ROI conversations and follow-through to a signed commitment — the full cycle, with a real budget target attached.',
+        'Cold outreach, tailored decks, sponsor-ROI conversations and follow-through to a signed commitment - the full cycle, with a real budget target attached.',
     },
     {
       title: 'The commercial case',
@@ -139,7 +139,7 @@ export const motorsport = {
     {
       title: 'Performing under scrutiny',
       body:
-        'Defending decisions live, in a scored room, against international competition — the same muscle a case interview and a client readout use.',
+        'Defending decisions live, in a scored room, against international competition - the same muscle a case interview and a client readout use.',
     },
   ],
   note:
@@ -158,14 +158,14 @@ export type ExperienceEntry = {
 
 export const experience: ExperienceEntry[] = [
   {
-    org: 'ARAI — Automotive Research Association of India',
+    org: 'ARAI - Automotive Research Association of India',
     title: 'Research Engineer, EV Charger Compliance',
     dates: 'Jul 2023 – Jun 2026',
     note: 'Progressed from Trainee Engineer to Research Engineer.',
     bullets: [
       {
         text:
-          'Certified the Tesla V4 Supercharger (250 kW, CCS2) against India’s IS 17017 series — prepared ARAI’s compliance statement end-to-end, not just individual test runs. Issued July 2025.',
+          'Certified the Tesla V4 Supercharger (250 kW, CCS2) against India’s IS 17017 series - prepared ARAI’s compliance statement end-to-end, not just individual test runs. Issued July 2025.',
       },
       {
         text:
@@ -178,7 +178,7 @@ export const experience: ExperienceEntry[] = [
       {
         text: 'Recognised as ARAI’s Best Contract Executive, 2025 (HTC-AED department).',
         flag:
-          'Do not add a "top X%" or "1 of N" framing unless confirmed with ARAI HR — the certificate does not state a recipient count.',
+          'Do not add a "top X%" or "1 of N" framing unless confirmed with ARAI HR - the certificate does not state a recipient count.',
       },
       {
         text:
@@ -193,11 +193,11 @@ export const experience: ExperienceEntry[] = [
     bullets: [
       {
         text:
-          'Phase 1 — Lean transformation: 7.12% quarterly revenue increase, 13.4% waste reduction, and lead time cut by 2 min 35 sec, using CPM, 5S, Kanban and SMED.',
+          'Phase 1 - Lean transformation: 7.12% quarterly revenue increase, 13.4% waste reduction, and lead time cut by 2 min 35 sec, using CPM, 5S, Kanban and SMED.',
       },
       {
         text:
-          'Phase 2 — Six Sigma DMAIC: raised resource utilisation from 70% to 91% and delivered a 14.4% monthly profit improvement, using a linear-programming optimiser (Excel Solver) to validate the resourcing model. CEO-verified in writing.',
+          'Phase 2 - Six Sigma DMAIC: raised resource utilisation from 70% to 91% and delivered a 14.4% monthly profit improvement, using a linear-programming optimiser (Excel Solver) to validate the resourcing model. CEO-verified in writing.',
       },
     ],
   },
@@ -213,7 +213,7 @@ export const experience: ExperienceEntry[] = [
       { text: 'Domain-locked into Consulting (primary) and Supply Chain & Operations (secondary).' },
       {
         text:
-          'Active across multiple case competitions and the Masters’ Union Consulting Club (MUCC) — see Case Studies.',
+          'Active across multiple case competitions and the Masters’ Union Consulting Club (MUCC) - see Case Studies.',
       },
     ],
   },
@@ -263,7 +263,7 @@ export const caseStudies: CaseStudy[] = [
     situation:
       'A new-generation 250 kW CCS2 charger needed certification against India’s IS 17017 series before market entry.',
     approach:
-      'Owned the compliance statement end-to-end — test protocol design, execution, documentation — not a single test in isolation.',
+      'Owned the compliance statement end-to-end - test protocol design, execution, documentation - not a single test in isolation.',
     result:
       'Certification issued July 2025. Separately, built India’s first DC EMC test setup, closing a gap in the national testing infrastructure.',
     headlineStat: { value: '250 kW', label: 'CCS2, certified to IS 17017' },
@@ -278,12 +278,12 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 'voltedge',
     index: '03',
-    title: 'VoltEdge Mobility — market-entry case design (MUCC)',
+    title: 'VoltEdge Mobility - market-entry case design (MUCC)',
     frameLabel: 'Building the case, not just solving it',
     situation:
       'As a core member of the Masters’ Union Consulting Club, designed a market-entry case for an internal competition ("Consulting Roulette") built around a fictional European premium electric motorcycle maker (€420M revenue) evaluating India entry.',
     approach:
-      'Built the full case pack — market sizing, competitive landscape, customer segmentation, value chain / capability analysis, forecast financials, and four market-entry options (greenfield, contract manufacturing, JV, acquisition) — plus a standardised judging rubric and live "curveball" scenario elements for ~20–25 competing teams.',
+      'Built the full case pack - market sizing, competitive landscape, customer segmentation, value chain / capability analysis, forecast financials, and four market-entry options (greenfield, contract manufacturing, JV, acquisition) - plus a standardised judging rubric and live "curveball" scenario elements for ~20–25 competing teams.',
     result:
       'Ran the competition end-to-end as designer and organiser. Now scaling the same model into a pan-India, multi-campus case competition (target Oct 2026, hybrid format, finals on the Masters’ Union campus), with active sponsorship outreach to consulting firms and corporates.',
     headlineStat: { value: '20–25', label: 'teams competing on the case' },
@@ -293,7 +293,7 @@ export const caseStudies: CaseStudy[] = [
       { value: 'Oct 2026', label: 'pan-India scale-up target' },
     ],
     frameNote:
-      'The "I think like the people grading the case, not just the people solving it" card — a distinct skill from competing.',
+      'The "I think like the people grading the case, not just the people solving it" card - a distinct skill from competing.',
   },
   {
     id: 'governance',
@@ -301,9 +301,9 @@ export const caseStudies: CaseStudy[] = [
     title: 'The Maharashtra Urban Adoption Compact',
     frameLabel: 'Domain expertise transfers beyond automotive',
     situation:
-      'The Governance Challenge 2026, run by Samagra with the Government of Maharashtra, assigned the campus team the Urban Development sector — asking how Maharashtra becomes an urban-innovation hub by 2035.',
+      'The Governance Challenge 2026, run by Samagra with the Government of Maharashtra, assigned the campus team the Urban Development sector - asking how Maharashtra becomes an urban-innovation hub by 2035.',
     approach:
-      'As Team Sankalp (teammates from Pune and Thane, himself from Sangli — used deliberately as cross-regional grounding), built a policy proposal titled "The Maharashtra Urban Adoption Compact". Core thesis: "The constraint is not capital. It is the missing pathway from a validated solution to a first government order." Drew on the ARAI certification background to design the VALIDATE lever — a vehicle-certification-style approval pathway for urban innovation adoption.',
+      'As Team Sankalp (teammates from Pune and Thane, himself from Sangli - used deliberately as cross-regional grounding), built a policy proposal titled "The Maharashtra Urban Adoption Compact". Core thesis: "The constraint is not capital. It is the missing pathway from a validated solution to a first government order." Drew on the ARAI certification background to design the VALIDATE lever - a vehicle-certification-style approval pathway for urban innovation adoption.',
     result:
       'Proposed a five-lever framework (Discover, Validate, Approve, Buy, Scale) grounded in existing Maharashtra regulatory instruments (UDCPR, MMC Act), with a three-phase 2026–2035 roadmap and four specific regulatory asks. Submitted as a 2-page concept note plus a 3-minute pitch video. The team did not advance past the campus round.',
     headlineStat: { value: '5 levers', label: 'Discover · Validate · Approve · Buy · Scale' },
@@ -313,15 +313,15 @@ export const caseStudies: CaseStudy[] = [
       { value: 'Campus round', label: 'did not advance past' },
     ],
     frameNote:
-      'Applies the same certification-pathway thinking to an unrelated policy domain — pattern transfer across industries, a genuine strategy-consulting skill. A policy-design case study, not a "we won" claim.',
+      'Applies the same certification-pathway thinking to an unrelated policy domain - pattern transfer across industries, a genuine strategy-consulting skill. A policy-design case study, not a "we won" claim.',
   },
   {
     id: 'factoryflow',
     index: '05',
-    title: 'FactoryFlow AI — independent product build',
+    title: 'FactoryFlow AI - independent product build',
     frameLabel: 'Ship against an operational gap, don’t just analyse it',
     situation:
-      'Identified a gap in Indian SME manufacturing software — existing ERP tools are built for large enterprises, not the job-work / GST / cash reality of Indian SMEs.',
+      'Identified a gap in Indian SME manufacturing software - existing ERP tools are built for large enterprises, not the job-work / GST / cash reality of Indian SMEs.',
     approach:
       'Designed and built a working prototype ("SAP for Indian SMEs") covering shop-floor modules (MES-style plant dashboard) and India-specific SME operational reality: job-work and Rule 55 / ITC-04 compliance, cash and receivables tracking, GST compliance, heat-number traceability, and customer scheduling.',
     result: 'Live, functioning prototype. Submitted as a course artefact at Masters’ Union.',
@@ -338,7 +338,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 'treasurebox',
     index: '06',
-    title: 'Treasure Box Club — D2C venture, performance marketing',
+    title: 'Treasure Box Club - D2C venture, performance marketing',
     frameLabel: 'Real unit economics, not a deck about them',
     situation:
       'A team-run Delhi NCR gifting / home-decor D2C brand, built for a Masters’ Union dropshipping challenge with a ₹10L bank-reconcilable transaction target.',
@@ -353,7 +353,7 @@ export const caseStudies: CaseStudy[] = [
       { value: '17K+', label: 'landing page views' },
     ],
     frameNote:
-      'Paid performance marketing with real unit economics. (EBITDA / margin figure omitted — tagged stale pending confirmation.)',
+      'Paid performance marketing with real unit economics. (EBITDA / margin figure omitted - tagged stale pending confirmation.)',
   },
 ]
 
@@ -365,7 +365,7 @@ export const achievements: Achievement[] = [
   {
     value: 'Best Contract Executive',
     label: 'ARAI, 2025 (HTC-AED department)',
-    flag: 'No recipient-count claim — see Experience note.',
+    flag: 'No recipient-count claim - see Experience note.',
   },
   { value: 'AIR 1', label: 'BAJA SAE India eBAJA 2023 · 1 of 81 teams' },
   { value: 'World Rank 4 / 88', label: 'BAJA SAE International Sales Presentation, New York' },
@@ -435,16 +435,16 @@ export const skills: { heading: string; items: string[] }[] = [
 
 export const leadership: { title: string; body: string }[] = [
   {
-    title: 'Masters’ Union Consulting Club (MUCC) — core member',
+    title: 'Masters’ Union Consulting Club (MUCC) - core member',
     body:
       'Built a 10-sector industry primer deck and an Industry Compendium (Figma-based sector-intelligence series, Issue 01: Indian Aviation). Organising a pan-India, multi-campus case competition (target Oct 2026).',
   },
   {
-    title: 'Teach for India — volunteer teacher',
+    title: 'Teach for India - volunteer teacher',
     body: '6th-grade English.',
   },
   {
-    title: 'Ganesh Chaturthi 2026, Masters’ Union — organising team',
+    title: 'Ganesh Chaturthi 2026, Masters’ Union - organising team',
     body: 'Hostel VP team for the campus celebration.',
   },
 ]
