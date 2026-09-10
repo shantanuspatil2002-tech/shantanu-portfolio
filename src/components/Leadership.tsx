@@ -4,7 +4,7 @@ import { Reveal, Section, SectionHeading } from './ui'
 export default function Leadership() {
   return (
     <Section id="leadership">
-      <SectionHeading index="07" title="Leadership & Community" />
+      <SectionHeading index="08" title="Leadership & Community" />
       <ul className="space-y-6">
         {leadership.map((l) => (
           <li key={l.title}>

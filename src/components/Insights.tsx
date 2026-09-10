@@ -8,7 +8,7 @@ export default function Insights() {
   return (
     <Section id="insights">
       <SectionHeading
-        index="05"
+        index="06"
         title="Insights"
         lede="Short essays on EV infrastructure, operations and consulting."
       />

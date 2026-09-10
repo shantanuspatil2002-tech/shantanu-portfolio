@@ -23,8 +23,7 @@ export const site = {
   metaDescription:
     'Shantanu Patil — mechanical engineer and EV charger compliance specialist (ARAI) moving into operations and strategy consulting. Quantified pro-bono turnarounds, international motorsport results, MBA-equivalent at Masters’ Union.',
   email: 'shantanuspatil2002@gmail.com',
-  // TODO(shantanu): replace with your real LinkedIn URL before publishing.
-  linkedin: 'https://www.linkedin.com/in/CHANGE-ME',
+  linkedin: 'https://www.linkedin.com/in/shantanuspatil1/',
   // TODO(shantanu): add this file to /public before publishing.
   resume: '/resume-shantanu-patil.pdf',
   ogImage: '/og-image.png',
@@ -35,6 +34,7 @@ export type NavItem = { id: string; label: string }
 export const nav: NavItem[] = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
+  { id: 'motorsport', label: 'Motorsport' },
   { id: 'work', label: 'Case Studies' },
   { id: 'achievements', label: 'Achievements' },
   { id: 'insights', label: 'Insights' },
@@ -68,13 +68,19 @@ export const hero = {
 export const about = {
   heading: 'The Arc',
   lede:
-    'Diploma → mechanical engineering → EV compliance engineer at a national automotive R&D body → pro-bono operations consultant with quantified results → international motorsport team leadership → MBA, pivoting into strategy consulting in the same domain.',
+    'Diploma → mechanical engineering → international motorsport team leadership → EV compliance engineer at a national automotive R&D body → pro-bono operations consultant with quantified results → MBA, pivoting into strategy consulting in the same domain.',
   beats: [
     {
       tag: 'Foundation',
       title: 'Engineer, from the shop floor up',
       body:
         'B.E. in Mechanical Engineering from D.Y. Patil College of Engineering, Pune (8.35 CGPA), entered from a diploma background rather than a straight-through degree path — hands-on manufacturing exposure most peers entering engineering degrees directly did not have.',
+    },
+    {
+      tag: 'Proving ground',
+      title: 'BAJA SAE — where the commercial instinct started',
+      body:
+        'Led sponsorship strategy, team strategy and the sales presentation for Team Predators Racing across BAJA SAE India and BAJA SAE International (New York). AIR 1 nationally at eBAJA 2023; World Rank 4 of 88 at the international sales presentation. First exposure to raising money, building a commercial case and defending it under judging pressure — the skills the rest of this arc is built on.',
     },
     {
       tag: 'Engineer',
@@ -96,6 +102,48 @@ export const about = {
     },
   ],
   close: 'Most people get into consulting and then learn an industry. I learned the industry first.',
+}
+
+/* -------------------------------------------------- Motorsport & team leadership */
+
+export const motorsport = {
+  heading: 'Motorsport & Team Leadership',
+  org: 'Team Predators Racing · BAJA SAE India & BAJA SAE International',
+  lede:
+    'BAJA SAE is a design-build-race competition for an off-road vehicle, judged on the engineering and on the business case — a costed manufacturing report and a live sales presentation to industry judges. It is where the commercial, leadership and under-pressure engineering experience the rest of this portfolio depends on actually came from.',
+  intro: [
+    'Over two years with Team Predators Racing I owned sponsorship strategy, team strategy and the sales presentation — running the commercial side of a student team the way a small company runs a funding round: prospecting sponsors, building the pitch, holding ROI conversations, and closing the money that put a car on the track.',
+    'At the international round in New York I built and delivered the sales presentation against 87 other university teams from around the world. The engineering and the business case are scored separately; the commercial case is a consulting deliverable in everything but name — market, cost structure, positioning, and a defence of the numbers in the room.',
+  ],
+  stats: [
+    { value: 'AIR 1', label: 'BAJA SAE India eBAJA 2023 · 1 of 81 teams' },
+    { value: '4 / 88', label: 'World Rank · BAJA SAE International Sales Presentation, New York' },
+    { value: '1 / 138', label: 'BAJA SAE India mBAJA 2022 field' },
+  ],
+  built: [
+    {
+      title: 'Sponsorship is B2B sales',
+      body:
+        'Cold outreach, tailored decks, sponsor-ROI conversations and follow-through to a signed commitment — the full cycle, with a real budget target attached.',
+    },
+    {
+      title: 'The commercial case',
+      body:
+        'Costed manufacturing report and a judged sales presentation: cost structure, positioning and forecast, presented to and challenged by industry judges. A consulting one-pager before I knew the term.',
+    },
+    {
+      title: 'Leading a cross-functional team',
+      body:
+        'Aligning design, manufacturing and business sub-teams to one deadline and one competition strategy, with results that had to hold up on a track and in front of a judging panel.',
+    },
+    {
+      title: 'Performing under scrutiny',
+      body:
+        'Defending decisions live, in a scored room, against international competition — the same muscle a case interview and a client readout use.',
+    },
+  ],
+  note:
+    'Title within the team is described by role, not label, as the exact designation is disputed internally.',
 }
 
 /* -------------------------------------------------- Experience timeline */
@@ -157,7 +205,9 @@ export const experience: ExperienceEntry[] = [
     org: 'Masters’ Union, Gurugram',
     title: 'PGP-TBM (Technology & Business Management), Cohort 7',
     dates: 'Jun 2026 – present',
-    note: 'Expected completion: TODO(shantanu) — add graduation date.',
+    // TODO(shantanu): once you have a graduation date, e.g.
+    //   note: 'Expected completion: <month year>.',
+    note: undefined,
     bullets: [
       { text: 'One of 5 scholarship recipients across a 470-member batch.' },
       { text: 'Domain-locked into Consulting (primary) and Supply Chain & Operations (secondary).' },
@@ -226,28 +276,8 @@ export const caseStudies: CaseStudy[] = [
       'EV and automotive expertise that is operator-grade, not MBA-case-study-grade.',
   },
   {
-    id: 'baja',
-    index: '03',
-    title: 'Team Predators Racing — BAJA SAE',
-    frameLabel: 'Commercial leadership under pressure',
-    situation:
-      'Competing in BAJA SAE India (eBAJA and mBAJA) and BAJA SAE International (New York) — an all-terrain vehicle design-build-race competition judged on engineering and on the business case (cost report, sales presentation).',
-    approach:
-      'Led sponsorship strategy, team strategy and the sales presentation at the international round — raised sponsorship, built the commercial case, and presented it.',
-    result:
-      'AIR 1 nationally at eBAJA 2023 (1 of 81 teams). Competed at mBAJA 2022 (1 of 138 teams). World Rank 4 of 88 teams at the BAJA SAE International Sales Presentation, New York.',
-    headlineStat: { value: 'AIR 1', label: 'eBAJA 2023 · 1 of 81 teams' },
-    metrics: [
-      { value: '4 / 88', label: 'World Rank, Intl Sales Presentation' },
-      { value: '1 / 138', label: 'mBAJA 2022 field' },
-      { value: 'New York', label: 'international round' },
-    ],
-    frameNote:
-      'The "I can sell and lead, not just engineer" card — commercial presentation skill under competitive pressure.',
-  },
-  {
     id: 'voltedge',
-    index: '04',
+    index: '03',
     title: 'VoltEdge Mobility — market-entry case design (MUCC)',
     frameLabel: 'Building the case, not just solving it',
     situation:
@@ -267,7 +297,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'governance',
-    index: '05',
+    index: '04',
     title: 'The Maharashtra Urban Adoption Compact',
     frameLabel: 'Domain expertise transfers beyond automotive',
     situation:
@@ -287,7 +317,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'factoryflow',
-    index: '06',
+    index: '05',
     title: 'FactoryFlow AI — independent product build',
     frameLabel: 'Ship against an operational gap, don’t just analyse it',
     situation:
@@ -307,7 +337,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'treasurebox',
-    index: '07',
+    index: '06',
     title: 'Treasure Box Club — D2C venture, performance marketing',
     frameLabel: 'Real unit economics, not a deck about them',
     situation:

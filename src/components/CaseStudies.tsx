@@ -103,9 +103,9 @@ export default function CaseStudies() {
   return (
     <Section id="work">
       <SectionHeading
-        index="03"
+        index="04"
         title="Case Studies"
-        lede="Seven deep-dives, each read as a one-page consulting exhibit: Situation → Approach → Result, headline number first."
+        lede="Six deep-dives, each read as a one-page consulting exhibit: Situation → Approach → Result, headline number first."
       />
       <div className="space-y-6">
         {caseStudies.map((cs) => (
