@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <Section id="contact" className="border-t border-line">
       <div className="max-w-2xl">
-        <span className="stat text-sm text-accent">09</span>
+        <span className="stat text-sm text-accent">05</span>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
           {contact.heading}
         </h2>

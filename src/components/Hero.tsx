@@ -67,7 +67,12 @@ export default function Hero() {
             )
           })()}
         </p>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">{hero.sub}</p>
+        <p className="mt-6 max-w-2xl border-l-2 border-accent pl-4 text-xl font-medium leading-snug text-ink sm:text-2xl">
+          {hero.thesisQuote}
+        </p>
+
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted">{hero.sub}</p>
+        <p className="mt-2 max-w-2xl text-sm text-faint">{hero.availability}</p>
 
         <div className="mt-8 flex flex-wrap gap-3">
           {hero.ctas.map((cta) => (

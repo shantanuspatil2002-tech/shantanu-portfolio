@@ -42,9 +42,9 @@ npm run lint      # oxlint
 ## Editing content
 
 Everything is in [`src/content.ts`](src/content.ts), grouped by section (hero,
-about, experience, caseStudies, achievements, insights, skills, leadership,
-contact). A few rules were baked into the copy — they are noted in comments in
-that file. In short:
+about, experience, recognition, caseStudies, skills, leadership, contact). A
+few rules were baked into the copy — they are noted in comments in that file.
+In short:
 
 - Keep claims backed by a specific number, named client, competition or
   deliverable. No hype adjectives.
@@ -52,12 +52,31 @@ that file. In short:
   Executive* award.
 - Do **not** use the notation `p<0.01` anywhere.
 - The Treasure Box Club EBITDA / margin figure is intentionally omitted.
+- Case studies do **not** carry a closing "why this matters" note to the
+  reader — that reasoning is for editing, not the page. The
+  Situation/Approach/Result block does the work on its own; don't add one back.
+- Nav is deliberately kept to five items (About, Experience, Case Studies,
+  Skills, Contact). Achievements live in Experience as a "Recognition" strip;
+  the BAJA/motorsport story lives inside the Arc's "Proving ground" beat;
+  Leadership & Community is still on the page (between Skills and Contact)
+  but isn't in the nav.
+- There is no Insights section. It was cut rather than shipped empty — add it
+  back only once there's at least one real essay to put in it.
 
-To add an **Insights** essay: push an object into the `insights` array
-(`title`, `readTime`, `excerpt`, and either `body: string[]` for an in-page
-read or `href` for an external link). While the array is empty the section shows
-an honest "More essays coming soon." state. Do not fill it with placeholder
-articles.
+### Regenerating the OG preview image
+
+`public/og-image.png` is rendered from `public/og-image.svg` via
+[`@resvg/resvg-js`](https://github.com/thx/resvg-js) (not a project
+dependency — installed on demand). If you edit the SVG:
+
+```bash
+npm install --no-save @resvg/resvg-js
+node scripts/render-og.cjs
+```
+
+Font rendering falls back to a system sans-serif (resvg doesn't have
+JetBrains Mono/Inter available headless) — close enough for a link-preview
+card, not pixel-identical to the live site.
 
 ---
 
@@ -117,31 +136,51 @@ sharing:
 
 - [ ] **Resume PDF** — replace `public/resume-shantanu-patil.pdf` (currently a
       one-line placeholder). The filename must stay the same; it's linked from
-      the hero, nav and contact section.
-- [ ] **LinkedIn URL** — set `site.linkedin` in `src/content.ts` (currently
-      `https://www.linkedin.com/in/CHANGE-ME`).
-- [ ] **OG image** — `public/og-image.svg` is a placeholder. Export a 1200×630
-      **PNG** to `public/og-image.png` and change the `og:image` line in
-      `index.html` to `/og-image.png` (Slack, iMessage and X don't render SVG
-      OG images).
+      the hero, nav and contact section (as a relative href, so it resolves
+      under both Vercel and the GitHub Pages `/shantanu-portfolio/` subpath).
+- [x] **LinkedIn URL** — set to `https://www.linkedin.com/in/shantanuspatil1/`.
+- [x] **OG image** — `public/og-image.png` is a real rendered 1200×630 PNG
+      (see "Regenerating the OG preview image" above), referenced as an
+      absolute URL in `index.html` so link previews resolve it correctly.
 - [ ] **Graduation date** — fill the `TODO(shantanu)` in the Masters' Union
-      experience entry in `src/content.ts`.
+      experience entry in `src/content.ts`; also used to firm up the hero's
+      availability line (currently generic - see "Facts to confirm" below).
 - [ ] *(Optional)* a headshot — the design doesn't need one, but there's room in
-      the hero if you want it.
+      the hero if you want it. None of the case studies have supporting images
+      either (BAJA car, FactoryFlow screenshot, Industry Compendium spread) -
+      add any you have via `Read`/an `<img>` in the relevant component; none
+      are faked here.
 
 **Facts to confirm (use the safe phrasing already in the copy until confirmed)**
 
 - [ ] **ARAI *Best Contract Executive* 2025** — no recipient-count / "top X%"
       claim is made. Only add one if ARAI HR confirms it in writing.
+- [ ] **Prodmax Phase 1 baseline** — "7.12% quarterly revenue increase, 13.4%
+      waste reduction, lead time cut by 2 min 35 sec" have no stated base
+      (revenue off what starting figure, waste of what, cut from what cycle
+      time). Add the baselines if you can share them - flagged in a code
+      comment in `content.ts` too.
 - [ ] **Prodmax Phase 2** — stated as method + result, "CEO-verified in
       writing". No `p<0.01`. Keep it that way unless a statistician signs off on
       a stronger phrasing.
+- [ ] **ARAI optimisation-model bullet** — previously stated as "~14% profit
+      improvement"; dropped the number because it collided with Prodmax Phase
+      2's 14.4% and read as recycled. Restore a figure only if it's genuinely
+      differentiated and you can stand behind it.
 - [ ] **Treasure Box Club** — reach / spend / margin / CPV are shown; the
       EBITDA and ~19% margin figure is omitted as stale. Add it back only if
       it's current.
 - [ ] **Revenue / headcount figures** in the ARAI entry (~₹8 cr vertical, ~₹110
       cr division, two-engineer team over seven contract staff) — sanity-check
       before this is fully public.
+- [ ] **Tesla / VinFast client names** — check these against your ARAI
+      confidentiality / NDA terms before this goes further. Homologation
+      client identities and test outcomes are frequently covered. This is the
+      one item here with real professional/legal downside if it's wrong -
+      worth an actual check, not a guess.
+- [ ] **Availability line** in the hero is intentionally generic ("Open to
+      summer internship and full-time roles...") rather than a guessed date.
+      Replace it with real dates once you have them.
 
 ---
 

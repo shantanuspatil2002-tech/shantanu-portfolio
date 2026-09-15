@@ -2,10 +2,7 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 import About from './components/About'
 import Experience from './components/Experience'
-import Motorsport from './components/Motorsport'
 import CaseStudies from './components/CaseStudies'
-import Achievements from './components/Achievements'
-import Insights from './components/Insights'
 import Skills from './components/Skills'
 import Leadership from './components/Leadership'
 import Contact from './components/Contact'
@@ -27,7 +24,6 @@ export default function App() {
         <Hero />
         <About />
         <Experience />
-        <Motorsport />
 
         {/* The theme's hinge: blueprint dissolves into boardroom here. */}
         <div className="py-4">
@@ -35,8 +31,6 @@ export default function App() {
         </div>
 
         <CaseStudies />
-        <Achievements />
-        <Insights />
         <Skills />
         <Leadership />
         <Contact />

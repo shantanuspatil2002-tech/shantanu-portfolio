@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- %BASE_URL% is a Vite build-time placeholder resolved to the configured
+         base path (works under both the Vercel root and the GitHub Pages
+         /shantanu-portfolio/ subpath) — plain "/favicon.svg" 404s under Pages. -->
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0e1420" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#f5f6f3" media="(prefers-color-scheme: light)" />
@@ -10,7 +13,7 @@
     <title>Shantanu Patil - Operations & Strategy Consultant | EV & Mobility</title>
     <meta
       name="description"
-      content="Shantanu Patil - mechanical engineer and EV charger compliance specialist (ARAI) moving into operations and strategy consulting. Quantified pro-bono turnarounds, international motorsport results, MBA-equivalent at Masters' Union."
+      content="Shantanu Patil - mechanical engineer moving into operations and strategy consulting, anchored in EV, automotive and mobility. Quantified operations turnaround, international motorsport results, MBA-equivalent at Masters' Union."
     />
 
     <!-- Open Graph -->
@@ -20,12 +23,12 @@
       property="og:description"
       content="An engineer who has already done operations consulting, moving into strategy consulting, anchored in automotive, EV and mobility."
     />
-    <!-- Placeholder SVG card. TODO(shantanu): export a 1200x630 PNG to
-         /public/og-image.png and switch this to /og-image.png - Slack, iMessage
-         and X/Twitter do not render SVG OG images. -->
-    <meta property="og:image" content="/og-image.svg" />
+    <!-- Absolute URL, as OG scrapers require, pointing at the live GitHub
+         Pages deploy. If you move to a different domain, update this. -->
+    <meta property="og:image" content="https://shantanuspatil2002-tech.github.io/shantanu-portfolio/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://shantanuspatil2002-tech.github.io/shantanu-portfolio/" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Fonts: grotesque sans for text, mono for every number. -->

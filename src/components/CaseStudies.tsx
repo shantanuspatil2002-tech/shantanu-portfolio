@@ -1,5 +1,5 @@
 import { useId, useState } from 'react'
-import { caseStudies, type CaseStudy } from '../content'
+import { caseStudies, caseStudyGroups, type CaseStudy } from '../content'
 import { Reveal, Section, SectionHeading, Stat } from './ui'
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
@@ -11,8 +11,8 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
   )
 }
 
-function Card({ cs }: { cs: CaseStudy }) {
-  const [open, setOpen] = useState(false)
+function Card({ cs, defaultOpen = false }: { cs: CaseStudy; defaultOpen?: boolean }) {
+  const [open, setOpen] = useState(defaultOpen)
   const panelId = useId()
 
   return (
@@ -89,28 +89,46 @@ function Card({ cs }: { cs: CaseStudy }) {
               </svg>
             </a>
           )}
-
-          <p className="mt-6 border-l-2 border-accent/50 pl-4 text-xs italic leading-relaxed text-faint">
-            {cs.frameNote}
-          </p>
         </div>
       )}
     </Reveal>
   )
 }
 
+function GroupLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-4 pt-2">
+      <span className="stat shrink-0 text-[11px] uppercase tracking-widest text-faint">
+        {children}
+      </span>
+      <div aria-hidden className="scale-bar flex-1" />
+    </div>
+  )
+}
+
 export default function CaseStudies() {
+  const groups = ['professional', 'academic'] as const
+
   return (
     <Section id="work">
       <SectionHeading
-        index="04"
+        index="03"
         title="Case Studies"
-        lede="Six deep-dives, each read as a one-page consulting exhibit: Situation → Approach → Result, headline number first."
+        lede="Six exhibits, each read as a one-page consulting deliverable: Situation → Approach → Result, headline number first."
       />
-      <div className="space-y-6">
-        {caseStudies.map((cs) => (
-          <Card key={cs.id} cs={cs} />
-        ))}
+      <div className="space-y-10">
+        {groups.map((group) => {
+          const items = caseStudies.filter((cs) => cs.group === group)
+          if (items.length === 0) return null
+          return (
+            <div key={group} className="space-y-6">
+              <GroupLabel>{caseStudyGroups[group]}</GroupLabel>
+              {items.map((cs, i) => (
+                <Card key={cs.id} cs={cs} defaultOpen={group === 'professional' && i === 0} />
+              ))}
+            </div>
+          )
+        })}
       </div>
     </Section>
   )

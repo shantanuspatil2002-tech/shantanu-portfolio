@@ -1,5 +1,5 @@
-import { experience } from '../content'
-import { Reveal, Section, SectionHeading } from './ui'
+import { experience, recognition } from '../content'
+import { Reveal, Section, SectionHeading, Stat } from './ui'
 
 export default function Experience() {
   return (
@@ -50,6 +50,19 @@ export default function Experience() {
           </li>
         ))}
       </ol>
+
+      <Reveal className="mt-14 border-t border-line pt-8">
+        <h3 className="text-xs font-semibold uppercase tracking-widest text-faint">
+          Recognition
+        </h3>
+        <ul className="mt-4 flex flex-wrap gap-x-10 gap-y-4">
+          {recognition.map((r) => (
+            <li key={r.label}>
+              <Stat value={r.value} label={r.label} size="sm" />
+            </li>
+          ))}
+        </ul>
+      </Reveal>
     </Section>
   )
 }

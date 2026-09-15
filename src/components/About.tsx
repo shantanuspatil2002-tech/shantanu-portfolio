@@ -1,5 +1,5 @@
 import { about } from '../content'
-import { Reveal, Section, SectionHeading } from './ui'
+import { Reveal, Section, SectionHeading, Stat } from './ui'
 
 export default function About() {
   return (
@@ -20,6 +20,15 @@ export default function About() {
               </div>
               <h3 className="mt-2 text-xl font-semibold tracking-tight">{beat.title}</h3>
               <p className="mt-2 max-w-2xl text-base leading-relaxed text-muted">{beat.body}</p>
+              {beat.stats && (
+                <ul className="mt-4 flex flex-wrap gap-x-8 gap-y-3">
+                  {beat.stats.map((s) => (
+                    <li key={s.label}>
+                      <Stat value={s.value} label={s.label} size="sm" />
+                    </li>
+                  ))}
+                </ul>
+              )}
             </Reveal>
           </li>
         ))}

@@ -4,7 +4,7 @@ import { Reveal, Section, SectionHeading } from './ui'
 export default function Skills() {
   return (
     <Section id="skills">
-      <SectionHeading index="07" title="Skills & Toolkit" />
+      <SectionHeading index="04" title="Skills & Toolkit" />
       <div className="grid gap-8 md:grid-cols-3">
         {skills.map((col) => (
           <Reveal key={col.heading} className="border-t-2 border-accent pt-4">
