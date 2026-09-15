@@ -14,6 +14,19 @@
      Situation/Approach/Result block does the work on its own.
    - No section explains its own significance back to the reader (no "this
      shows I can..." framing anywhere). State the fact; let it land.
+
+   Open items from reconciling this file against the resume (2026-09-15) -
+   flagged rather than guessed at:
+   - "18 months" (hero stat, quickStats, About "Operator" beat) vs the
+     Prodmax Experience dates (Oct 2023 - Aug 2025 per resume, ~22 months).
+     Left both as-is pending confirmation of which is the intended figure.
+   - Treasure Box Club: resume says "Founder & Sole Operator"; this file's
+     Case Study says a six-person, department-structured team with him
+     owning paid ads. These are materially different claims about scope -
+     do not silently pick one. Left as the (more detailed) existing version.
+   - ARAI "Best Contract Executive" recipient-count: see the flag on that
+     bullet below - a number now exists on the resume but is self-reported,
+     not HR-confirmed. Do not add it to the site on the resume's say-so alone.
    ========================================================================== */
 
 export const site = {
@@ -95,16 +108,17 @@ export const about = {
       tag: 'Foundation',
       title: 'Engineer, from the shop floor up',
       body:
-        'B.E. in Mechanical Engineering from D.Y. Patil College of Engineering, Pune (8.35 CGPA), entered from a diploma background rather than a straight-through degree path - hands-on manufacturing exposure most peers entering engineering degrees directly did not have.',
+        'Diploma in Mechanical Engineering from Latthe Education Society’s Polytechnic, Sangli (91.59%, Rank 2 of 178), then B.E. in Mechanical Engineering from D.Y. Patil College of Engineering, Pune (8.35 CGPA, top 20%) - hands-on manufacturing exposure most peers entering engineering degrees directly did not have.',
     },
     {
       tag: 'Proving ground',
-      title: 'BAJA SAE, Team Predators Racing',
+      title: 'Team Leader, BAJA SAE - Team Predators Racing',
       body:
-        'Led sponsorship strategy, team strategy and the sales presentation across BAJA SAE India and BAJA SAE International (New York) - raising sponsorship, building the commercial case, and defending it live against industry judges. First exposure to the skills the rest of this arc is built on.',
+        'Team Leader and Marketing & Manufacturing Lead for a 25-member cross-functional team across BAJA SAE India and BAJA SAE International (New York). Raised ₹3.76L (42% of budget) across 35+ sponsor pitches, then represented Team India at BAJA SAE USA, presenting the commercial case live before international judges. First team in the club’s history to win both the mBAJA and eBAJA national titles in consecutive years.',
       stats: [
         { value: 'AIR 1', label: 'eBAJA 2023 · 1 of 81 teams' },
         { value: '4 / 88', label: 'World Rank, Intl Sales Presentation' },
+        { value: '₹3.76L', label: 'raised · 42% of team budget' },
       ],
     },
     {
@@ -142,7 +156,7 @@ export type ExperienceEntry = {
 export const experience: ExperienceEntry[] = [
   {
     org: 'ARAI - Automotive Research Association of India',
-    title: 'Research Engineer, EV Charger Compliance',
+    title: 'Research Engineer, EV Compliance & Client Operations',
     dates: 'Jul 2023 – Jun 2026',
     note: 'Progressed from Trainee Engineer to Research Engineer.',
     bullets: [
@@ -152,39 +166,45 @@ export const experience: ExperienceEntry[] = [
       },
       {
         text:
-          'Built India’s first DC EMC test setup for EV charger certification, opening a testing capability that did not previously exist in the country.',
+          'Built India’s first DC EMC test setup for EV charger certification in 10 months, establishing a certification capability that did not previously exist in the country.',
       },
       {
         text:
-          'Directed a two-engineer core team overseeing seven contract staff within an EV-charger testing vertical generating ~₹8 crore in FY25 revenue, inside a ~₹110 crore division.',
+          'Directed a two-engineer core team overseeing seven contract staff within an EV-charger testing vertical generating ~₹8 crore in FY25 revenue - ~7% of the ~₹110 crore Automotive Electronics division.',
+      },
+      {
+        text:
+          'Delivered 500+ compliance programs for Tesla, VinFast and Tata Motors with zero client escalations over 30 months.',
+      },
+      {
+        text:
+          'Secured NABL and ISO accreditation across two audit cycles (2023, 2025) by leading lab-wide audit readiness.',
+      },
+      {
+        text:
+          'Increased testing throughput 20% and cut turnaround time 15% by standardising scheduling across the client portfolio; eliminated client wait times with a real-time KPI dashboard adopted across 3 departments.',
       },
       {
         text: 'Recognised as ARAI’s Best Contract Executive, 2025 (HTC-AED department).',
         flag:
-          'Do not add a "top X%" or "1 of N" framing unless confirmed with ARAI HR - the certificate does not state a recipient count.',
-      },
-      {
-        text:
-          'Built a separate optimisation model, independent of the Prodmax engagement, to support internal resourcing decisions for the testing vertical.',
-        flag:
-          'Previously stated as "~14% profit improvement" - dropped because it collided with Prodmax Phase 2\'s 14.4% and read as a recycled number. Restore a figure here only if it is genuinely differentiated from the Prodmax result and you can stand behind it.',
+          'Do not add a "top X%" or "1 of N" framing unless confirmed with ARAI HR - the certificate does not state a recipient count. Note: the resume states "top 0.167% of 600+ employees" - that is a self-calculated figure on a resume, not an HR confirmation. Do not pull it onto the site without that confirmation.',
       },
     ],
   },
   {
     org: 'Prodmax Global',
     title: 'Independent Operations Consultant (pro bono)',
-    dates: 'Oct 2023 – Nov 2025',
+    dates: 'Oct 2023 – Aug 2025',
     bullets: [
       {
         text:
-          'Phase 1 - Lean transformation: 7.12% quarterly revenue increase, 13.4% waste reduction, and lead time cut by 2 min 35 sec, using CPM, 5S, Kanban and SMED.',
-        flag:
-          'No baseline is stated for these percentages / the lead-time cut (increase off what revenue base, waste reduction of what, cut from what starting cycle time). Add the baseline figures if you can share them - the precision here (7.12%, 2 min 35 sec) reads as a real measurement system until a reader asks "percent of what" and finds nothing.',
+          'Phase 1 - Six Sigma DMAIC: grew monthly profit 14.4%, from ₹4.5L to ₹5.15L, and raised resource utilisation from 70% to 91% in 12 weeks, building a linear-programming optimiser (Excel Solver) across 12 SKUs. CEO-verified in writing.',
       },
       {
         text:
-          'Phase 2 - Six Sigma DMAIC: raised resource utilisation from 70% to 91% and delivered a 14.4% monthly profit improvement, using a linear-programming optimiser (Excel Solver) to validate the resourcing model. CEO-verified in writing.',
+          'Phase 2 - Lean transformation: cut lead time 17%, grew quarterly revenue 7.12%, and reduced material waste 13.4%, using CPM, 5S, Kanban and SMED; trained 20+ shop-floor operators and supervisors to sustain adoption.',
+        flag:
+          'The 7.12% and 13.4% figures (and the 17% lead-time cut) are resume-sourced but still relative, with no absolute baseline stated (revenue off what starting figure, waste and lead time off what). Add the baselines if you can share them.',
       },
     ],
   },
@@ -216,9 +236,10 @@ export const recognition: Recognition[] = [
   // AWA 3.5 intentionally dropped: 337 (V167/Q170) is the number worth
   // showing; a below-average writing sub-score attached to a consulting
   // application undercuts it for nothing.
-  { value: '337 / 340', label: 'GRE · Verbal 167, Quant 170' },
-  { value: 'Green Belt', label: 'Six Sigma certification' },
-  { value: 'Operations Analytics', label: 'Wharton certification' },
+  { value: '337 / 340', label: 'GRE · Verbal 167, Quant 170 (perfect score)' },
+  { value: 'Green Belt', label: 'Six Sigma, Kennesaw State University' },
+  { value: 'Operations Analytics', label: 'Wharton, University of Pennsylvania' },
+  { value: 'Business Foundations', label: 'Specialization, Wharton' },
 ]
 
 /* -------------------------------------------------- Case studies */
@@ -251,14 +272,14 @@ export const caseStudies: CaseStudy[] = [
     frameLabel: 'Operations consulting, delivered',
     situation: 'A manufacturing SME operating below capacity, with no formal process discipline.',
     approach:
-      'Applied Six Sigma DMAIC. Built a linear-programming resourcing model in Excel Solver to locate the utilisation bottleneck. Ran a prior lean / 5S / Kanban / SMED pass first to clear the easy waste.',
+      'Applied Six Sigma DMAIC first: built a linear-programming resourcing model in Excel Solver across 12 SKUs to locate the utilisation bottleneck. A lean / 5S / Kanban / SMED pass followed in Phase 2 to compound the gains.',
     result:
-      'Resource utilisation up from 70% to 91%. 14.4% monthly profit improvement. CEO-verified in writing.',
+      'Resource utilisation up from 70% to 91% in 12 weeks. Monthly profit up 14.4%, from ₹4.5L to ₹5.15L. CEO-verified in writing.',
     headlineStat: { value: '70 → 91%', label: 'resource utilisation' },
     metrics: [
-      { value: '+14.4%', label: 'monthly profit' },
+      { value: '₹4.5L → ₹5.15L', label: 'monthly profit, +14.4%' },
+      { value: '12 weeks', label: 'to 91% utilisation' },
       { value: 'CEO', label: 'verified in writing' },
-      { value: 'DMAIC', label: 'method' },
     ],
   },
   {
@@ -379,8 +400,10 @@ export const skills: { heading: string; items: string[] }[] = [
       'EV charger compliance (IEC 61851, IS 17017, AIS, CMVR)',
       'Automotive homologation',
       'Six Sigma DMAIC',
-      'SQL (in progress)',
-      'Excel Solver / LP modelling',
+      'SQL',
+      'Python',
+      'Power BI',
+      'Excel Solver / LP modelling (Power Query)',
     ],
   },
   {
@@ -406,8 +429,17 @@ export const leadership: { title: string; body: string }[] = [
       'Built a 10-sector industry primer deck and an Industry Compendium (Issue 01: Indian Aviation). Now organising a pan-India, multi-campus case competition (target Oct 2026).',
   },
   {
-    title: 'Teach for India - volunteer teacher',
-    body: '6th-grade English.',
+    title: 'Teach for India - volunteer',
+    body: 'Mentored 8 underserved students, 20+ hrs/month in foundational math and English.',
+  },
+  {
+    title: 'DYPCOE - alum volunteer',
+    body: 'Coached 30+ students annually through mock interviews and placement prep.',
+  },
+  {
+    title: 'MESA (Mechanical Engineering Students’ Association) - Vice President',
+    body:
+      'Grew member engagement 30% YoY by launching the institute’s first new competition in its history (78 participants).',
   },
   {
     title: 'Ganesh Chaturthi 2026, Masters’ Union - organising team',
