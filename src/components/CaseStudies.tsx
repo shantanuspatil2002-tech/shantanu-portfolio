@@ -1,17 +1,26 @@
-import { useId, useState } from 'react'
+import { Fragment, useId, useState } from 'react'
 import { caseStudies, caseStudyGroups, type CaseStudy } from '../content'
 import { PortfolioImage } from './PortfolioImage'
 import { Reveal, Section, SectionHeading, Stat } from './ui'
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="grid gap-1.5 py-4 sm:grid-cols-[120px_1fr] sm:gap-6">
+    <div className="grid gap-1.5 py-4 sm:grid-cols-[140px_1fr] sm:gap-6">
       <div className="stat text-[11px] uppercase tracking-widest text-accent">{label}</div>
       <p className="text-sm leading-relaxed text-muted">{children}</p>
     </div>
   )
 }
 
+/** Labelled steps for an exhibit: explicit `steps`, else Situation / Approach / Result. */
+function stepsOf(cs: CaseStudy): { label: string; text: string }[] {
+  if (cs.steps) return cs.steps
+  return [
+    { label: 'Situation', text: cs.situation ?? '' },
+    { label: 'Approach', text: cs.approach ?? '' },
+    { label: 'Result', text: cs.result ?? '' },
+  ]
+}
 function Card({ cs, defaultOpen = false }: { cs: CaseStudy; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen)
   const panelId = useId()
@@ -63,11 +72,21 @@ function Card({ cs, defaultOpen = false }: { cs: CaseStudy; defaultOpen?: boolea
 
       {open && (
         <div id={panelId} className="border-t border-line px-6 pb-8 pt-2 sm:px-8">
-          <Row label="Situation">{cs.situation}</Row>
-          <div aria-hidden className="scale-bar" />
-          <Row label="Approach">{cs.approach}</Row>
-          <div aria-hidden className="scale-bar" />
-          <Row label="Result">{cs.result}</Row>
+          {stepsOf(cs).map((s, i) => (
+            <Fragment key={s.label}>
+              {i > 0 && <div aria-hidden className="scale-bar" />}
+              <Row label={s.label}>{s.text}</Row>
+            </Fragment>
+          ))}
+
+          {cs.callout && (
+            <div className="mt-4 border-l-2 border-accent bg-surface-2 px-4 py-3">
+              <div className="stat text-[11px] uppercase tracking-widest text-accent">
+                {cs.callout.label}
+              </div>
+              <p className="mt-1 text-sm leading-relaxed text-ink">{cs.callout.text}</p>
+            </div>
+          )}
 
           {cs.image && <PortfolioImage {...cs.image} className="mt-2" />}
 
@@ -117,7 +136,7 @@ export default function CaseStudies() {
       <SectionHeading
         index="03"
         title="Case Studies"
-        lede="Seven exhibits, each read as a one-page consulting deliverable: Situation → Approach → Result, headline number first."
+        lede="Seven exhibits, each read as a one-page consulting deliverable: Problem → Diagnosis → Decision → Impact, headline number first."
       />
       <div className="space-y-10">
         {groups.map((group) => {

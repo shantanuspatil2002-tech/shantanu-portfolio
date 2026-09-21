@@ -126,18 +126,19 @@ export const about = {
     width: 800,
     height: 1000,
   } satisfies ArcImage,
+  // BUILD -> TEST -> IMPROVE -> OPERATE -> SCALE, all straight from the resume.
   beats: [
     {
       tag: 'Foundation',
       title: 'Engineer, from the shop floor up',
       body:
-        'Diploma in Mechanical Engineering from Latthe Education Society’s Polytechnic, Sangli (91.59%, Rank 2 of 178), then B.E. in Mechanical Engineering from D.Y. Patil College of Engineering, Pune (8.35 CGPA, top 20%) - hands-on manufacturing exposure most peers entering engineering degrees directly did not have.',
+        'Started with a Diploma in Mechanical Engineering, then a B.E. - hands-on manufacturing exposure most peers entering engineering degrees directly did not have.',
     },
     {
-      tag: 'Proving ground',
-      title: 'Team Leader, BAJA SAE - Team Predators Racing',
+      tag: 'Build',
+      title: 'Team Predators Racing, BAJA SAE',
       body:
-        'Team Leader and Marketing & Manufacturing Lead for a 25-member cross-functional team across BAJA SAE India and BAJA SAE International (New York). Raised ₹3.76L (42% of budget) across 35+ sponsor pitches, then represented Team India at BAJA SAE USA, presenting the commercial case live before international judges. First team to win both the mBAJA and eBAJA national titles in consecutive years.',
+        'Team Leader and Marketing & Manufacturing Lead. Led a 25-member cross-functional team across design, manufacturing and marketing to a national championship, then represented Team India at BAJA SAE USA.',
       stats: [
         { value: 'AIR 1', label: 'eBAJA 2023 · 1 of 81 teams' },
         { value: '4 / 88', label: 'World Rank, Intl Sales Presentation' },
@@ -153,25 +154,45 @@ export const about = {
       },
     },
     {
-      tag: 'Engineer',
-      title: 'EV charger compliance at ARAI',
+      tag: 'Test',
+      title: 'Scaling EV compliance at ARAI',
       body:
-        'Around 3 years as a Research Engineer at the Automotive Research Association of India (ARAI), India’s apex automotive homologation and certification body - specialising in EV charger compliance testing (IEC 61851, IS 17017, AIS, CMVR) for OEM clients including Tesla, VinFast and Tata Motors / Tata AutoComp.',
+        'Built EV charger compliance capability at ARAI, India’s apex automotive homologation and certification body, and delivered 500+ programs for Tesla, VinFast and Tata Motors (IEC 61851, IS 17017, AIS, CMVR) while lifting testing throughput 20% and cutting turnaround 15%.',
     },
     {
-      tag: 'Operator',
-      title: 'Operations consulting, pro bono',
+      tag: 'Improve',
+      title: 'Optimising manufacturing performance at Prodmax Global',
       body:
-        'In parallel, ran an 18-month pro-bono engagement (Prodmax Global) applying lean and Six Sigma methods to a real manufacturing business - not a case study, an actual P&L impact, CEO-verified in writing.',
+        'Alongside the ARAI role, used Six Sigma DMAIC, linear-programming optimisation and process analysis to improve a manufacturing SME’s profit, utilisation, lead time and waste. CEO-verified in writing.',
+      stats: [
+        { value: '+14.4%', label: 'monthly profit' },
+        { value: '70 → 91%', label: 'resource utilisation' },
+        { value: '-17%', label: 'lead time' },
+      ],
     },
     {
-      tag: 'Strategist',
-      title: 'MBA, in strategy',
+      tag: 'Operate',
+      title: 'Treasure Box Club',
       body:
-        'Now a PGP-TBM (MBA-equivalent) student at Masters’ Union, Gurugram, domain-locked into Consulting and Supply Chain & Operations - targeting tier-1 / tier-2 roles in automotive, EV and mobility, with the domain expertise as the wedge.',
+        'Built and operated a D2C venture alongside the MBA, managing paid acquisition and weekly unit economics across 30+ SKUs.',
+      stats: [
+        { value: '1.1M', label: 'reach' },
+        { value: '54%', label: 'blended gross margin' },
+        { value: '30+', label: 'SKUs' },
+      ],
+    },
+    {
+      tag: 'Scale',
+      title: 'Masters’ Union, Technology & Business Management',
+      body:
+        'PGP in Technology & Business Management, Gurugram. Moving from solving individual operational problems to business transformation, implementation and strategy, domain-locked into Consulting and Supply Chain & Operations.',
     },
   ] satisfies ArcBeat[],
-  close: site.thesisQuote,
+  // Short human story, closes the Arc (the thesis line lives in the hero).
+  story: [
+    'I started in mechanical engineering, led a student team that built and raced an off-road vehicle, moved into automotive compliance and manufacturing operations, and eventually into business transformation. Across each experience, I’ve worked at the intersection of technical complexity, people and operational performance.',
+    'Today, I’m pursuing Technology & Business Management at Masters’ Union, building toward a career focused on solving complex operational and business problems.',
+  ],
 }
 
 /* -------------------------------------------------- Experience timeline */
@@ -283,15 +304,21 @@ export type CaseStudy = {
   group: 'professional' | 'academic'
   title: string
   frameLabel: string
-  situation: string
-  approach: string
-  result: string
+  // Either the classic three fields...
+  situation?: string
+  approach?: string
+  result?: string
+  // ...or an explicit chain of labelled steps (Problem / Diagnosis / Decision
+  // / Impact). Used where the resume gives a real reasoning chain.
+  steps?: { label: string; text: string }[]
   headlineStat: { value: string; label: string }
-  // Max 3 - if you have a 4th number worth showing, fold it into `result`
-  // prose instead. Keeps every exhibit's stat row visually equal weight.
+  // Max 3 - if you have a 4th number worth showing, fold it into the prose
+  // instead. Keeps every exhibit's stat row visually equal weight.
   metrics: { value: string; label: string }[]
+  /** A single highlighted credibility point, shown under the steps. */
+  callout?: { label: string; text: string }
   link?: { href: string; label: string }
-  /** Rendered full-width directly below the Result row. */
+  /** Rendered full-width directly below the last step. */
   image?: {
     src: string
     alt: string
@@ -300,7 +327,6 @@ export type CaseStudy = {
     caption?: string
   }
 }
-
 export const caseStudyGroups: Record<CaseStudy['group'], string> = {
   professional: 'Professional engagements',
   academic: 'Academic and competition work',
@@ -311,40 +337,65 @@ export const caseStudies: CaseStudy[] = [
     id: 'dmaic',
     index: '01',
     group: 'professional',
-    title: 'Six Sigma DMAIC turnaround at Prodmax Global',
+    title: 'Optimising manufacturing performance at Prodmax Global',
     frameLabel: 'Operations consulting, delivered',
-    situation: 'A manufacturing SME operating below capacity, with no formal process discipline.',
-    approach:
-      'Applied Six Sigma DMAIC first: built a linear-programming resourcing model in Excel Solver across 12 SKUs to locate the utilisation bottleneck. A lean / 5S / Kanban / SMED pass followed in Phase 2 to compound the gains.',
-    result:
-      'Resource utilisation up from 70% to 91% in 12 weeks. Monthly profit up 14.4%, from ₹4.5L to ₹5.15L. CEO-verified in writing.',
-    headlineStat: { value: '70 → 91%', label: 'resource utilisation' },
+    steps: [
+      {
+        label: 'Problem',
+        text: 'A manufacturing SME operating below capacity, with no formal process discipline and competing priorities across capacity, lead time and profitability.',
+      },
+      {
+        label: 'Diagnosis',
+        text: 'Used process mapping, capacity analysis and shopfloor observation to diagnose bottlenecks and identify operational constraints before redesigning any workflow.',
+      },
+      {
+        label: 'Decision',
+        text: 'Built a linear-programming optimiser (Excel Solver) across 12 SKUs and shifted scheduling from volume-based to margin-based, sequencing implementation by the trade-offs across capacity, lead time and profitability. A lean pass (5S, Kanban) followed in Phase 2, with 20+ operators and supervisors trained to sustain it.',
+      },
+      {
+        label: 'Impact',
+        text: 'Monthly profit +14.4% (₹4.5L → ₹5.15L) and resource utilisation 70% → 91% in 12 weeks. Lead time -17%, material waste -13.4%, quarterly revenue +7.12%. CEO-verified in writing.',
+      },
+    ],
+    headlineStat: { value: '+14.4%', label: 'monthly profit, ₹4.5L → ₹5.15L' },
     metrics: [
-      { value: '₹4.5L → ₹5.15L', label: 'monthly profit, +14.4%' },
-      { value: '12 weeks', label: 'to 91% utilisation' },
-      { value: 'CEO', label: 'verified in writing' },
+      { value: '70 → 91%', label: 'resource utilisation, 12 weeks' },
+      { value: '-17%', label: 'lead time' },
+      { value: '-13.4%', label: 'material waste' },
     ],
   },
   {
-    id: 'tesla-v4',
+    id: 'arai',
     index: '02',
     group: 'professional',
-    title: 'Tesla V4 Supercharger certification (ARAI)',
-    frameLabel: 'Automotive homologation',
-    situation:
-      'A new-generation 250 kW CCS2 charger needed certification against India’s IS 17017 series before market entry.',
-    approach:
-      'Owned the compliance statement end-to-end - test protocol design, execution, documentation - not a single test in isolation.',
-    result:
-      'Certification issued July 2025. Separately, built India’s first DC EMC test setup, closing a gap in the national testing infrastructure.',
-    headlineStat: { value: '250 kW', label: 'CCS2, certified to IS 17017' },
-    metrics: [
-      { value: 'Jul 2025', label: 'certification issued' },
-      { value: '1st', label: 'DC EMC setup in India' },
-      { value: 'End-to-end', label: 'compliance statement ownership' },
+    title: 'Scaling EV compliance operations at ARAI',
+    frameLabel: 'EV compliance operations',
+    steps: [
+      { label: 'Scale', text: '500+ compliance programs over 30 months, with zero client escalations.' },
+      {
+        label: 'Complexity',
+        text: 'Programs for Tesla, VinFast and Tata Motors, advising 15+ OEM engineering teams on certification strategy.',
+      },
+      {
+        label: 'Operating model',
+        text: 'One of two engineers running the EV-charger vertical, coordinating a 7-member contract team.',
+      },
+      {
+        label: 'Transformation',
+        text: 'Standardised scheduling across the client portfolio, deployed a real-time KPI dashboard across 3 departments, and built India’s first DC EMC test setup for EV charger certification in 10 months.',
+      },
     ],
-  },
-  {
+    callout: {
+      label: 'Tesla V4 Supercharger',
+      text: 'Enabled Tesla’s first V4 Supercharger launch in India by synthesising global standards into a compliance roadmap: certified the 250 kW CCS2 charger against IS 17017, compliance statement issued July 2025.',
+    },
+    headlineStat: { value: '500+', label: 'compliance programs, zero client escalations' },
+    metrics: [
+      { value: '₹8 Cr', label: 'annual revenue of the vertical (co-run as 1 of 2 engineers)' },
+      { value: '+20%', label: 'testing throughput' },
+      { value: '-15%', label: 'turnaround time' },
+    ],
+  },  {
     id: 'baja',
     index: '03',
     group: 'academic',
@@ -353,16 +404,17 @@ export const caseStudies: CaseStudy[] = [
     situation:
       'BAJA SAE is a design-build-race competition for an off-road vehicle, judged on the engineering and on the business case (a costed report and a live sales presentation). The team needed a car that performs and a funded, commercially defensible case for building it.',
     approach:
-      'As Team Leader and Marketing & Manufacturing Lead, ran a 25-member cross-functional team across design, manufacturing and marketing. Owned the funding: pitched 35+ executives, including CEOs at Datatech Labs, Hero MotoCorp and Spark Minda. Built the end-to-end investment case to mass-produce the ATV at a mandated 4,000 units/yr (market sizing, break-even, pricing) and defended it live before international investor-judges at BAJA SAE USA. Cut vehicle weight 5.35% by driving design tradeoffs across 3 sub-teams.',
+      'As Team Leader and Marketing & Manufacturing Lead, ran a 25-member cross-functional team across design, manufacturing and marketing. Owned the funding: pitched 35+ executives, including CEOs at Datatech Labs, Hero MotoCorp and Spark Minda. Built the end-to-end investment case to mass-produce the ATV at a mandated 4,000 units/yr (TAM-SAM-SOM market sizing, break-even, pricing) and defended it live before international investor-judges at BAJA SAE USA. Cut vehicle weight 5.35% by driving design tradeoffs across 3 sub-teams.',
     result:
       'Raised ₹3.76L (42% of budget). First team to win both national titles in consecutive years: mBAJA 2022 (1 of 138) and eBAJA 2023 (1 of 81, AIR 1). World Rank 4 of 88 in the BAJA SAE USA sales presentation. 17+ individual event awards.',
     headlineStat: { value: 'AIR 1', label: 'eBAJA 2023 · 1 of 81 teams' },
     metrics: [
-      { value: '4 / 88', label: 'World Rank, BAJA SAE USA sales presentation' },
+      { value: '5.35%', label: 'vehicle weight reduction' },
       { value: '₹3.76L', label: 'raised · 42% of team budget' },
-      { value: '25', label: 'members led across 3 functions' },
+      { value: '25', label: 'team members led across design, manufacturing and marketing' },
     ],
-  },  {
+  },
+  {
     id: 'voltedge',
     index: '04',
     group: 'academic',
@@ -434,7 +486,7 @@ export const caseStudies: CaseStudy[] = [
     situation:
       'A team-run Delhi NCR gifting / home-decor D2C brand, built for a Masters’ Union dropshipping challenge with a ₹10L bank-reconcilable transaction target.',
     approach:
-      'Owned paid advertising (Meta / Instagram) within a six-person, department-structured team (Product & Sourcing, Brand & Store, Content & Social, Performance Marketing, Operations & CX, Finance & Data). Ran physical pop-up stalls (DLF CyberHub, M3M IFC) alongside the Shopify storefront.',
+      'Owned paid advertising (Meta / Instagram) within a six-person, department-structured team (Product & Sourcing, Brand & Store, Content & Social, Performance Marketing, Operations & CX, Finance & Data). Ran physical pop-up stalls (DLF CyberHub, M3M IFC) alongside the Shopify storefront. Tracked weekly unit economics across 30+ SKUs.',
     result:
       '1.1M reach. ₹12.3K total ad spend. 17K+ landing page views. 54% blended gross margin. ₹0.72 blended cost-per-view.',
     headlineStat: { value: '1.1M', label: 'reach on ₹12.3K spend' },
@@ -448,19 +500,30 @@ export const caseStudies: CaseStudy[] = [
 
 /* -------------------------------------------------- Skills */
 
-// Two lines, not a skills wall: experience is the evidence, this is just a
-// reference. Anything else (EV standards, homologation) lives in the Arc/Experience.
+// Two lines, compressed straight from the resume's skills section. Experience
+// is the evidence; this is only a reference.
 export const skills: { heading: string; items: string[] }[] = [
   {
-    heading: 'Methods',
-    items: ['Lean', 'Six Sigma DMAIC', 'CPM', 'Bottleneck analysis', 'Linear programming', 'Operations analytics', 'Market sizing'],
+    heading: 'Business',
+    items: ['Business transformation', 'Implementation strategy', 'KPI tracking', 'Stakeholder management', 'Market sizing'],
   },
   {
-    heading: 'Tools',
-    items: ['Excel (Solver, Power Query)', 'SQL', 'Python', 'Power BI', 'Figma', 'Lovable', 'Shopify', 'Meta Ads Manager'],
+    heading: 'Analytics',
+    items: ['Excel (Solver, Power Query)', 'SQL', 'Python', 'Power BI'],
   },
 ]
 
+// Compact education strip (Masters' Union sits in the Experience timeline above).
+export const education: { title: string; detail: string }[] = [
+  {
+    title: 'D.Y. Patil College of Engineering, Pune',
+    detail: 'B.E. Mechanical Engineering · 8.35 CGPA (top 20%)',
+  },
+  {
+    title: 'Latthe Education Society’s Polytechnic, Sangli',
+    detail: 'Diploma, Mechanical Engineering · 91.59%, Rank 2 of 178',
+  },
+]
 /* -------------------------------------------------- Leadership & community */
 /* No longer a top-level nav section - sits between Skills and Contact,
    reachable by scroll, kept short. */

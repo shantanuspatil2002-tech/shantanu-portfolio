@@ -53,10 +53,12 @@ export default function About() {
             ))}
           </ol>
 
-          <Reveal className="mt-12">
-            <p className="max-w-2xl border-l-2 border-accent pl-5 text-xl font-medium leading-snug text-ink sm:text-2xl">
-              {about.close}
-            </p>
+          <Reveal className="mt-12 max-w-2xl space-y-4 border-l-2 border-accent pl-5">
+            {about.story.map((para, i) => (
+              <p key={i} className="text-base leading-relaxed text-ink">
+                {para}
+              </p>
+            ))}
           </Reveal>
         </div>
       </div>

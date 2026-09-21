@@ -1,4 +1,4 @@
-import { experience, recognition } from '../content'
+import { education, experience, recognition } from '../content'
 import { Reveal, Section, SectionHeading, Stat } from './ui'
 
 export default function Experience() {
@@ -59,6 +59,18 @@ export default function Experience() {
           {recognition.map((r) => (
             <li key={r.label}>
               <Stat value={r.value} label={r.label} size="sm" />
+            </li>
+          ))}
+        </ul>
+      </Reveal>
+
+      <Reveal className="mt-8 border-t border-line pt-8">
+        <h3 className="text-xs font-semibold uppercase tracking-widest text-faint">Education</h3>
+        <ul className="mt-4 grid gap-x-10 gap-y-4 sm:grid-cols-2">
+          {education.map((ed) => (
+            <li key={ed.title}>
+              <div className="text-sm font-semibold tracking-tight">{ed.title}</div>
+              <div className="mt-0.5 text-sm text-muted">{ed.detail}</div>
             </li>
           ))}
         </ul>
