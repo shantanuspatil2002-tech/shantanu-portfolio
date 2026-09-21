@@ -1,5 +1,6 @@
 import { useId, useState } from 'react'
 import { caseStudies, caseStudyGroups, type CaseStudy } from '../content'
+import { PortfolioImage } from './PortfolioImage'
 import { Reveal, Section, SectionHeading, Stat } from './ui'
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
@@ -67,6 +68,8 @@ function Card({ cs, defaultOpen = false }: { cs: CaseStudy; defaultOpen?: boolea
           <Row label="Approach">{cs.approach}</Row>
           <div aria-hidden className="scale-bar" />
           <Row label="Result">{cs.result}</Row>
+
+          {cs.image && <PortfolioImage {...cs.image} className="mt-2" />}
 
           <ul className="mt-6 grid grid-cols-1 gap-6 border-t border-line pt-6 sm:grid-cols-3">
             {cs.metrics.map((m) => (

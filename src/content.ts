@@ -92,17 +92,34 @@ export const hero = {
 
 /* -------------------------------------------------- About / The Arc */
 
+export type ArcImage = {
+  src: string
+  alt: string
+  width: number
+  height: number
+  caption?: string
+}
+
 export type ArcBeat = {
   tag: string
   title: string
   body: string
   stats?: { value: string; label: string }[]
+  image?: ArcImage
 }
 
 export const about = {
   heading: 'The Arc',
   lede:
-    'Diploma → mechanical engineering → international motorsport team leadership → EV compliance engineer at a national automotive R&D body → pro-bono operations consultant with quantified results → MBA, pivoting into strategy consulting in the same domain.',
+    'Diploma → mechanical engineering → international motorsport team leadership → EV compliance engineer at a national automotive R&D body → operations consultant with quantified results → MBA, in strategy consulting, same domain.',
+  // 4:5 crop, 800x1000. Relative path (no leading slash), same reason as site.resume above - so
+  // it resolves under the GitHub Pages /shantanu-portfolio/ subpath too.
+  headshot: {
+    src: 'images/headshot.jpg',
+    alt: 'Shantanu Patil',
+    width: 800,
+    height: 1000,
+  } satisfies ArcImage,
   beats: [
     {
       tag: 'Foundation',
@@ -120,6 +137,14 @@ export const about = {
         { value: '4 / 88', label: 'World Rank, Intl Sales Presentation' },
         { value: '₹3.76L', label: 'raised · 42% of team budget' },
       ],
+      // Pre-cropped 3:1, 1600x533, framed on the car and the lift.
+      image: {
+        src: 'images/baja-team.jpg',
+        alt: 'Team Predators Racing lifting their BAJA SAE car after the event',
+        width: 1600,
+        height: 533,
+        caption: 'Team Predators Racing, BAJA SAE India.',
+      },
     },
     {
       tag: 'Engineer',
@@ -135,7 +160,7 @@ export const about = {
     },
     {
       tag: 'Strategist',
-      title: 'MBA, pivoting into strategy',
+      title: 'MBA, in strategy',
       body:
         'Now a PGP-TBM (MBA-equivalent) student at Masters’ Union, Gurugram, domain-locked into Consulting and Supply Chain & Operations - targeting tier-1 / tier-2 roles in automotive, EV and mobility, with the domain expertise as the wedge.',
     },
@@ -254,8 +279,18 @@ export type CaseStudy = {
   approach: string
   result: string
   headlineStat: { value: string; label: string }
+  // Max 3 - if you have a 4th number worth showing, fold it into `result`
+  // prose instead. Keeps every exhibit's stat row visually equal weight.
   metrics: { value: string; label: string }[]
   link?: { href: string; label: string }
+  /** Rendered full-width directly below the Result row. */
+  image?: {
+    src: string
+    alt: string
+    width: number
+    height: number
+    caption?: string
+  }
 }
 
 export const caseStudyGroups: Record<CaseStudy['group'], string> = {
@@ -336,7 +371,6 @@ export const caseStudies: CaseStudy[] = [
     metrics: [
       { value: '2026–35', label: 'three-phase roadmap' },
       { value: '4', label: 'specific regulatory asks' },
-      { value: '2', label: 'regulatory instruments cited (UDCPR, MMC Act)' },
     ],
   },
   {
@@ -357,6 +391,13 @@ export const caseStudies: CaseStudy[] = [
       { value: 'GST', label: 'India-specific SME reality' },
     ],
     link: { href: 'https://factoryflow-ai-os.lovable.app', label: 'Open the live prototype' },
+    image: {
+      src: 'images/factoryflow-dashboard.png',
+      alt: 'FactoryFlow AI manufacturing control dashboard showing OEE, production trend and machine performance',
+      width: 1600,
+      height: 765,
+      caption: 'FactoryFlow AI - shop-floor control view. Demo data.',
+    },
   },
   {
     id: 'treasurebox',
@@ -422,11 +463,33 @@ export const skills: { heading: string; items: string[] }[] = [
 /* No longer a top-level nav section - sits between Skills and Contact,
    reachable by scroll, kept short. */
 
-export const leadership: { title: string; body: string }[] = [
+export type LeadershipEntry = {
+  title: string
+  body: string
+  image?: {
+    src: string
+    alt: string
+    width: number
+    height: number
+    caption?: string
+    href: string
+  }
+}
+
+export const leadership: LeadershipEntry[] = [
   {
     title: 'Masters’ Union Consulting Club (MUCC) - core member',
     body:
       'Built a 10-sector industry primer deck and an Industry Compendium (Issue 01: Indian Aviation). Now organising a pan-India, multi-campus case competition (target Oct 2026).',
+    // JPG rather than PNG: the paper-grain texture makes a PNG ~1MB.
+    image: {
+      src: 'images/compendium-aviation.jpg',
+      alt: 'Info Compendium issue on Indian aviation, designed as a boarding pass',
+      width: 1024,
+      height: 1536,
+      caption: 'MUCC Info Compendium, Issue 01: Indian Aviation. Designed in Figma.',
+      href: 'images/compendium-aviation.jpg',
+    },
   },
   {
     title: 'Teach for India - volunteer',
