@@ -4,24 +4,19 @@ import { Reveal, Section, SectionHeading } from './ui'
 export default function Skills() {
   return (
     <Section id="skills">
-      <SectionHeading index="04" title="Skills & Toolkit" />
-      <div className="grid gap-8 md:grid-cols-3">
-        {skills.map((col) => (
-          <Reveal key={col.heading} className="border-t-2 border-accent pt-4">
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-ink">
-              {col.heading}
-            </h3>
-            <ul className="mt-4 space-y-2.5">
-              {col.items.map((item) => (
-                <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-muted">
-                  <span aria-hidden className="stat text-accent">/</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        ))}
-      </div>
+      <SectionHeading index="04" title="Skills" />
+      <Reveal>
+        <dl className="max-w-3xl divide-y divide-line border-y border-line">
+          {skills.map((row) => (
+            <div key={row.heading} className="grid gap-1.5 py-4 sm:grid-cols-[120px_1fr] sm:gap-6">
+              <dt className="stat text-[11px] uppercase tracking-widest text-accent">
+                {row.heading}
+              </dt>
+              <dd className="text-sm leading-relaxed text-muted">{row.items.join(' · ')}</dd>
+            </div>
+          ))}
+        </dl>
+      </Reveal>
     </Section>
   )
 }

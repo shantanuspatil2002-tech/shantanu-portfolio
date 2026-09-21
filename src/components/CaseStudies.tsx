@@ -117,7 +117,7 @@ export default function CaseStudies() {
       <SectionHeading
         index="03"
         title="Case Studies"
-        lede="Six exhibits, each read as a one-page consulting deliverable: Situation → Approach → Result, headline number first."
+        lede="Seven exhibits, each read as a one-page consulting deliverable: Situation → Approach → Result, headline number first."
       />
       <div className="space-y-10">
         {groups.map((group) => {

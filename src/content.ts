@@ -17,7 +17,7 @@
 
    Open items from reconciling this file against the resume (2026-09-15) -
    flagged rather than guessed at:
-   - "18 months" (hero stat, quickStats, About "Operator" beat) vs the
+   - "18 months" (hero sub-line, About "Operator" beat) vs the
      Prodmax Experience dates (Oct 2023 - Aug 2025 per resume, ~22 months).
      Left both as-is pending confirmation of which is the intended figure.
    - Treasure Box Club: resume says "Founder & Sole Operator"; this file's
@@ -32,6 +32,8 @@
 export const site = {
   name: 'Shantanu Patil',
   role: 'Mechanical Engineer → Operations & Strategy Consultant',
+  // Leads the hero: one plain statement first, keywords underneath.
+  statement: 'I solve operational problems across automotive & manufacturing.',
   positioningLine:
     'Mechanical Engineer → Operations & Strategy Consultant | EV, Automotive & Mobility',
   // The one line that actually differentiates him. Surfaced in the hero and
@@ -73,6 +75,7 @@ export const nav: NavItem[] = [
 export const hero = {
   kicker: 'Portfolio · Blueprint to Boardroom',
   heading: 'Shantanu Patil',
+  statement: site.statement,
   positioning: site.positioningLine,
   thesisQuote: site.thesisQuote,
   sub: site.subPositioning,
@@ -82,11 +85,14 @@ export const hero = {
     { label: 'Email Me', href: `mailto:${site.email}`, kind: 'ghost' as const },
     { label: 'LinkedIn', href: site.linkedin, kind: 'ghost' as const, external: true },
   ],
+  // Proof strip: business-impact numbers only, all straight from the resume.
+  // The ₹8 Cr is the annual revenue of the EV-charger vertical he co-ran as one
+  // of two engineers - NOT revenue he personally generated; the label says so.
   quickStats: [
-    { value: '3 yrs', label: 'EV charger compliance at ARAI' },
-    { value: '18 mo', label: 'operations consulting, CEO-verified' },
-    { value: '337/340', label: 'GRE' },
-    { value: 'AIR 1', label: 'BAJA SAE India eBAJA 2023' },
+    { value: '₹8 Cr', label: 'annual revenue of the EV-charger vertical, co-run as 1 of 2 engineers' },
+    { value: '500+', label: 'compliance programs, zero client escalations' },
+    { value: '+14.4%', label: 'monthly profit at Prodmax (₹4.5L → ₹5.15L)' },
+    { value: '₹3.76L', label: 'sponsorship raised, 42% of team budget' },
   ],
 }
 
@@ -131,7 +137,7 @@ export const about = {
       tag: 'Proving ground',
       title: 'Team Leader, BAJA SAE - Team Predators Racing',
       body:
-        'Team Leader and Marketing & Manufacturing Lead for a 25-member cross-functional team across BAJA SAE India and BAJA SAE International (New York). Raised ₹3.76L (42% of budget) across 35+ sponsor pitches, then represented Team India at BAJA SAE USA, presenting the commercial case live before international judges. First team in the club’s history to win both the mBAJA and eBAJA national titles in consecutive years.',
+        'Team Leader and Marketing & Manufacturing Lead for a 25-member cross-functional team across BAJA SAE India and BAJA SAE International (New York). Raised ₹3.76L (42% of budget) across 35+ sponsor pitches, then represented Team India at BAJA SAE USA, presenting the commercial case live before international judges. First team to win both the mBAJA and eBAJA national titles in consecutive years.',
       stats: [
         { value: 'AIR 1', label: 'eBAJA 2023 · 1 of 81 teams' },
         { value: '4 / 88', label: 'World Rank, Intl Sales Presentation' },
@@ -195,7 +201,9 @@ export const experience: ExperienceEntry[] = [
       },
       {
         text:
-          'Directed a two-engineer core team overseeing seven contract staff within an EV-charger testing vertical generating ~₹8 crore in FY25 revenue - ~7% of the ~₹110 crore Automotive Electronics division.',
+          'Ran the EV-charger testing vertical as one of two engineers, coordinating seven contract staff; the vertical generated ~₹8 crore in FY25 revenue - ~7% of the ~₹110 crore Automotive Electronics division.',
+        flag:
+          'Deliberately "coordinating", not "directing" - no formal team-lead title. The resume PDF still says "directing a 7-member contract team" and "Delivered ₹8 Cr annual revenue"; align it so the two documents do not disagree.',
       },
       {
         text:
@@ -337,8 +345,26 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    id: 'voltedge',
+    id: 'baja',
     index: '03',
+    group: 'academic',
+    title: 'Team Predators Racing - BAJA SAE',
+    frameLabel: 'Leadership under competition constraints',
+    situation:
+      'BAJA SAE is a design-build-race competition for an off-road vehicle, judged on the engineering and on the business case (a costed report and a live sales presentation). The team needed a car that performs and a funded, commercially defensible case for building it.',
+    approach:
+      'As Team Leader and Marketing & Manufacturing Lead, ran a 25-member cross-functional team across design, manufacturing and marketing. Owned the funding: pitched 35+ executives, including CEOs at Datatech Labs, Hero MotoCorp and Spark Minda. Built the end-to-end investment case to mass-produce the ATV at a mandated 4,000 units/yr (market sizing, break-even, pricing) and defended it live before international investor-judges at BAJA SAE USA. Cut vehicle weight 5.35% by driving design tradeoffs across 3 sub-teams.',
+    result:
+      'Raised ₹3.76L (42% of budget). First team to win both national titles in consecutive years: mBAJA 2022 (1 of 138) and eBAJA 2023 (1 of 81, AIR 1). World Rank 4 of 88 in the BAJA SAE USA sales presentation. 17+ individual event awards.',
+    headlineStat: { value: 'AIR 1', label: 'eBAJA 2023 · 1 of 81 teams' },
+    metrics: [
+      { value: '4 / 88', label: 'World Rank, BAJA SAE USA sales presentation' },
+      { value: '₹3.76L', label: 'raised · 42% of team budget' },
+      { value: '25', label: 'members led across 3 functions' },
+    ],
+  },  {
+    id: 'voltedge',
+    index: '04',
     group: 'academic',
     title: 'VoltEdge Mobility - market-entry case design (MUCC)',
     frameLabel: 'Case design, Masters’ Union Consulting Club',
@@ -357,7 +383,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'governance',
-    index: '04',
+    index: '05',
     group: 'academic',
     title: 'The Maharashtra Urban Adoption Compact',
     frameLabel: 'The Governance Challenge 2026',
@@ -375,7 +401,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'factoryflow',
-    index: '05',
+    index: '06',
     group: 'academic',
     title: 'FactoryFlow AI - independent product build',
     frameLabel: 'Independent build',
@@ -401,7 +427,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 'treasurebox',
-    index: '06',
+    index: '07',
     group: 'academic',
     title: 'Treasure Box Club - D2C venture, performance marketing',
     frameLabel: 'Masters’ Union dropshipping challenge',
@@ -422,40 +448,16 @@ export const caseStudies: CaseStudy[] = [
 
 /* -------------------------------------------------- Skills */
 
+// Two lines, not a skills wall: experience is the evidence, this is just a
+// reference. Anything else (EV standards, homologation) lives in the Arc/Experience.
 export const skills: { heading: string; items: string[] }[] = [
   {
-    heading: 'Business / Strategy',
-    items: [
-      'Market-entry strategy',
-      'Case structuring',
-      'DMAIC problem-solving',
-      'Lean operations (5S, Kanban, SMED, CPM)',
-      'Linear programming / resource optimisation',
-      'Go-to-market strategy',
-      'Segmentation → Targeting → Positioning → Marketing Mix',
-    ],
-  },
-  {
-    heading: 'Technical / Domain',
-    items: [
-      'EV charger compliance (IEC 61851, IS 17017, AIS, CMVR)',
-      'Automotive homologation',
-      'Six Sigma DMAIC',
-      'SQL',
-      'Python',
-      'Power BI',
-      'Excel Solver / LP modelling (Power Query)',
-    ],
+    heading: 'Methods',
+    items: ['Lean', 'Six Sigma DMAIC', 'CPM', 'Bottleneck analysis', 'Linear programming', 'Operations analytics', 'Market sizing'],
   },
   {
     heading: 'Tools',
-    items: [
-      'Figma',
-      'PowerPoint / Figma design workflows',
-      'Lovable (no-code product build)',
-      'Shopify',
-      'Meta Ads Manager',
-    ],
+    items: ['Excel (Solver, Power Query)', 'SQL', 'Python', 'Power BI', 'Figma', 'Lovable', 'Shopify', 'Meta Ads Manager'],
   },
 ]
 

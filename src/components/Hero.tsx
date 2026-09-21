@@ -54,7 +54,10 @@ export default function Hero() {
           {hero.heading}
         </h1>
 
-        <p className="mt-5 max-w-2xl text-lg font-medium text-ink sm:text-xl">
+        <p className="mt-5 max-w-2xl text-2xl font-semibold leading-snug tracking-tight text-ink sm:text-3xl">
+          {hero.statement}
+        </p>
+        <p className="mt-3 max-w-2xl text-base font-medium text-muted sm:text-lg">
           {(() => {
             // Break the positioning line at the "|" so the second half
             // ("EV, Automotive & Mobility") always sits on its own line.
@@ -67,7 +70,7 @@ export default function Hero() {
             )
           })()}
         </p>
-        <p className="mt-6 max-w-2xl border-l-2 border-accent pl-4 text-xl font-medium leading-snug text-ink sm:text-2xl">
+        <p className="mt-6 max-w-2xl border-l-2 border-accent pl-4 text-lg font-medium leading-snug text-ink sm:text-xl">
           {hero.thesisQuote}
         </p>
 
@@ -94,10 +97,10 @@ export default function Hero() {
           ))}
         </div>
 
-        <ul className="mt-14 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-8 border-t border-line pt-8 sm:grid-cols-4">
+        <ul className="mt-14 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-8 border-t border-line pt-8 sm:grid-cols-4">
           {hero.quickStats.map((s) => (
             <li key={s.label}>
-              <Stat value={s.value} label={s.label} size="sm" />
+              <Stat value={s.value} label={s.label} size="md" />
             </li>
           ))}
         </ul>

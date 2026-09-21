@@ -57,7 +57,7 @@ In short:
   Situation/Approach/Result block does the work on its own; don't add one back.
 - Nav is deliberately kept to five items (About, Experience, Case Studies,
   Skills, Contact). Achievements live in Experience as a "Recognition" strip;
-  the BAJA/motorsport story lives inside the Arc's "Proving ground" beat;
+  the BAJA/motorsport story lives in the Arc's "Proving ground" beat and as one compact case-study exhibit;
   Leadership & Community is still on the page (between Skills and Contact)
   but isn't in the nav.
 - There is no Insights section. It was cut rather than shipped empty — add it
@@ -134,10 +134,7 @@ sharing:
 
 **Assets**
 
-- [ ] **Resume PDF** — replace `public/resume-shantanu-patil.pdf` (currently a
-      one-line placeholder). The filename must stay the same; it's linked from
-      the hero, nav and contact section (as a relative href, so it resolves
-      under both Vercel and the GitHub Pages `/shantanu-portfolio/` subpath).
+- [x] **Resume PDF** - real resume at `public/resume-shantanu-patil.pdf` (linked relatively, so it resolves under Vercel and the GitHub Pages subpath). Its ARAI wording still says `directing` and `Delivered ₹8 Cr` - the site now says `coordinating` and attributes the ₹8 Cr to the vertical; update the PDF to match.
 - [x] **LinkedIn URL** — set to `https://www.linkedin.com/in/shantanuspatil1/`.
 - [x] **OG image** — `public/og-image.png` is a real rendered 1200×630 PNG
       (see "Regenerating the OG preview image" above), referenced as an
@@ -145,21 +142,13 @@ sharing:
 - [ ] **Graduation date** — fill the `TODO(shantanu)` in the Masters' Union
       experience entry in `src/content.ts`; also used to firm up the hero's
       availability line (currently generic - see "Facts to confirm" below).
-- [ ] *(Optional)* a headshot — the design doesn't need one, but there's room in
-      the hero if you want it. None of the case studies have supporting images
-      either (BAJA car, FactoryFlow screenshot, Industry Compendium spread) -
-      add any you have via `Read`/an `<img>` in the relevant component; none
-      are faked here.
+- [x] **Images** - headshot, BAJA photo, FactoryFlow dashboard and aviation compendium are in `public/images/` (all under 300KB) and render through `PortfolioImage`. Check the FactoryFlow screenshot's demo client name (Shreeji Precision Works) is fictional.
 
 **Facts to confirm (use the safe phrasing already in the copy until confirmed)**
 
 - [ ] **ARAI *Best Contract Executive* 2025** — no recipient-count / "top X%"
       claim is made. Only add one if ARAI HR confirms it in writing.
-- [ ] **Prodmax Phase 1 baseline** — "7.12% quarterly revenue increase, 13.4%
-      waste reduction, lead time cut by 2 min 35 sec" have no stated base
-      (revenue off what starting figure, waste of what, cut from what cycle
-      time). Add the baselines if you can share them - flagged in a code
-      comment in `content.ts` too.
+- [ ] **Prodmax Phase 2 baselines** - 7.12% quarterly revenue, 13.4% waste and the 17% lead-time cut are relative, with no absolute base (revenue off what, waste of what, lead time from what). Add the baselines if you can share them; don't invent them. Flagged in a code comment in `content.ts` too.
 - [ ] **Prodmax Phase 2** — stated as method + result, "CEO-verified in
       writing". No `p<0.01`. Keep it that way unless a statistician signs off on
       a stronger phrasing.
