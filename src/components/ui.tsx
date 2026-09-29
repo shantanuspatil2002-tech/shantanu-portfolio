@@ -34,7 +34,7 @@ export function SectionHeading({ index, title, lede }: { index: string; title: s
       <div className="section-heading__index">
         <span className="stat text-xs text-accent">{index}</span>
         <span className="section-heading__rule" />
-        <span className="stat text-[9px] uppercase tracking-[0.18em] text-faint">Selected work</span>
+        <span className="stat text-[9px] uppercase tracking-[0.18em] text-faint">{title === 'Case Studies' ? 'Evidence' : title === 'Skills' ? 'Capability stack' : 'The arc'}</span>
       </div>
       <div className="section-heading__body">
         <h2>{title}</h2>
