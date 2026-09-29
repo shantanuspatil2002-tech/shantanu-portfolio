@@ -15,8 +15,8 @@ export default function About() {
           <span className="stat text-[10px] text-faint">SP / 26</span>
         </div>
         <div className="mt-7 grid grid-cols-2 gap-px border border-line bg-line">
-          <div className="bg-surface p-4"><Stat value="30+" label="months in EV compliance" size="sm"/></div>
-          <div className="bg-surface p-4"><Stat value="14.4%" label="profit uplift delivered" size="sm"/></div>
+          <div className="bg-surface p-4"><Stat value="AIR 1" label="eBAJA 2023" size="sm"/></div>
+          <div className="bg-surface p-4"><Stat value="₹3.76L" label="sponsorship raised" size="sm"/></div>
         </div>
       </Reveal>
       <div className="min-w-0">
