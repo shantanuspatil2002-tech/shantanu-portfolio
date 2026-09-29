@@ -33,7 +33,7 @@ export const site = {
   name: 'Shantanu Patil',
   role: 'Mechanical Engineer → Aspiring Operations & Strategy Consultant',
   // Leads the hero: one plain statement first, keywords underneath.
-  statement: 'I solve operational problems across automotive & manufacturing.',
+  statement: 'I turn complex automotive and EV operations into measurable outcomes.',
   positioningLine:
     'Mechanical Engineer → Operations & Strategy Consultant | EV, Automotive & Mobility',
   // The one line that actually differentiates him. Surfaced in the hero and
