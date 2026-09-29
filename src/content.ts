@@ -31,11 +31,11 @@
 
 export const site = {
   name: 'Shantanu Patil',
-  role: 'Mechanical Engineer → Aspiring Operations & Strategy Consultant',
+  role: 'Mechanical Engineer → Operations & Strategy',
   // Leads the hero: one plain statement first, keywords underneath.
   statement: 'I turn complex automotive and EV operations into measurable outcomes.',
   positioningLine:
-    'Mechanical Engineer → Operations & Strategy Consultant | EV, Automotive & Mobility',
+    'Mechanical Engineer → Operations & Strategy | EV, Automotive & Mobility',
   // The one line that actually differentiates him. Surfaced in the hero and
   // closing the Arc - do not bury it further down the page again.
   thesisQuote:
@@ -47,7 +47,7 @@ export const site = {
   // generically for now rather than guessing a date.
   availability: 'Open to summer internship and full-time roles in operations & strategy consulting.',
   thesis:
-    'An engineer who has already done operations consulting, moving into strategy consulting, anchored in automotive, EV and mobility.',
+    'An engineer with EV compliance and operations consulting experience, building toward strategy work in automotive, EV and mobility.',
   metaDescription:
     'Shantanu Patil - mechanical engineer moving into operations and strategy consulting, anchored in EV, automotive and mobility. Quantified pro-bono turnaround, international motorsport results, PGP in Technology & Business Management at Masters’ Union.',
   email: 'shantanuspatil2002@gmail.com',
@@ -140,7 +140,7 @@ export const about = {
       body:
         'Team Leader and Marketing & Manufacturing Lead. Led a 25-member cross-functional team across design, manufacturing and marketing to a national championship, then represented Team India at BAJA SAE USA.',
       stats: [
-        { value: 'AIR 1', label: 'eBAJA 2023 · 1 of 81 teams' },
+        { value: '1st', label: 'team to win mBAJA + eBAJA consecutively' },
         { value: '4 / 88', label: 'World Rank, Intl Sales Presentation' },
         { value: '₹3.76L', label: 'raised · 42% of team budget' },
       ],
@@ -173,17 +173,6 @@ export const about = {
         { value: '+14.4%', label: 'monthly profit' },
         { value: '70 → 91%', label: 'resource utilisation' },
         { value: '-17%', label: 'lead time' },
-      ],
-    },
-    {
-      tag: 'Operate',
-      title: 'Treasure Box Club',
-      body:
-        'Built and operated a D2C venture alongside the MBA, managing paid acquisition and weekly unit economics across 30+ SKUs.',
-      stats: [
-        { value: '1.1M', label: 'reach' },
-        { value: '54%', label: 'blended gross margin' },
-        { value: '30+', label: 'SKUs' },
       ],
     },
     {
