@@ -41,7 +41,7 @@ export const site = {
   thesisQuote:
     'Most people get into consulting and then learn an industry. I learned the industry first.',
   subPositioning:
-    '3 years certifying EV chargers for Tesla and VinFast. 18 months of operations consulting with CEO-verified results.',
+    '30 months in EV compliance across IS 17017, IEC 61851 and EMC — then operations consulting with CEO-verified results.',
   // TODO(shantanu): replace with your real availability once known (e.g.
   // "Summer 2027 internship - full-time from <month year>"). Written
   // generically for now rather than guessing a date.
@@ -89,10 +89,10 @@ export const hero = {
   // The ₹8 Cr is the annual revenue of the EV-charger vertical he co-ran as one
   // of two engineers - NOT revenue he personally generated; the label says so.
   quickStats: [
-    { value: '₹8 Cr', label: 'annual revenue of the EV-charger vertical, co-run as 1 of 2 engineers' },
+    { value: '30 mo', label: 'EV compliance operations' },
     { value: '500+', label: 'compliance programs, zero client escalations' },
-    { value: '+14.4%', label: 'monthly profit at Prodmax (₹4.5L → ₹5.15L)' },
-    { value: '₹3.76L', label: 'sponsorship raised, 42% of team budget' },
+    { value: '70 → 91%', label: 'resource utilisation at Prodmax' },
+    { value: 'AIR 1', label: 'eBAJA 2023 · 1 of 81 teams' },
   ],
 }
 
@@ -158,6 +158,11 @@ export const about = {
       title: 'Scaling EV compliance at ARAI',
       body:
         'Built EV charger compliance capability at ARAI, India’s apex automotive homologation and certification body, and delivered 500+ programs for Tesla, VinFast and Tata Motors (IEC 61851, IS 17017, AIS, CMVR) while lifting testing throughput 20% and cutting turnaround 15%.',
+      stats: [
+        { value: '500+', label: 'compliance programs' },
+        { value: '+20%', label: 'testing throughput' },
+        { value: '-15%', label: 'turnaround time' },
+      ],
     },
     {
       tag: 'Improve',
