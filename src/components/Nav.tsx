@@ -36,7 +36,7 @@ export default function Nav() {
   }, [])
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? 'border-b border-line bg-bg/80 backdrop-blur-xl shadow-sm' : 'border-b border-transparent'}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? 'border-b border-line bg-bg/95 backdrop-blur-xl shadow-sm' : 'border-b border-line bg-bg/90 backdrop-blur-md'}`}>
       <div className="section-shell flex h-16 items-center justify-between">
         <a href="#top" className="group flex items-center gap-2">
           <span className="flex h-8 w-8 items-center justify-center border border-accent text-[10px] font-semibold text-accent transition-transform group-hover:rotate-12">SP</span>
