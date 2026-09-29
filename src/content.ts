@@ -31,7 +31,7 @@
 
 export const site = {
   name: 'Shantanu Patil',
-  role: 'Mechanical Engineer → Operations & Strategy Consultant',
+  role: 'Mechanical Engineer → Aspiring Operations & Strategy Consultant',
   // Leads the hero: one plain statement first, keywords underneath.
   statement: 'I solve operational problems across automotive & manufacturing.',
   positioningLine:
@@ -49,7 +49,7 @@ export const site = {
   thesis:
     'An engineer who has already done operations consulting, moving into strategy consulting, anchored in automotive, EV and mobility.',
   metaDescription:
-    'Shantanu Patil - mechanical engineer moving into operations and strategy consulting, anchored in EV, automotive and mobility. Quantified pro-bono turnaround, international motorsport results, MBA-equivalent at Masters’ Union.',
+    'Shantanu Patil - mechanical engineer moving into operations and strategy consulting, anchored in EV, automotive and mobility. Quantified pro-bono turnaround, international motorsport results, PGP in Technology & Business Management at Masters’ Union.',
   email: 'shantanuspatil2002@gmail.com',
   linkedin: 'https://www.linkedin.com/in/shantanuspatil1/',
   // Relative (no leading slash) so it resolves under the GitHub Pages base
@@ -387,7 +387,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     callout: {
       label: 'Tesla V4 Supercharger',
-      text: 'Enabled Tesla’s first V4 Supercharger launch in India by synthesising global standards into a compliance roadmap: certified the 250 kW CCS2 charger against IS 17017, compliance statement issued July 2025.',
+      text: 'Prepared ARAI’s compliance roadmap for the Tesla V4 Supercharger: certified the 250 kW CCS2 charger against IS 17017; compliance statement issued July 2025.',
     },
     headlineStat: { value: '500+', label: 'compliance programs, zero client escalations' },
     metrics: [
