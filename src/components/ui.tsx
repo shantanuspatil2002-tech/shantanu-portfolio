@@ -29,12 +29,13 @@ export function Section({ id, children, className = '', blueprint = false }: {
 }
 
 export function SectionHeading({ index, title, lede }: { index: string; title: string; lede?: string }) {
+  const label = title === 'Case Studies' ? 'Evidence' : title === 'Skills' ? 'Capability stack' : title === 'About' ? 'Profile' : title === 'Experience' ? 'Track record' : 'The arc'
   return (
     <header className="section-heading">
       <div className="section-heading__index">
         <span className="stat text-xs text-accent">{index}</span>
         <span className="section-heading__rule" />
-        <span className="stat text-[9px] uppercase tracking-[0.18em] text-faint">{title === 'Case Studies' ? 'Evidence' : title === 'Skills' ? 'Capability stack' : 'The arc'}</span>
+        <span className="stat text-[9px] uppercase tracking-[0.18em] text-faint">{label}</span>
       </div>
       <div className="section-heading__body">
         <h2>{title}</h2>
