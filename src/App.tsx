@@ -23,6 +23,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <ARAIEvidence />
         <Experience />
 
         {/* The theme's hinge: blueprint dissolves into boardroom here. */}
