@@ -5,7 +5,7 @@ export default function Contact() {
   return <Section id="contact" className="border-t border-line">
     <div className="grid gap-12 lg:grid-cols-[1fr_360px] lg:items-end">
       <div>
-        <span className="stat text-[10px] uppercase tracking-[.2em] text-accent">05 / Contact</span>
+        <span className="stat text-[10px] uppercase tracking-[.2em] text-accent">06 / Contact</span>
         <h2 className="mt-5 max-w-3xl text-[clamp(3rem,7vw,6rem)] font-semibold leading-[.88] tracking-[-.065em]">{contact.heading}</h2>
         <p className="mt-7 max-w-2xl text-xl font-medium leading-8">{contact.line.split(' | ').map((part,i)=><span key={i} className="block">{part}</span>)}</p>
         <p className="mt-3 max-w-xl text-sm leading-6 text-muted">{contact.sub}</p>

@@ -6,8 +6,8 @@
   <path d="M80 90h180M80 84v12M260 84v12" stroke="#f2994a" stroke-width="1.5" />
   <text x="80" y="150" font-family="'JetBrains Mono', monospace" font-size="20" fill="#f2994a" letter-spacing="4">PORTFOLIO / BLUEPRINT TO BOARDROOM</text>
   <text x="80" y="270" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="600" fill="#e8ebef">Shantanu Patil</text>
-  <text x="80" y="330" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="600" fill="#e8ebef">I solve operational problems across automotive &amp; manufacturing.</text>
-  <text x="80" y="384" font-family="Inter, Arial, sans-serif" font-size="30" fill="#9aa5b4">Mechanical Engineer &#8594; Operations &amp; Strategy Consultant</text>
+  <text x="80" y="330" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="600" fill="#e8ebef">I turn complex automotive and EV operations into measurable outcomes.</text>
+  <text x="80" y="384" font-family="Inter, Arial, sans-serif" font-size="30" fill="#9aa5b4">Mechanical Engineer &#8594; Operations &amp; Strategy</text>
   <text x="80" y="424" font-family="Inter, Arial, sans-serif" font-size="30" fill="#9aa5b4">EV, Automotive &amp; Mobility</text>
   <g font-family="'JetBrains Mono', monospace" fill="#e8ebef">
     <text x="80" y="510" font-size="40" font-weight="600">₹8 Cr</text>
@@ -16,7 +16,7 @@
     <text x="800" y="510" font-size="40" font-weight="600">₹3.76L</text>
   </g>
   <g font-family="Inter, Arial, sans-serif" font-size="16" fill="#6b7789">
-    <text x="80" y="536">EV-charger vertical revenue</text>
+    <text x="80" y="536">EV-charger vertical, co-run 1 of 2</text>
     <text x="380" y="536">compliance programs</text>
     <text x="560" y="536">Prodmax monthly profit</text>
     <text x="800" y="536">sponsorship raised</text>

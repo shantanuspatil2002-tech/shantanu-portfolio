@@ -28,8 +28,8 @@ export function Section({ id, children, className = '', blueprint = false }: {
   )
 }
 
-export function SectionHeading({ index, title, lede }: { index: string; title: string; lede?: string }) {
-  const label = title === 'Case Studies' ? 'Evidence' : title === 'Skills' ? 'Capability stack' : title === 'About' ? 'Profile' : title === 'Experience' ? 'Track record' : 'The arc'
+export function SectionHeading({ index, title, lede, eyebrow }: { index: string; title: string; lede?: string; eyebrow: string }) {
+  const label = eyebrow
   return (
     <header className="section-heading">
       <div className="section-heading__index">

@@ -30,7 +30,7 @@ export default function Hero() {
     <div aria-hidden className="blueprint-grid blueprint-grid-fade pointer-events-none absolute inset-0"/>
     <div className="section-shell relative grid min-h-[calc(100vh-6rem)] items-center gap-12 py-16 lg:grid-cols-[1.05fr_.95fr]">
       <div className="relative z-10 max-w-[680px]">
-        <div className="flex items-center gap-3"><span className="stat text-[11px] uppercase tracking-[.2em] text-accent">{hero.kicker}</span><span className="h-px w-12 bg-line"/><span className="stat text-[9px] uppercase tracking-[.16em] text-faint">Portfolio / 2026</span></div>
+        <div className="flex items-center gap-3"><span className="stat text-[11px] uppercase tracking-[.2em] text-accent">{hero.kicker}</span></div>
         <h1 className="mt-7 text-[clamp(3.8rem,7.5vw,7.2rem)] font-semibold leading-[.84] tracking-[-.065em]">{hero.heading}</h1>
         <p className="mt-8 max-w-[620px] text-[clamp(1.45rem,2.5vw,2.25rem)] font-semibold leading-[1.05] tracking-[-.045em]">{hero.statement}</p>
         <p className="mt-5 max-w-[590px] text-base leading-7 text-muted">{hero.positioning}</p>

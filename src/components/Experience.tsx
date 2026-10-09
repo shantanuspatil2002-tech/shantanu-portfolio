@@ -3,7 +3,7 @@ import { Reveal, Section, SectionHeading, Stat } from './ui'
 
 export default function Experience() {
   return <Section id="experience">
-    <SectionHeading index="02" title="Experience" lede="A career built at the intersection of engineering systems, operating constraints and business outcomes."/>
+    <SectionHeading index="03" eyebrow="Track record" title="Experience" lede="A career built at the intersection of engineering systems, operating constraints and business outcomes."/>
     <div className="space-y-5">
       {experience.map((job,index)=><Reveal key={job.org+job.title}><article className="grid overflow-hidden border border-line bg-surface lg:grid-cols-[190px_minmax(0,1fr)]">
         <div className="border-b border-line bg-surface-2 p-5 lg:border-b-0 lg:border-r"><div className="stat text-[11px] text-accent">{job.dates}</div><div className="mt-5 stat text-[9px] uppercase tracking-[.18em] text-faint">0{index+1} / {experience.length}</div></div>

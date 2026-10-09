@@ -31,7 +31,13 @@ button,a { -webkit-tap-highlight-color:transparent; }
   .scale-bar { height:12px; background-image:linear-gradient(var(--c-line) 1px,transparent 1px),repeating-linear-gradient(90deg,var(--c-line) 0 1px,transparent 1px 24px); background-position:0 0,0 0; background-size:100% 1px,100% 100%; background-repeat:no-repeat,repeat-x; }
   .glass-panel { background:color-mix(in srgb,var(--c-surface) 82%,transparent); backdrop-filter:blur(14px); }
   .image-frame { position:relative; overflow:hidden; background:var(--c-surface-2); }
-  .image-frame::after { content:''; position:absolute; inset:12px; border:1px solid rgba(255,255,255,.24); pointer-events:none; }\n  .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 18px; border:1px solid var(--c-line); font-size:12px; font-weight:600; transition:transform .25s ease,border-color .25s ease,background-color .25s ease; }\n  .btn:hover { transform:translateY(-2px); border-color:var(--c-accent); }\n  .btn-primary { background:var(--c-accent); color:var(--c-accent-ink); border-color:var(--c-accent); }\n  .btn-secondary { background:var(--c-surface); color:var(--c-ink); }\n  .hero-map { min-height:480px; }\n  .metric-bar { transform-origin:left center; animation:metric-draw .9s cubic-bezier(.2,.8,.2,1) both; }
+  .image-frame::after { content:''; position:absolute; inset:12px; border:1px solid rgba(255,255,255,.24); pointer-events:none; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 18px; border:1px solid var(--c-line); font-size:12px; font-weight:600; transition:transform .25s ease,border-color .25s ease,background-color .25s ease; }
+  .btn:hover { transform:translateY(-2px); border-color:var(--c-accent); }
+  .btn-primary { background:var(--c-accent); color:var(--c-accent-ink); border-color:var(--c-accent); }
+  .btn-secondary { background:var(--c-surface); color:var(--c-ink); }
+  .hero-map { min-height:480px; }
+  .metric-bar { transform-origin:left center; animation:metric-draw .9s cubic-bezier(.2,.8,.2,1) both; }
   @keyframes metric-draw { from { transform:scaleX(0); } to { transform:scaleX(1); } }
   .exhibit-visual { min-height:360px; border:1px solid var(--c-line); background:var(--c-surface); padding:28px; display:flex; flex-direction:column; justify-content:center; }
 }

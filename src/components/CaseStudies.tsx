@@ -35,5 +35,5 @@ function GroupLabel({children}:{children:React.ReactNode}){return <div className
 
 export default function CaseStudies(){
  const visible=caseStudies.filter(cs=>cs.id!=='treasurebox')
- return <Section id="work"><SectionHeading index="03" title="Case Studies" lede="A small set of projects where the work, method and measurable outcome can be shown without a wall of text."/><div className="space-y-10">{(['professional','academic'] as const).map(group=>{const items=visible.filter(cs=>cs.group===group);if(!items.length)return null;return <div key={group} className="space-y-3"><GroupLabel>{caseStudyGroups[group]}</GroupLabel>{items.map((cs,i)=><Card key={cs.id} cs={cs} defaultOpen={group==='professional'&&i===0} flip={i%2===1}/>)}</div>})}</div></Section>
+ return <Section id="work"><SectionHeading index="04" eyebrow="Evidence" title="Case Studies" lede="A small set of projects where the work, method and measurable outcome can be shown without a wall of text."/><div className="space-y-10">{(['professional','academic'] as const).map(group=>{const items=visible.filter(cs=>cs.group===group);if(!items.length)return null;return <div key={group} className="space-y-3"><GroupLabel>{caseStudyGroups[group]}</GroupLabel>{items.map((cs,i)=><Card key={cs.id} cs={cs} defaultOpen={group==='professional'&&i===0} flip={i%2===1}/>)}</div>})}</div></Section>
 }

@@ -9,7 +9,7 @@ const standards = [
 
 export default function ARAIEvidence() {
   return <Section id="arai-evidence" className="border-y border-line bg-surface">
-    <SectionHeading index="01A" title="Inside the EV compliance work" lede="The work was not just running tests. It connected standards, lab capability, test operations and certification output."/>
+    <SectionHeading index="02" eyebrow="ARAI deep-dive" title="Inside the EV compliance work" lede="The work was not just running tests. It connected standards, lab capability, test operations and certification output."/>
     <div className="grid gap-px border border-line bg-line lg:grid-cols-[1.15fr_.85fr]">
       <Reveal className="bg-bg p-7 sm:p-10">
         <div className="stat text-[9px] uppercase tracking-[.2em] text-accent">ARAI / EV charger certification flow</div>

@@ -89,10 +89,10 @@ export const hero = {
   // The ₹8 Cr is the annual revenue of the EV-charger vertical he co-ran as one
   // of two engineers - NOT revenue he personally generated; the label says so.
   quickStats: [
-    { value: '30 mo', label: 'EV compliance operations' },
+    { value: '₹8 Cr', label: 'annual revenue of the EV-charger vertical, co-run as 1 of 2 engineers' },
     { value: '500+', label: 'compliance programs, zero client escalations' },
-    { value: '70 → 91%', label: 'resource utilisation at Prodmax' },
-    { value: 'AIR 1', label: 'eBAJA 2023 · 1 of 81 teams' },
+    { value: '+14.4%', label: 'monthly profit at Prodmax (₹4.5L → ₹5.15L)' },
+    { value: '₹3.76L', label: 'sponsorship raised, 42% of team budget' },
   ],
 }
 
@@ -144,14 +144,6 @@ export const about = {
         { value: '4 / 88', label: 'World Rank, Intl Sales Presentation' },
         { value: '₹3.76L', label: 'raised · 42% of team budget' },
       ],
-      // Pre-cropped 3:1, 1600x533, framed on the car and the lift.
-      image: {
-        src: 'images/baja-team.jpg',
-        alt: 'Team Predators Racing lifting their BAJA SAE car after the event',
-        width: 1600,
-        height: 533,
-        caption: 'Team Predators Racing, BAJA SAE India.',
-      },
     },
     {
       tag: 'Test',
@@ -493,19 +485,6 @@ export const caseStudies: CaseStudy[] = [
 ]
 
 /* -------------------------------------------------- Skills */
-
-// Two lines, compressed straight from the resume's skills section. Experience
-// is the evidence; this is only a reference.
-export const skills: { heading: string; items: string[] }[] = [
-  {
-    heading: 'Business',
-    items: ['Business transformation', 'Implementation strategy', 'KPI tracking', 'Stakeholder management', 'Market sizing'],
-  },
-  {
-    heading: 'Analytics',
-    items: ['Excel (Solver, Power Query)', 'SQL', 'Python', 'Power BI'],
-  },
-]
 
 // Compact education strip (Masters' Union sits in the Experience timeline above).
 export const education: { title: string; detail: string }[] = [
