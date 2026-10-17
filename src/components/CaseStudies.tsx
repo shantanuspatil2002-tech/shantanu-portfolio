@@ -2,7 +2,7 @@ import { Fragment, useId, useState } from 'react'
 import { caseStudies, caseStudyGroups, type CaseStudy } from '../content'
 import MediaGrid from './MediaGrid'
 import { PortfolioImage } from './PortfolioImage'
-import { Reveal, Section, SectionHeading, Stat } from './ui'
+import { isPrint, Reveal, Section, SectionHeading, Stat } from './ui'
 
 const visualById: Record<string,{src:string;alt:string}> = {
   baja:{src:'images/baja-team.jpg',alt:'Team Predators Racing BAJA team'},
@@ -44,7 +44,7 @@ function EvidenceVisual({cs}:{cs:CaseStudy}) {
 function stepsOf(cs:CaseStudy){ return cs.steps ?? [{label:'Situation',text:cs.situation??''},{label:'Approach',text:cs.approach??''},{label:'Result',text:cs.result??''}] }
 
 function Card({cs,defaultOpen=false,flip=false}:{cs:CaseStudy;defaultOpen?:boolean;flip?:boolean}) {
- const [open,setOpen]=useState(defaultOpen); const panelId=useId()
+ const [open,setOpen]=useState(defaultOpen||isPrint); const panelId=useId()
  return <Reveal className="group"><article className="border-y border-line py-10 lg:py-14">
   <div className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-20 ${flip?'lg:[&>div:first-child]:order-2':''}`}>
    <div><div className="flex items-center gap-3"><span className="stat text-sm text-accent">{cs.index}</span><span className="h-px w-8 bg-line"/><span className="text-[9px] uppercase tracking-[.18em] text-faint">{cs.frameLabel}</span></div><h3 className="mt-5 max-w-xl text-[clamp(2rem,4vw,3.4rem)] font-semibold leading-[.95] tracking-[-.055em]">{cs.title}</h3><div className="mt-7"><Stat value={cs.headlineStat.value} label={cs.headlineStat.label} size="lg"/></div><button type="button" onClick={()=>setOpen(v=>!v)} aria-expanded={open} aria-controls={panelId} className="btn btn-secondary mt-7">{open?'Close detail':'Read case'}<span className="ml-2">{open?'↑':'↓'}</span></button></div>

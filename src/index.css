@@ -50,3 +50,14 @@ button,a { -webkit-tap-highlight-color:transparent; }
   .section-heading__index { padding-top:0; }
   .section-heading__body h2 { font-size:3rem; }
 }
+
+/* Print / PDF mode: /?print opens every case, shows all content on a light page. */
+html.print-mode { --c-bg:#fff; --c-surface:#fbfaf7; --c-surface-2:#f0eee8; --c-line:#d2cec4; --c-ink:#171815; --c-muted:#4d4e48; --c-faint:#6b6c64; --c-accent:#b45119; --c-accent-ink:#fffaf4; --c-blueprint:transparent; color-scheme:light; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+html.print-mode header, html.print-mode .btn, html.print-mode .hero-map { display:none !important; }
+html.print-mode *, html.print-mode *::before, html.print-mode *::after { animation:none !important; transition:none !important; }
+html.print-mode figure, html.print-mode li, html.print-mode img, html.print-mode .exhibit-visual { break-inside:avoid; }
+html.print-mode [class*="min-h-"] { min-height:0 !important; }
+html.print-mode h2, html.print-mode h3 { break-after:avoid; }
+html.print-mode .section-pad { padding-top:48px; padding-bottom:48px; }
+@page { size: 1280px 1810px; margin: 0; }
+html.print-mode body { padding:28px 0; }

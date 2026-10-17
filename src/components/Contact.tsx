@@ -1,6 +1,6 @@
 import { contact, site } from '../content'
 import { useAudience } from '../hooks/useAudience'
-import { Section } from './ui'
+import { isPrint, Section } from './ui'
 
 export default function Contact() {
   const audience = useAudience()
@@ -15,6 +15,7 @@ export default function Contact() {
       <div className="border-t border-line pt-6 lg:border-l lg:border-t-0 lg:pl-8">
         <div className="stat text-[9px] uppercase tracking-[.18em] text-faint">Direct</div>
         <a href={`mailto:${site.email}`} className="mt-2 block text-sm font-semibold hover:text-accent">{site.email}</a>
+        {isPrint&&<div className="mt-3 space-y-1 text-sm text-muted"><div>LinkedIn: {site.linkedin.replace('https://www.','')}</div><div>Live portfolio: shantanuspatil2002-tech.github.io/shantanu-portfolio</div></div>}
         <div className="mt-6 flex flex-wrap gap-2">
           <a href={`mailto:${site.email}`} className="btn btn-primary">Email me</a>
           <a href={site.linkedin} target="_blank" rel="noreferrer" className="btn btn-secondary">LinkedIn</a>

@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 
+export const isPrint = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('print')
+
 export function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement | null>(null)
-  const [shown, setShown] = useState(false)
+  const [shown, setShown] = useState(isPrint)
   useEffect(() => {
     const el = ref.current
     if (!el) return
