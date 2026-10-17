@@ -1,6 +1,7 @@
 import { about } from '../content'
 import { PortfolioImage } from './PortfolioImage'
-import { Reveal, Section, SectionHeading, Stat } from './ui'
+import Timeline from './Timeline'
+import { Reveal, Section, SectionHeading } from './ui'
 
 export default function About() {
   return <Section id="about" blueprint>
@@ -15,10 +16,8 @@ export default function About() {
         </div>
       </Reveal>
       <div className="min-w-0">
-        <ol className="divide-y divide-line border-y border-line">
-          {about.beats.map((beat,i)=><li key={beat.tag}><Reveal className="py-7 sm:py-8"><article className="grid gap-5 sm:grid-cols-[48px_1fr]"><div className="stat text-xs text-accent">0{i+1}</div><div><div className="text-[10px] uppercase tracking-[.18em] text-faint">{beat.tag}</div><h3 className="mt-2 text-2xl font-semibold tracking-[-.035em]">{beat.title}</h3><p className="mt-3 max-w-2xl text-sm leading-7 text-muted">{beat.body}</p>{beat.stats&&<ul className="mt-6 flex flex-wrap gap-x-8 gap-y-4">{beat.stats.map(s=><li key={s.label}><Stat value={s.value} label={s.label} size="sm"/></li>)}</ul>}</div></article></Reveal></li>)}
-        </ol>
-        <Reveal className="mt-8 border border-accent/30 bg-accent/5 p-6 sm:p-8"><div className="stat text-[9px] uppercase tracking-[.2em] text-accent">In short</div><div className="mt-3 max-w-2xl text-base leading-7 text-ink">{about.story.join(' ')}</div></Reveal>
+        <Reveal><Timeline /></Reveal>
+        <Reveal className="mt-10 border border-accent/30 bg-accent/5 p-6 sm:p-8"><div className="stat text-[9px] uppercase tracking-[.2em] text-accent">In short</div><div className="mt-3 max-w-2xl text-base leading-7 text-ink">{about.story.join(' ')}</div></Reveal>
       </div>
     </div>
   </Section>

@@ -185,14 +185,6 @@ export type ArcImage = {
   caption?: string
 }
 
-export type ArcBeat = {
-  tag: string
-  title: string
-  body: string
-  stats?: { value: string; label: string }[]
-  image?: ArcImage
-}
-
 export const about = {
   heading: 'The Arc',
   lede:
@@ -205,59 +197,38 @@ export const about = {
     width: 800,
     height: 1000,
   } satisfies ArcImage,
-  // BUILD -> TEST -> IMPROVE -> OPERATE -> SCALE, all straight from the resume.
-  beats: [
-    {
-      tag: 'Foundation',
-      title: 'Engineer, from the shop floor up',
-      body:
-        'Started with a Diploma in Mechanical Engineering, then a B.E. - hands-on manufacturing exposure most peers entering engineering degrees directly did not have.',
-    },
-    {
-      tag: 'Build',
-      title: 'Team Predators Racing, BAJA SAE',
-      body:
-        'Team Leader and Marketing & Manufacturing Lead. Led a 25-member cross-functional team across design, manufacturing and marketing to a national championship, then represented Team India at BAJA SAE USA.',
-      stats: [
-        { value: '1st', label: 'team to win mBAJA + eBAJA consecutively' },
-        { value: '4 / 88', label: 'World Rank, Intl Sales Presentation' },
-        { value: '₹3.76L', label: 'raised · 42% of team budget' },
-      ],
-    },
-    {
-      tag: 'Test',
-      title: 'Scaling EV compliance at ARAI',
-      body:
-        'Built EV charger compliance capability at ARAI, India’s apex automotive homologation and certification body, and delivered 500+ programs for Tesla, VinFast and Tata Motors (IEC 61851, IS 17017, AIS, CMVR) while lifting testing throughput 20% and cutting turnaround 15%.',
-      stats: [
-        { value: '500+', label: 'compliance programs' },
-        { value: '+20%', label: 'testing throughput' },
-        { value: '-15%', label: 'turnaround time' },
-      ],
-    },
-    {
-      tag: 'Improve',
-      title: 'Optimising manufacturing performance at Prodmax Global',
-      body:
-        'Alongside the ARAI role, used Six Sigma DMAIC, linear-programming optimisation and process analysis to improve a manufacturing SME’s profit, utilisation, lead time and waste. CEO-verified in writing.',
-      stats: [
-        { value: '+14.4%', label: 'monthly profit' },
-        { value: '70 → 91%', label: 'resource utilisation' },
-        { value: '-17%', label: 'lead time' },
-      ],
-    },
-    {
-      tag: 'Scale',
-      title: 'Masters’ Union, Technology & Business Management',
-      body:
-        'PGP in Technology & Business Management, Gurugram. Moving from solving individual operational problems to business transformation, implementation and strategy, domain-locked into Consulting and Supply Chain & Operations.',
-    },
-  ] satisfies ArcBeat[],
   // Short human story, closes the Arc (the thesis line lives in the hero).
   story: [
     'I started in mechanical engineering, led a student team that built and raced an off-road vehicle, moved into automotive compliance and manufacturing operations, and eventually into business transformation. Across each experience, I’ve worked at the intersection of technical complexity, people and operational performance.',
     'Today, I’m pursuing Technology & Business Management at Masters’ Union, building toward a career focused on solving complex operational and business problems.',
   ],
+}
+
+/* -------------------------------------------------- Career timeline */
+// Time-scaled strip in the Arc. Dates are the resume's. The 'verb' marks the
+// four chapters (Build, Test, Improve, Scale); Study bars have none.
+
+export type TimelineItem = {
+  id: string
+  lane: 'study' | 'work' | 'alongside'
+  verb?: string
+  name: string
+  start: string // YYYY-MM
+  end: string | null // null = present
+  note: string
+}
+
+export const timeline = {
+  axisStart: 2017,
+  axisEnd: 2028,
+  items: [
+    { id: 'diploma', lane: 'study', name: 'Diploma, Mechanical Eng.', start: '2017-07', end: '2020-11', note: 'Latthe Polytechnic, Sangli · 91.59%, Rank 2 of 178' },
+    { id: 'be', lane: 'study', name: 'B.E. Mechanical Eng.', start: '2020-12', end: '2023-04', note: 'D.Y. Patil, Pune · 8.35 CGPA (top 20%)' },
+    { id: 'baja', lane: 'alongside', verb: 'Build', name: 'BAJA SAE', start: '2021-07', end: '2023-04', note: 'Team Leader of 25 · AIR 1 · World Rank 4 of 88' },
+    { id: 'arai', lane: 'work', verb: 'Test', name: 'ARAI', start: '2023-07', end: '2026-06', note: 'EV compliance · 500+ programs, zero client escalations' },
+    { id: 'prodmax', lane: 'alongside', verb: 'Improve', name: 'Prodmax', start: '2023-10', end: '2025-08', note: 'Pro bono · +14.4% profit, 70 → 91% utilisation' },
+    { id: 'mu', lane: 'study', verb: 'Scale', name: 'Masters’ Union', start: '2026-06', end: null, note: 'PGP in Technology & Business Management' },
+  ] as TimelineItem[],
 }
 
 /* -------------------------------------------------- Experience timeline */
@@ -267,6 +238,8 @@ export type ExperienceEntry = {
   title: string
   dates: string
   note?: string
+  /** Up to three headline numbers, shown above the bullets. */
+  tiles?: { value: string; label: string }[]
   bullets: { text: string; flag?: string }[]
 }
 
@@ -276,6 +249,11 @@ export const experience: ExperienceEntry[] = [
     title: 'Research Engineer, EV Compliance & Client Operations',
     dates: 'Jul 2023 – Jun 2026',
     note: 'Progressed from Trainee Engineer to Research Engineer.',
+    tiles: [
+      { value: '500+', label: 'compliance programs for Tesla, VinFast and Tata Motors, zero client escalations over 30 months' },
+      { value: '+20% / -15%', label: 'testing throughput / turnaround time, from standardised scheduling' },
+      { value: '3', label: 'departments on one real-time KPI dashboard, client wait times eliminated' },
+    ],
     bullets: [
       {
         text:
@@ -291,37 +269,25 @@ export const experience: ExperienceEntry[] = [
         flag:
           'Deliberately "coordinating", not "directing" - no formal team-lead title. The resume PDF still says "directing a 7-member contract team" and "Delivered ₹8 Cr annual revenue"; align it so the two documents do not disagree.',
       },
-      {
-        text:
-          'Delivered 500+ compliance programs for Tesla, VinFast and Tata Motors with zero client escalations over 30 months.',
-      },
-      {
-        text:
-          'Secured NABL and ISO accreditation across two audit cycles (2023, 2025) by leading lab-wide audit readiness.',
-      },
-      {
-        text:
-          'Increased testing throughput 20% and cut turnaround time 15% by standardising scheduling across the client portfolio; eliminated client wait times with a real-time KPI dashboard adopted across 3 departments.',
-      },
-      {
-        text: 'Recognised as ARAI’s Best Contract Executive, 2025 (HTC-AED department).',
-        flag:
-          'Do not add a "top X%" or "1 of N" framing unless confirmed with ARAI HR - the certificate does not state a recipient count. Note: the resume states "top 0.167% of 600+ employees" - that is a self-calculated figure on a resume, not an HR confirmation. Do not pull it onto the site without that confirmation.',
-      },
     ],
   },
   {
     org: 'Prodmax Global',
     title: 'Independent Operations Consultant (pro bono)',
     dates: 'Oct 2023 – Aug 2025',
+    tiles: [
+      { value: '+14.4%', label: 'monthly profit, ₹4.5L → ₹5.15L' },
+      { value: '70 → 91%', label: 'resource utilisation in 12 weeks' },
+      { value: '-17%', label: 'lead time, with material waste -13.4% and quarterly revenue +7.12%' },
+    ],
     bullets: [
       {
         text:
-          'Phase 1 - Six Sigma DMAIC: grew monthly profit 14.4%, from ₹4.5L to ₹5.15L, and raised resource utilisation from 70% to 91% in 12 weeks, building a linear-programming optimiser (Excel Solver) across 12 SKUs. CEO-verified in writing.',
+          'Six Sigma DMAIC: built a linear-programming optimiser (Excel Solver) across 12 SKUs to move scheduling from volume-based to margin-based. CEO-verified in writing.',
       },
       {
         text:
-          'Phase 2 - Lean transformation: cut lead time 17%, grew quarterly revenue 7.12%, and reduced material waste 13.4%, using CPM, 5S, Kanban and SMED; trained 20+ shop-floor operators and supervisors to sustain adoption.',
+          'Lean transformation (CPM, 5S, Kanban, SMED), then trained 20+ shop-floor operators and supervisors to sustain adoption.',
         flag:
           'The 7.12% and 13.4% figures (and the 17% lead-time cut) are resume-sourced but still relative, with no absolute baseline stated (revenue off what starting figure, waste and lead time off what). Add the baselines if you can share them.',
       },
@@ -359,6 +325,10 @@ export const recognition: Recognition[] = [
   { value: 'Green Belt', label: 'Six Sigma, Kennesaw State University' },
   { value: 'Operations Analytics', label: 'Wharton, University of Pennsylvania' },
   { value: 'Business Foundations', label: 'Specialization, Wharton' },
+  // Moved out of the ARAI bullets. No recipient-count claim: the resume's
+  // "top 0.167% of 600+" is self-calculated, not HR-confirmed.
+  { value: 'Best Contract Executive', label: 'ARAI, 2025 · HTC-AED department' },
+  { value: 'NABL & ISO', label: 'accreditation secured across 2 ARAI audit cycles (2023, 2025)' },
 ]
 
 /* -------------------------------------------------- Case studies */
