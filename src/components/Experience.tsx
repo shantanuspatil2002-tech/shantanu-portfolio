@@ -1,4 +1,5 @@
 import { education, experience, recognition } from '../content'
+import { PortfolioImage } from './PortfolioImage'
 import { Reveal, Section, SectionHeading, Stat } from './ui'
 
 export default function Experience() {
@@ -11,6 +12,7 @@ export default function Experience() {
           <div className="max-w-3xl"><h3 className="text-3xl font-semibold tracking-[-.045em]">{job.title}</h3><div className="mt-1 text-sm text-muted">{job.org}</div>{job.note&&<div className="mt-2 text-xs text-faint">{job.note}</div>}</div>
           {job.tiles&&<div className="mt-8 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-3">{job.tiles.map(t=><div key={t.label} className="bg-surface-2 p-5"><Stat value={t.value} label={t.label} size="md"/></div>)}</div>}
           <ul className="mt-8 grid max-w-4xl gap-y-4">{job.bullets.map((b,i)=><li key={i} className={`flex gap-3 text-sm leading-7 ${i === 0 ? 'text-ink' : 'text-muted'}`}><span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"/><span>{b.text}</span></li>)}</ul>
+          {job.image&&<PortfolioImage {...job.image} aspectClassName="aspect-[16/7]" className="mt-8"/>}
         </div>
       </article></Reveal>)}
     </div>

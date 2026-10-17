@@ -1,4 +1,5 @@
 import { timeline, type TimelineItem } from '../content'
+import { PortfolioImage } from './PortfolioImage'
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const { axisStart, axisEnd } = timeline
@@ -100,6 +101,7 @@ export default function Timeline() {
       <ul className="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
         {chapterItems.map((i) => (
           <li key={i.id} className="border-t border-accent pt-3">
+            {i.image && <PortfolioImage {...i.image} aspectClassName="aspect-[4/3]" className="mb-3" />}
             <div className="stat text-[10px] uppercase tracking-[.18em] text-accent">{i.verb}</div>
             <div className="mt-1 text-sm font-semibold">{i.name}</div>
             <div className="stat mt-1 text-[9px] text-faint">{range(i)}</div>

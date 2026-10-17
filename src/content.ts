@@ -208,6 +208,22 @@ export const about = {
 // Time-scaled strip in the Arc. Dates are the resume's. The 'verb' marks the
 // four chapters (Build, Test, Improve, Scale); Study bars have none.
 
+export type MediaImage = {
+  src: string
+  alt: string
+  width: number
+  height: number
+  caption?: string
+}
+
+/** A titled set of photos or figures shown inside an expanded case study. */
+export type MediaGroup = {
+  title: string
+  note?: string
+  layout?: 'photos' | 'artifact'
+  items: MediaImage[]
+}
+
 export type TimelineItem = {
   id: string
   lane: 'study' | 'work' | 'alongside'
@@ -216,6 +232,7 @@ export type TimelineItem = {
   start: string // YYYY-MM
   end: string | null // null = present
   note: string
+  image?: MediaImage
 }
 
 export const timeline = {
@@ -224,10 +241,14 @@ export const timeline = {
   items: [
     { id: 'diploma', lane: 'study', name: 'Diploma, Mechanical Eng.', start: '2017-07', end: '2020-11', note: 'Latthe Polytechnic, Sangli · 91.59%, Rank 2 of 178' },
     { id: 'be', lane: 'study', name: 'B.E. Mechanical Eng.', start: '2020-12', end: '2023-04', note: 'D.Y. Patil, Pune · 8.35 CGPA (top 20%)' },
-    { id: 'baja', lane: 'alongside', verb: 'Build', name: 'BAJA SAE', start: '2021-07', end: '2023-04', note: 'Team Leader of 25 · AIR 1 · World Rank 4 of 88' },
-    { id: 'arai', lane: 'work', verb: 'Test', name: 'ARAI', start: '2023-07', end: '2026-06', note: 'EV compliance · 500+ programs, zero client escalations' },
-    { id: 'prodmax', lane: 'alongside', verb: 'Improve', name: 'Prodmax', start: '2023-10', end: '2025-08', note: 'Pro bono · +14.4% profit, 70 → 91% utilisation' },
-    { id: 'mu', lane: 'study', verb: 'Scale', name: 'Masters’ Union', start: '2026-06', end: null, note: 'PGP in Technology & Business Management' },
+    { id: 'baja', lane: 'alongside', verb: 'Build', name: 'BAJA SAE', start: '2021-07', end: '2023-04', note: 'Team Leader of 25 · AIR 1 · World Rank 4 of 88',
+      image: { src: 'images/baja-overall-winner.webp', width: 720, height: 512, alt: 'Team Predators Racing with the E4 car and the Overall Winner board' } },
+    { id: 'arai', lane: 'work', verb: 'Test', name: 'ARAI', start: '2023-07', end: '2026-06', note: 'EV compliance · 500+ programs, zero client escalations',
+      image: { src: 'images/arai-keysight-session.webp', width: 1400, height: 1050, alt: 'ARAI and Keysight session on charging infrastructure technology requirements and interoperability' } },
+    { id: 'prodmax', lane: 'alongside', verb: 'Improve', name: 'Prodmax', start: '2023-10', end: '2025-08', note: 'Pro bono · +14.4% profit, 70 → 91% utilisation',
+      image: { src: 'images/shopfloor.webp', width: 720, height: 720, alt: 'A manufacturing shopfloor with fabrication stations and marked walkways' } },
+    { id: 'mu', lane: 'study', verb: 'Scale', name: 'Masters’ Union', start: '2026-06', end: null, note: 'PGP in Technology & Business Management',
+      image: { src: 'images/masters-union-group.webp', width: 1600, height: 900, alt: 'A group of Masters’ Union students in a classroom in Gurugram' } },
   ] as TimelineItem[],
 }
 
@@ -238,6 +259,7 @@ export type ExperienceEntry = {
   title: string
   dates: string
   note?: string
+  image?: MediaImage
   /** Up to three headline numbers, shown above the bullets. */
   tiles?: { value: string; label: string }[]
   bullets: { text: string; flag?: string }[]
@@ -308,6 +330,7 @@ export const experience: ExperienceEntry[] = [
           'Active across multiple case competitions and the Masters’ Union Consulting Club (MUCC) - see Case Studies.',
       },
     ],
+    image: { src: 'images/masters-union-group.webp', width: 1600, height: 900, alt: 'A group of Masters’ Union students in a classroom in Gurugram', caption: 'Masters’ Union, Gurugram.' },
   },
 ]
 
@@ -353,6 +376,8 @@ export type CaseStudy = {
   /** A single highlighted credibility point, shown under the steps. */
   callout?: { label: string; text: string }
   link?: { href: string; label: string }
+  /** Photos and figures shown under the steps. */
+  media?: MediaGroup[]
   /** Rendered full-width directly below the last step. */
   image?: {
     src: string
@@ -398,6 +423,14 @@ export const caseStudies: CaseStudy[] = [
       { value: '-17%', label: 'lead time' },
       { value: '-13.4%', label: 'material waste' },
     ],
+    media: [
+      {
+        title: 'Where the work happened',
+        items: [
+          { src: 'images/shopfloor.webp', width: 720, height: 720, alt: 'A manufacturing shopfloor with fabrication stations and marked walkways', caption: 'Manufacturing shopfloor.' },
+        ],
+      },
+    ],
   },
   {
     id: 'arai',
@@ -430,6 +463,14 @@ export const caseStudies: CaseStudy[] = [
       { value: '+20%', label: 'testing throughput' },
       { value: '-15%', label: 'turnaround time' },
     ],
+    media: [
+      {
+        title: 'The standards behind the work',
+        items: [
+          { src: 'images/arai-keysight-session.webp', width: 1400, height: 1050, alt: 'ARAI and Keysight session on charging infrastructure technology requirements and interoperability', caption: 'ARAI and Keysight session on charging infrastructure requirements and interoperability. The slide maps Indian standards (IS 17017) to their IEC counterparts.' },
+        ],
+      },
+    ],
   },  {
     id: 'baja',
     index: '03',
@@ -447,6 +488,39 @@ export const caseStudies: CaseStudy[] = [
       { value: '5.35%', label: 'vehicle weight reduction' },
       { value: '₹3.76L', label: 'raised · 42% of team budget' },
       { value: '25', label: 'team members led across design, manufacturing and marketing' },
+    ],
+    media: [
+      {
+        title: 'Build and funding',
+        items: [
+          { src: 'images/baja-build.webp', width: 900, height: 1200, alt: 'A buggy chassis being assembled in a workshop', caption: 'Vehicle build in the workshop.' },
+          { src: 'images/baja-sponsor-shirts.webp', width: 1400, height: 1050, alt: 'The eBAJA car at the event with team members in sponsor-branded shirts', caption: 'eBAJA car at the event; team shirts carry sponsor logos, including Datatech Labs.' },
+        ],
+      },
+      {
+        title: 'Race',
+        items: [
+          { src: 'images/baja-flag-off.webp', width: 945, height: 506, alt: 'Car 10 at the start line as the chequered flag drops', caption: 'Flag-off, car 10.' },
+          { src: 'images/baja-on-course.webp', width: 925, height: 487, alt: 'Buggies including car 10 on a dusty off-road course', caption: 'Car 10 on course among other teams.' },
+          { src: 'images/baja-paddock.webp', width: 1400, height: 1050, alt: 'Rows of BAJA buggies lined up in the paddock', caption: 'BAJA SAE India: cars lined up in the paddock.' },
+        ],
+      },
+      {
+        title: 'Result',
+        items: [
+          { src: 'images/baja-overall-winner.webp', width: 720, height: 512, alt: 'Team Predators Racing with the E4 car and the Overall Winner board', caption: 'Team Predators Racing with car E4 and the Overall Winner board.' },
+          { src: 'images/baja-team-flag.webp', width: 720, height: 512, alt: 'Team Predators Racing with the Indian flag behind their car', caption: 'Team Predators Racing with the India flag.' },
+        ],
+      },
+      {
+        title: 'Engineering documentation',
+        note: 'From the team’s 39-page Brakes & Axles documentation (car E04, 2022-23). The brake system is sized to lock all four wheels: 1.02 g deceleration and a 6.14 m stopping distance in calculation. Last year’s brass-connector leaks were designed out by integrating the master-cylinder outlet ports into the body.',
+        layout: 'artifact',
+        items: [
+          { src: 'images/wheel-assembly-exploded.png', width: 1300, height: 731, alt: 'Exploded view of the front wheel assembly: bearings, knuckle, brake disc and caliper, hub, rim and tyre', caption: 'Front wheel assembly, exploded view.' },
+          { src: 'images/hub-stress-analysis.webp', width: 807, height: 694, alt: 'Finite-element stress plot of the front wheel hub, maximum 255 megapascals', caption: 'Front hub stress analysis: 255 MPa maximum, factor of safety 1.56.' },
+        ],
+      },
     ],
   },
   {
