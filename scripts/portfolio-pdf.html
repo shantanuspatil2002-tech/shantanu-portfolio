@@ -5,279 +5,213 @@
 <title>Shantanu Patil - Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   @page { size: 1280px 720px; margin: 0; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --ink:#171815; --muted:#55564f; --faint:#85867d; --line:#d9d5ca; --bg:#ffffff; --soft:#f5f3ee; --accent:#b45119; }
+  :root { --ink:#15160f; --muted:#56574f; --faint:#8a8b82; --line:#dcd8cc; --soft:#f4f2ec; --accent:#b45119; }
   html, body { background:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-  body { font-family:'Inter',system-ui,sans-serif; color:var(--ink); font-size:13.5px; line-height:1.5; }
-  .mono { font-family:'JetBrains Mono',monospace; letter-spacing:.02em; }
-  .page { width:1280px; height:720px; position:relative; overflow:hidden; padding:44px 64px 56px; break-after:page; page-break-after:always; background:var(--bg); }
+  body { font-family:'Inter',system-ui,sans-serif; color:var(--ink); font-size:15px; line-height:1.45; }
+  .mono { font-family:'JetBrains Mono',monospace; }
+  .page { width:1280px; height:720px; position:relative; overflow:hidden; padding:44px 56px 52px; break-after:page; page-break-after:always; background:#fff; }
   .page:last-child { break-after:auto; page-break-after:auto; }
-  .foot { position:absolute; left:64px; right:64px; bottom:22px; display:flex; justify-content:space-between; font-size:9.5px; color:var(--faint); border-top:1px solid var(--line); padding-top:8px; text-transform:uppercase; letter-spacing:.14em; }
-  .eyebrow { font-size:10.5px; text-transform:uppercase; letter-spacing:.2em; color:var(--accent); font-weight:500; }
-  h1 { font-size:76px; line-height:.95; letter-spacing:-.05em; font-weight:700; }
-  h2 { font-size:34px; line-height:1.08; letter-spacing:-.035em; font-weight:700; margin-top:8px; }
-  h3 { font-size:15px; font-weight:600; letter-spacing:-.01em; }
-  .lede { color:var(--muted); font-size:14.5px; max-width:760px; margin-top:10px; }
-  .muted { color:var(--muted); } .faint { color:var(--faint); }
-  .lab { font-size:9.5px; text-transform:uppercase; letter-spacing:.18em; color:var(--accent); font-weight:600; }
-  .stat { font-size:30px; font-weight:700; letter-spacing:-.04em; line-height:1; }
-  .statlab { font-size:10.5px; color:var(--muted); margin-top:6px; line-height:1.35; }
-  .tiles { display:grid; gap:1px; background:var(--line); border:1px solid var(--line); }
-  .tile { background:var(--soft); padding:16px 18px; }
+  .foot { position:absolute; left:56px; right:56px; bottom:20px; display:flex; justify-content:space-between; font-size:9.5px; color:var(--faint); text-transform:uppercase; letter-spacing:.16em; }
+  .eyebrow { font-size:11px; text-transform:uppercase; letter-spacing:.22em; color:var(--accent); font-weight:600; }
+  h2 { font-size:38px; line-height:1.05; letter-spacing:-.04em; font-weight:800; margin-top:8px; max-width:1000px; }
+  .big { font-size:54px; font-weight:800; letter-spacing:-.05em; line-height:.95; }
+  .mid { font-size:34px; font-weight:800; letter-spacing:-.04em; line-height:1; }
+  .lab { font-size:10.5px; text-transform:uppercase; letter-spacing:.16em; color:var(--accent); font-weight:700; }
+  .sub { color:var(--muted); font-size:13px; line-height:1.4; margin-top:6px; }
+  .cap { font-size:10px; color:var(--faint); margin-top:5px; }
   img { display:block; width:100%; object-fit:cover; background:var(--soft); }
-  .cap { font-size:9.5px; color:var(--faint); margin-top:5px; line-height:1.35; }
-  ul.b { list-style:none; } ul.b li { position:relative; padding-left:16px; margin-top:9px; color:var(--muted); }
-  ul.b li::before { content:''; position:absolute; left:0; top:.6em; width:6px; height:6px; background:var(--accent); border-radius:50%; }
-  ul.b li:first-child { color:var(--ink); }
-  table { border-collapse:collapse; width:100%; }
-  td, th { text-align:left; vertical-align:top; padding:9px 14px 9px 0; border-bottom:1px solid var(--line); }
-  th { font-size:9.5px; text-transform:uppercase; letter-spacing:.16em; color:var(--faint); font-weight:600; padding-bottom:8px; }
-  .row { display:grid; gap:36px; }
-  .bar { height:11px; background:var(--soft); margin-top:4px; } .bar i { display:block; height:100%; }
-  .chip { display:inline-block; border:1px solid var(--line); padding:2px 8px; font-size:10.5px; margin:3px 4px 0 0; color:var(--muted); }
-  .cover { background:var(--soft); }
+  .card { background:var(--soft); padding:22px 24px; }
+  .acc { background:var(--accent); color:#fff; }
+  .acc .lab { color:#ffd9bf; }
+  .chip { display:inline-block; border:1px solid var(--line); padding:3px 10px; font-size:11.5px; margin:4px 5px 0 0; color:var(--muted); }
+  .bar { height:16px; background:#ece9e0; margin-top:6px; } .bar i { display:block; height:100%; }
+  .step { background:var(--soft); padding:14px 16px; } .step .lab { font-size:9.5px; }
+  .step div:last-child { font-size:12.5px; margin-top:4px; color:var(--ink); }
+  .p2 .card { min-height:205px; padding:26px 26px; } .p2 .mid { font-size:33px; white-space:nowrap; margin-top:20px !important; } .p2 .sub { font-size:14px; }
+  .p9 .card { padding:34px 28px; } .p9 .mid { font-size:34px; white-space:nowrap; } .p9 .sub { font-size:14px; } .p9 .chip { font-size:13.5px; padding:5px 12px; } .p9 .lbody { font-size:15px !important; }
 </style>
 </head>
 <body>
 
 <!-- 1. COVER -->
-<section class="page cover">
-  <div style="display:grid;grid-template-columns:1fr 360px;gap:56px;height:100%;">
-    <div style="display:flex;flex-direction:column;justify-content:center;">
-      <div class="eyebrow">Portfolio &middot; Application for Business Strategy &amp; Analytics Intern, xto10x</div>
-      <h1 style="margin-top:22px;">Shantanu<br/>Patil</h1>
-      <p style="font-size:24px;line-height:1.25;letter-spacing:-.02em;font-weight:600;margin-top:24px;max-width:640px;">I turn complex automotive and EV operations into measurable outcomes.</p>
-      <p class="muted" style="margin-top:10px;font-size:14px;">Mechanical Engineer &rarr; Operations &amp; Strategy &nbsp;|&nbsp; EV, Automotive &amp; Mobility</p>
-      <div style="border-left:3px solid var(--accent);padding-left:16px;margin-top:22px;font-size:15px;max-width:600px;">Most people get into consulting and then learn an industry. I learned the industry first.</div>
-      <div style="margin-top:30px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;max-width:700px;border-top:1px solid var(--line);padding-top:20px;">
-        <div><div class="stat">500+</div><div class="statlab">compliance programs, zero client escalations</div></div>
-        <div><div class="stat">+14.4%</div><div class="statlab">monthly profit at Prodmax (&#8377;4.5L &rarr; &#8377;5.15L)</div></div>
-        <div><div class="stat">AIR 1</div><div class="statlab">eBAJA 2023, led a 25-member team</div></div>
-        <div><div class="stat">&#8377;3.76L</div><div class="statlab">sponsorship raised, 42% of team budget</div></div>
-      </div>
-      <p class="mono muted" style="margin-top:26px;font-size:11px;">shantanuspatil2002@gmail.com &nbsp;&middot;&nbsp; linkedin.com/in/shantanuspatil1 &nbsp;&middot;&nbsp; PGP-TBM, Masters&rsquo; Union, Gurugram</p>
+<section class="page" style="background:var(--soft);">
+  <div style="display:grid;grid-template-columns:1fr 400px;gap:56px;height:100%;align-items:center;">
+    <div>
+      <div class="eyebrow">Portfolio &middot; Application, Business Strategy &amp; Analytics Intern, xto10x</div>
+      <div style="font-size:92px;line-height:.92;letter-spacing:-.06em;font-weight:800;margin-top:22px;">Shantanu<br/>Patil</div>
+      <p style="font-size:27px;line-height:1.2;letter-spacing:-.025em;font-weight:700;margin-top:26px;max-width:640px;">I turn complex automotive and EV operations into measurable outcomes.</p>
+      <p class="sub" style="font-size:15px;margin-top:10px;">Mechanical Engineer &rarr; Operations &amp; Strategy &nbsp;|&nbsp; EV, Automotive &amp; Mobility</p>
+      <div style="border-left:4px solid var(--accent);padding-left:18px;margin-top:28px;font-size:17px;font-weight:500;max-width:600px;">Most people get into consulting and then learn an industry. I learned the industry first.</div>
+      <p class="mono" style="margin-top:34px;font-size:12px;color:var(--muted);line-height:1.9;">shantanu.patil2027@mastersunion.org<br/>linkedin.com/in/shantanuspatil1<br/>PGP-TBM, Masters&rsquo; Union, Gurugram</p>
     </div>
-    <div style="display:flex;flex-direction:column;justify-content:center;">
-      <img src="../public/images/headshot.jpg" style="height:520px;object-position:top;" alt="Shantanu Patil" />
-      <div class="mono faint" style="font-size:10px;margin-top:8px;letter-spacing:.14em;text-transform:uppercase;">Engineer &middot; Operator &middot; Builder</div>
-    </div>
+    <div><img src="pdf-assets/headshot.jpg" style="height:560px;object-position:top;" alt="Shantanu Patil" /></div>
   </div>
 </section>
 
-<!-- 2. FIT MAP -->
-<section class="page">
-  <div class="eyebrow">01 &middot; Fit for the role</div>
-  <h2>What the role asks for, and where I have already done it</h2>
-  <p class="lede">Seven responsibilities from the job description, each matched to work with a number attached.</p>
-  <table style="margin-top:18px;font-size:12.5px;zoom:1.07;">
-    <tr><th style="width:190px">The role asks for</th><th>What I did</th><th style="width:250px">Result</th></tr>
-    <tr><td><b>Business strategy &amp; market analysis</b></td><td class="muted">Sized the market and built the investment case for a 4,000 units/yr vehicle (TAM-SAM-SOM, break-even, pricing) and defended it live to international investor-judges. Designed a four-option India market-entry case: greenfield, contract manufacturing, JV, acquisition.</td><td><b>World Rank 4 of 88</b> in the BAJA SAE USA sales presentation</td></tr>
-    <tr><td><b>Growth &amp; business planning</b></td><td class="muted">Owned funding for a 25-member team: pitched 35+ executives, including CEOs at Datatech Labs, Hero MotoCorp and Spark Minda.</td><td><b>&#8377;3.76L raised</b>, 42% of the team budget</td></tr>
-    <tr><td><b>Data analytics &amp; insights</b></td><td class="muted">Built a linear-programming optimiser (Excel Solver) across 12 SKUs to move scheduling from volume-based to margin-based. Deployed a real-time KPI dashboard across 3 departments.</td><td><b>+14.4% monthly profit</b>, utilisation 70% &rarr; 91%</td></tr>
-    <tr><td><b>Performance management</b></td><td class="muted">Standardised scheduling and tracked KPIs across the ARAI client portfolio, so teams could see throughput and wait times in one place.</td><td><b>+20% throughput, -15% turnaround</b>, zero escalations in 30 months</td></tr>
-    <tr><td><b>Structured problem solving</b></td><td class="muted">Six Sigma DMAIC at a manufacturing SME: process mapping, capacity analysis and shopfloor observation before redesigning any workflow.</td><td><b>CEO-verified</b> in writing</td></tr>
-    <tr><td><b>Stakeholder collaboration</b></td><td class="muted">Advised 15+ OEM engineering teams on certification strategy for Tesla, VinFast and Tata Motors; coordinated seven contract staff.</td><td><b>500+ programs</b>, zero client escalations</td></tr>
-    <tr><td><b>Research &amp; benchmarking</b></td><td class="muted">Synthesised global standards (IS 17017 against IEC counterparts) into a compliance roadmap. Built a 10-sector industry primer and an Industry Compendium for the Masters&rsquo; Union Consulting Club.</td><td><b>Tesla V4 Supercharger</b> certified, July 2025</td></tr>
-  </table>
-  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>2 / 10</span></div>
+<!-- 2. PROOF vs ROLE -->
+<section class="page p2">
+  <div class="eyebrow">01 &middot; The role, answered</div>
+  <h2>Every part of the role, already done once with a number attached</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px;">
+    <div class="card"><div class="lab">Strategy &amp; market analysis</div><div class="mid" style="margin-top:14px;">Rank 4<span style="font-size:18px;"> of 88</span></div><div class="sub">Investment case for a 4,000 units/yr vehicle, defended live to investor-judges</div></div>
+    <div class="card"><div class="lab">Growth &amp; business planning</div><div class="mid" style="margin-top:14px;">&#8377;3.76L</div><div class="sub">Raised from 35+ executive pitches, 42% of the team budget</div></div>
+    <div class="card"><div class="lab">Data analytics</div><div class="mid" style="margin-top:14px;">+14.4%</div><div class="sub">Monthly profit from a linear-programming optimiser across 12 SKUs</div></div>
+    <div class="card"><div class="lab">Performance management</div><div class="mid" style="margin-top:14px;">+20% / -15%</div><div class="sub">Throughput / turnaround after standardised scheduling and a KPI dashboard</div></div>
+    <div class="card"><div class="lab">Structured problem solving</div><div class="mid" style="margin-top:14px;">70 &rarr; 91%</div><div class="sub">Resource utilisation via Six Sigma DMAIC, CEO-verified</div></div>
+    <div class="card"><div class="lab">Stakeholder collaboration</div><div class="mid" style="margin-top:14px;">500+</div><div class="sub">Programs for Tesla, VinFast, Tata Motors. Zero client escalations</div></div>
+    <div class="card"><div class="lab">Research &amp; benchmarking</div><div class="mid" style="margin-top:14px;">IS 17017 &harr; IEC</div><div class="sub">Global standards synthesised into a compliance roadmap</div></div>
+    <div class="card acc" style="display:flex;flex-direction:column;justify-content:space-between;"><div class="lab">Signature work</div><div style="font-size:21px;font-weight:700;line-height:1.2;letter-spacing:-.02em;">Enabled Tesla&rsquo;s first V4 Supercharger launch in India.</div></div>
+  </div>
+  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>2 / 9</span></div>
 </section>
 
-<!-- 3. THE ARC -->
+<!-- 3. ARC -->
 <section class="page">
   <div class="eyebrow">02 &middot; The arc</div>
-  <h2>Engineer first, strategy next: one domain, four chapters</h2>
-  <p class="lede">Diploma &rarr; mechanical engineering &rarr; international motorsport team leadership &rarr; EV compliance at a national automotive R&amp;D body &rarr; operations consulting with quantified results &rarr; MBA, in strategy consulting, same domain.</p>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:26px;">
-    <div style="border-top:2px solid var(--accent);padding-top:10px;"><img src="../public/images/baja-overall-winner.webp" style="height:190px;" alt=""/><div class="lab" style="margin-top:12px;">Build</div><h3 style="margin-top:3px;">BAJA SAE</h3><div class="mono faint" style="font-size:10px;">Jul 2021 &ndash; Apr 2023</div><p class="muted" style="margin-top:6px;font-size:12px;">Team Leader of 25. AIR 1. World Rank 4 of 88.</p></div>
-    <div style="border-top:2px solid var(--accent);padding-top:10px;"><img src="../public/images/arai-keysight-session.webp" style="height:190px;" alt=""/><div class="lab" style="margin-top:12px;">Test</div><h3 style="margin-top:3px;">ARAI</h3><div class="mono faint" style="font-size:10px;">Jul 2023 &ndash; Jun 2026</div><p class="muted" style="margin-top:6px;font-size:12px;">EV compliance. 500+ programs, zero client escalations.</p></div>
-    <div style="border-top:2px solid var(--accent);padding-top:10px;"><img src="../public/images/shopfloor.webp" style="height:190px;" alt=""/><div class="lab" style="margin-top:12px;">Improve</div><h3 style="margin-top:3px;">Prodmax Global</h3><div class="mono faint" style="font-size:10px;">Oct 2023 &ndash; Aug 2025</div><p class="muted" style="margin-top:6px;font-size:12px;">Pro bono. +14.4% profit, utilisation 70% &rarr; 91%.</p></div>
-    <div style="border-top:2px solid var(--accent);padding-top:10px;"><img src="../public/images/masters-union-group.webp" style="height:190px;" alt=""/><div class="lab" style="margin-top:12px;">Scale</div><h3 style="margin-top:3px;">Masters&rsquo; Union</h3><div class="mono faint" style="font-size:10px;">Jun 2026 &ndash; present</div><p class="muted" style="margin-top:6px;font-size:12px;">PGP in Technology &amp; Business Management. Consulting primary, Supply Chain &amp; Operations secondary.</p></div>
+  <h2>I built it, tested it, fixed it, and now I want to scale it</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px;">
+    <div><img src="pdf-assets/baja-winner.jpg" style="height:300px;" alt=""/><div class="lab" style="margin-top:12px;">Build</div><div style="font-size:19px;font-weight:700;letter-spacing:-.02em;">BAJA SAE</div><div class="sub">Led 25 people to AIR 1</div><div class="cap mono">2021 &ndash; 2023</div></div>
+    <div><img src="pdf-assets/arai.jpg" style="height:300px;" alt=""/><div class="lab" style="margin-top:12px;">Test</div><div style="font-size:19px;font-weight:700;letter-spacing:-.02em;">ARAI</div><div class="sub">500+ EV compliance programs</div><div class="cap mono">2023 &ndash; 2026</div></div>
+    <div><img src="pdf-assets/shopfloor.jpg" style="height:300px;" alt=""/><div class="lab" style="margin-top:12px;">Improve</div><div style="font-size:19px;font-weight:700;letter-spacing:-.02em;">Prodmax Global</div><div class="sub">+14.4% profit, pro bono</div><div class="cap mono">2023 &ndash; 2025</div></div>
+    <div><img src="pdf-assets/mu-group.jpg" style="height:300px;" alt=""/><div class="lab" style="margin-top:12px;">Scale</div><div style="font-size:19px;font-weight:700;letter-spacing:-.02em;">Masters&rsquo; Union</div><div class="sub">PGP in Technology &amp; Business Management</div><div class="cap mono">2026 &ndash; present</div></div>
   </div>
-  <div style="margin-top:26px;border-top:1px solid var(--line);padding-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:36px;font-size:12px;">
-    <div><span class="lab">Study</span><p class="muted" style="margin-top:4px;">Diploma, Mechanical Engineering, Latthe Polytechnic, Sangli (91.59%, Rank 2 of 178) &rarr; B.E. Mechanical Engineering, D.Y. Patil College of Engineering, Pune (8.35 CGPA, top 20%).</p></div>
-    <div><span class="lab">Domain-locked at Masters&rsquo; Union</span><p class="muted" style="margin-top:4px;">One of 5 scholarship recipients across a 470-member batch. Active in case competitions and the Masters&rsquo; Union Consulting Club (MUCC).</p></div>
+  <div style="margin-top:22px;display:flex;align-items:center;gap:0;font-size:11px;">
+    <div style="flex:3;background:var(--soft);padding:9px 14px;border-right:3px solid #fff;"><b>Diploma</b> &middot; Rank 2 of 178</div>
+    <div style="flex:2.6;background:var(--soft);padding:9px 14px;border-right:3px solid #fff;"><b>B.E. Mechanical</b> &middot; top 20%</div>
+    <div style="flex:3.4;background:var(--accent);color:#fff;padding:9px 14px;border-right:3px solid #fff;"><b>ARAI</b> &middot; EV compliance, 30 months</div>
+    <div style="flex:3;background:var(--ink);color:#fff;padding:9px 14px;"><b>MBA</b> &middot; 1 of 5 scholarships in 470</div>
   </div>
-  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>3 / 10</span></div>
+  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>3 / 9</span></div>
 </section>
 
-<!-- 4. METHOD -->
+<!-- 4. ARAI -->
 <section class="page">
-  <div class="eyebrow">03 &middot; How I work</div>
-  <h2>The same five moves on three different problems</h2>
-  <p class="lede">EV compliance at ARAI, manufacturing at Prodmax and motorsport at BAJA SAE.</p>
-  <table style="margin-top:20px;font-size:12.5px;zoom:1.22;">
-    <tr><th style="width:110px"></th><th>ARAI &middot; EV compliance</th><th>Prodmax &middot; Manufacturing</th><th>BAJA SAE &middot; Motorsport leadership</th></tr>
-    <tr><td class="lab">Diagnose</td><td class="muted">Advised 15+ OEM engineering teams on certification strategy</td><td class="muted">Process mapping, capacity analysis and shopfloor observation</td><td class="muted">TAM-SAM-SOM market sizing, break-even and pricing for a 4,000 units/yr investment case</td></tr>
-    <tr><td class="lab">Structure</td><td class="muted">Synthesised global standards into a compliance roadmap</td><td class="muted">Linear-programming optimiser across 12 SKUs</td><td class="muted">Led a 25-member team across design, manufacturing and marketing</td></tr>
-    <tr><td class="lab">Decide</td><td class="muted">Standardised scheduling across the client portfolio</td><td class="muted">Scheduling shifted from volume-based to margin-based</td><td class="muted">Design trade-offs across 3 sub-teams</td></tr>
-    <tr><td class="lab">Implement</td><td class="muted">Real-time KPI dashboard across 3 departments; India&rsquo;s first EV charger certification capability in 10 months</td><td class="muted">Trained 20+ operators and supervisors in 5S and Kanban</td><td class="muted">Race-day operations across 5 sub-teams, 20+ pit interventions</td></tr>
-    <tr><td class="lab">Measure</td><td><b>+20% throughput, -15% turnaround</b>, zero client escalations over 30 months</td><td><b>+14.4% monthly profit</b>, 70 &rarr; 91% utilisation, -17% lead time</td><td><b>-5.35% vehicle weight</b>, &#8377;3.76L raised, AIR 1 at eBAJA 2023</td></tr>
-  </table>
-  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>4 / 10</span></div>
-</section>
-
-<!-- 5. ARAI -->
-<section class="page">
-  <div style="zoom:1.04;display:grid;grid-template-columns:1fr 470px;gap:44px;">
-    <div>
-      <div class="eyebrow">04 &middot; Experience &middot; Jul 2023 &ndash; Jun 2026</div>
-      <h2>Scaling EV compliance operations at ARAI</h2>
-      <p class="muted" style="margin-top:6px;">Research Engineer, EV Compliance &amp; Client Operations &middot; Automotive Research Association of India. Progressed from Trainee Engineer to Research Engineer.</p>
-      <div class="tiles" style="grid-template-columns:repeat(3,1fr);margin-top:18px;">
-        <div class="tile"><div class="stat">500+</div><div class="statlab">compliance programs for Tesla, VinFast and Tata Motors, zero client escalations over 30 months</div></div>
-        <div class="tile"><div class="stat">+20% / -15%</div><div class="statlab">testing throughput / turnaround time, from standardised scheduling</div></div>
-        <div class="tile"><div class="stat">3</div><div class="statlab">departments on one real-time KPI dashboard, client wait times eliminated</div></div>
-      </div>
-      <ul class="b" style="margin-top:12px;font-size:13px;">
-        <li>Certified the Tesla V4 Supercharger (250 kW, CCS2) against India&rsquo;s IS 17017 series. Prepared ARAI&rsquo;s compliance statement end-to-end, not just individual test runs. Issued July 2025.</li>
-        <li>Built India&rsquo;s first DC EMC test setup for EV charger certification in 10 months, establishing a certification capability that did not previously exist in the country.</li>
-        <li>Ran the EV-charger testing vertical as one of two engineers, coordinating seven contract staff. The vertical generated ~&#8377;8 crore in FY25 revenue, ~7% of the ~&#8377;110 crore Automotive Electronics division.</li>
-        <li>Recognition: Best Contract Executive, ARAI 2025 (HTC-AED department). NABL and ISO accreditation secured across two audit cycles (2023, 2025).</li>
-      </ul>
-    </div>
+  <div style="display:grid;grid-template-columns:690px 1fr;gap:44px;height:100%;">
+    <div style="display:flex;flex-direction:column;justify-content:center;"><img src="pdf-assets/arai.jpg" style="height:470px;" alt=""/><div class="cap">ARAI and Keysight session on EV charging requirements. The slide maps Indian standards (IS 17017) to their IEC counterparts.</div></div>
     <div style="display:flex;flex-direction:column;justify-content:center;">
-      <img src="../public/images/arai-keysight-session.webp" style="height:350px;" alt=""/>
-      <div class="cap">ARAI and Keysight session on charging infrastructure requirements and interoperability. The slide maps Indian standards (IS 17017) to their IEC counterparts.</div>
-    </div>
-  </div>
-  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>5 / 10</span></div>
-</section>
-
-<!-- 6. PRODMAX -->
-<section class="page">
-  <div style="zoom:1.17;display:grid;grid-template-columns:1fr 470px;gap:44px;">
-    <div>
-      <div class="eyebrow">05 &middot; Case study &middot; Operations consulting, delivered</div>
-      <h2>Optimising manufacturing performance at Prodmax Global</h2>
-      <p class="muted" style="margin-top:6px;">Independent Operations Consultant (pro bono) &middot; Oct 2023 &ndash; Aug 2025</p>
-      <div style="margin-top:14px;font-size:12.5px;">
-        <div class="row" style="grid-template-columns:90px 1fr;padding:8px 0;border-top:1px solid var(--line);"><span class="lab">Problem</span><span class="muted">A manufacturing SME operating below capacity, with no formal process discipline and competing priorities across capacity, lead time and profitability.</span></div>
-        <div class="row" style="grid-template-columns:90px 1fr;padding:8px 0;border-top:1px solid var(--line);"><span class="lab">Diagnosis</span><span class="muted">Process mapping, capacity analysis and shopfloor observation to find bottlenecks and operational constraints before redesigning any workflow.</span></div>
-        <div class="row" style="grid-template-columns:90px 1fr;padding:8px 0;border-top:1px solid var(--line);"><span class="lab">Decision</span><span class="muted">Built a linear-programming optimiser (Excel Solver) across 12 SKUs and shifted scheduling from volume-based to margin-based, sequencing implementation by the trade-offs across capacity, lead time and profitability. A lean pass (5S, Kanban) followed in Phase 2, with 20+ operators and supervisors trained to sustain it.</span></div>
-        <div class="row" style="grid-template-columns:90px 1fr;padding:8px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);"><span class="lab">Impact</span><span>Monthly profit <b>+14.4%</b> (&#8377;4.5L &rarr; &#8377;5.15L) and utilisation <b>70% &rarr; 91%</b> in 12 weeks. Lead time -17%, material waste -13.4%, quarterly revenue +7.12%. CEO-verified in writing.</span></div>
+      <div class="eyebrow">03 &middot; ARAI &middot; Jul 2023 &ndash; Jun 2026</div>
+      <h2 style="font-size:34px;">Scaling EV compliance without a single client escalation</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;margin-top:26px;">
+        <div><div class="big">500+</div><div class="sub">compliance programs over 30 months</div></div>
+        <div><div class="big">0</div><div class="sub">client escalations</div></div>
+        <div><div class="mid">+20%</div><div class="sub">testing throughput</div></div>
+        <div><div class="mid">-15%</div><div class="sub">turnaround time</div></div>
+      </div>
+      <div style="margin-top:22px;border-top:1px solid var(--line);padding-top:14px;font-size:13px;line-height:1.5;">
+        <div><b>Certified</b> the Tesla V4 Supercharger (250 kW, CCS2) against IS 17017. Issued July 2025.</div>
+        <div style="margin-top:7px;"><b>Built</b> India&rsquo;s first DC EMC test setup for EV chargers in 10 months.</div>
+        <div style="margin-top:7px;"><b>Co-ran</b> a ~&#8377;8 crore vertical as one of two engineers.</div>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;justify-content:center;gap:16px;">
-      <div style="background:var(--soft);padding:18px 20px;">
-        <div class="lab">Before / after &middot; 12 weeks</div>
-        <div style="margin-top:12px;font-size:11px;"><div style="display:flex;justify-content:space-between;"><b>Resource utilisation</b><b>70 &rarr; 91%</b></div>
-          <div class="bar"><i style="width:70%;background:#c9c4b8;"></i></div><div class="faint" style="font-size:9px;">Before &middot; 70%</div>
-          <div class="bar"><i style="width:91%;background:var(--accent);"></i></div><div class="faint" style="font-size:9px;">After &middot; 91%</div></div>
-        <div style="margin-top:12px;font-size:11px;"><div style="display:flex;justify-content:space-between;"><b>Monthly profit</b><b>&#8377;4.5L &rarr; &#8377;5.15L</b></div>
-          <div class="bar"><i style="width:87.4%;background:#c9c4b8;"></i></div><div class="faint" style="font-size:9px;">Before &middot; &#8377;4.5L</div>
-          <div class="bar"><i style="width:100%;background:var(--ink);"></i></div><div class="faint" style="font-size:9px;">After &middot; &#8377;5.15L</div></div>
-      </div>
-      <div><img src="../public/images/shopfloor.webp" style="height:205px;" alt=""/><div class="cap">Manufacturing shopfloor.</div></div>
-    </div>
   </div>
-  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>6 / 10</span></div>
+  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>4 / 9</span></div>
 </section>
 
-<!-- 7. BAJA -->
+<!-- 5. PRODMAX -->
 <section class="page">
-  <div style="display:grid;grid-template-columns:1fr 500px;gap:40px;height:100%;">
-    <div>
-      <div class="eyebrow">06 &middot; Case study &middot; Leadership under competition constraints</div>
-      <h2>Team Predators Racing, BAJA SAE</h2>
-      <p class="muted" style="margin-top:6px;">Team Leader and Marketing &amp; Manufacturing Lead &middot; Jul 2021 &ndash; Apr 2023</p>
-      <div style="margin-top:12px;font-size:12px;">
-        <div class="row" style="grid-template-columns:78px 1fr;padding:7px 0;border-top:1px solid var(--line);"><span class="lab">Situation</span><span class="muted">A design-build-race competition judged on the engineering and on the business case (a costed report and a live sales presentation). The team needed a car that performs and a funded, commercially defensible case for building it.</span></div>
-        <div class="row" style="grid-template-columns:78px 1fr;padding:7px 0;border-top:1px solid var(--line);"><span class="lab">Approach</span><span class="muted">Ran a 25-member cross-functional team across design, manufacturing and marketing. Owned the funding: pitched 35+ executives. Built the end-to-end investment case to mass-produce the vehicle at a mandated 4,000 units/yr (TAM-SAM-SOM, break-even, pricing) and defended it live before international investor-judges at BAJA SAE USA. Cut vehicle weight 5.35% by driving design trade-offs across 3 sub-teams.</span></div>
-        <div class="row" style="grid-template-columns:78px 1fr;padding:7px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);"><span class="lab">Result</span><span>Raised <b>&#8377;3.76L (42% of budget)</b>. First team to win both national titles in consecutive years: mBAJA 2022 (1 of 138) and eBAJA 2023 (1 of 81, AIR 1). World Rank 4 of 88 in the BAJA SAE USA sales presentation. 17+ individual event awards.</span></div>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;">
-        <div><div class="stat">AIR 1</div><div class="statlab">eBAJA 2023, 1 of 81 teams</div></div>
-        <div><div class="stat">5.35%</div><div class="statlab">vehicle weight reduction</div></div>
-        <div><div class="stat">25</div><div class="statlab">team members led across design, manufacturing and marketing</div></div>
+  <div class="eyebrow">04 &middot; Prodmax Global &middot; pro bono &middot; Oct 2023 &ndash; Aug 2025</div>
+  <h2>From volume-based to margin-based scheduling: +14.4% monthly profit</h2>
+  <div style="display:grid;grid-template-columns:1fr 440px;gap:40px;margin-top:24px;">
+    <div style="background:var(--soft);padding:24px 28px;">
+      <div class="lab">Before / after &middot; 12 weeks</div>
+      <div style="margin-top:18px;"><div style="display:flex;justify-content:space-between;font-size:14px;"><b>Resource utilisation</b><b>70% &rarr; 91%</b></div>
+        <div class="bar"><i style="width:70%;background:#c9c4b8;"></i></div><div class="cap">Before &middot; 70%</div>
+        <div class="bar"><i style="width:91%;background:var(--accent);"></i></div><div class="cap">After &middot; 91%</div></div>
+      <div style="margin-top:20px;"><div style="display:flex;justify-content:space-between;font-size:14px;"><b>Monthly profit</b><b>&#8377;4.5L &rarr; &#8377;5.15L</b></div>
+        <div class="bar"><i style="width:87.4%;background:#c9c4b8;"></i></div><div class="cap">Before &middot; &#8377;4.5L</div>
+        <div class="bar"><i style="width:100%;background:var(--ink);"></i></div><div class="cap">After &middot; &#8377;5.15L</div></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px;border-top:1px solid var(--line);padding-top:16px;">
+        <div><div class="mid" style="font-size:26px;">-17%</div><div class="cap">lead time</div></div>
+        <div><div class="mid" style="font-size:26px;">-13.4%</div><div class="cap">material waste</div></div>
+        <div><div class="mid" style="font-size:26px;">+7.12%</div><div class="cap">quarterly revenue</div></div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:center;">
-      <div><img src="../public/images/baja-overall-winner.webp" style="height:150px;" alt=""/><div class="cap">Team Predators Racing with car E4 and the Overall Winner board.</div></div>
-      <div><img src="../public/images/baja-sponsor-shirts.webp" style="height:150px;" alt=""/><div class="cap">eBAJA car at the event; team shirts carry sponsor logos.</div></div>
-      <div><img src="../public/images/baja-flag-off.webp" style="height:150px;" alt=""/><div class="cap">Flag-off, car 10.</div></div>
-      <div><img src="../public/images/baja-build.webp" style="height:150px;object-position:center 40%;" alt=""/><div class="cap">Vehicle build in the workshop.</div></div>
-      <div style="grid-column:1/3;"><img src="../public/images/baja-paddock.webp" style="height:120px;" alt=""/><div class="cap">BAJA SAE India: cars lined up in the paddock.</div></div>
-    </div>
+    <div><img src="pdf-assets/shopfloor.jpg" style="height:340px;" alt=""/><div class="cap">Manufacturing shopfloor.</div></div>
   </div>
-  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>7 / 10</span></div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;">
+    <div class="step"><div class="lab">Problem</div><div>An SME below capacity, no process discipline</div></div>
+    <div class="step"><div class="lab">Diagnose</div><div>Process mapping, capacity analysis, shopfloor observation</div></div>
+    <div class="step"><div class="lab">Decide</div><div>Excel Solver optimiser across 12 SKUs, then 5S and Kanban</div></div>
+    <div class="step"><div class="lab">Impact</div><div>CEO-verified in writing</div></div>
+  </div>
+  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>5 / 9</span></div>
 </section>
 
-<!-- 8. BAJA ENGINEERING -->
+<!-- 6. BAJA -->
 <section class="page">
-  <div class="eyebrow">07 &middot; Engineering depth &middot; BAJA SAE</div>
-  <h2>From the team&rsquo;s Brakes &amp; Axles documentation</h2>
-  <p class="lede">Car E04, 2022-23. The brake system is sized to lock all four wheels: 1.02 g deceleration and a 6.14 m stopping distance in calculation. Last year&rsquo;s brass-connector leaks were designed out by integrating the master-cylinder outlet ports into the body.</p>
-  <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:30px;margin-top:22px;">
-    <div><div style="background:#fff;border:1px solid var(--line);"><img src="../public/images/wheel-assembly-exploded.png" style="height:340px;object-fit:contain;background:#fff;" alt=""/></div><div class="cap">Front wheel assembly, exploded view.</div></div>
-    <div><div style="background:#fff;border:1px solid var(--line);"><img src="../public/images/hub-stress-analysis.webp" style="height:340px;object-fit:contain;background:#fff;" alt=""/></div><div class="cap">Front hub stress analysis: 255 MPa maximum, factor of safety 1.56.</div></div>
+  <div class="eyebrow">05 &middot; BAJA SAE &middot; Team Predators Racing &middot; 2021 &ndash; 2023</div>
+  <h2>Led 25 people to the first back-to-back national double</h2>
+  <div style="display:grid;grid-template-columns:1fr 330px;gap:36px;margin-top:22px;">
+    <div style="display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:200px 200px;gap:10px;">
+      <img src="pdf-assets/baja-winner.jpg" style="grid-row:1 / span 2;height:410px;" alt=""/>
+      <img src="pdf-assets/baja-flagoff.jpg" style="height:200px;" alt=""/>
+      <img src="pdf-assets/baja-course.jpg" style="height:200px;" alt=""/>
+      <img src="pdf-assets/baja-sponsor.jpg" style="height:200px;" alt=""/>
+      <img src="pdf-assets/baja-paddock.jpg" style="height:200px;" alt=""/>
+    </div>
+    <div>
+      <div class="big">AIR 1</div><div class="sub">eBAJA 2023, 1 of 81 teams. mBAJA 2022, 1 of 138.</div>
+      <div class="mid" style="margin-top:22px;">&#8377;3.76L</div><div class="sub">raised from 35+ executive pitches (42% of budget)</div>
+      <div class="mid" style="margin-top:22px;">Rank 4 / 88</div><div class="sub">world, BAJA SAE USA sales presentation</div>
+      <div class="mid" style="margin-top:22px;">-5.35%</div><div class="sub">vehicle weight through design trade-offs</div>
+    </div>
   </div>
-  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>8 / 10</span></div>
+  <p class="cap" style="margin-top:8px;">Left: overall winner board, flag-off, on course, sponsor shirts, paddock. Built the 4,000 units/yr investment case (TAM-SAM-SOM, break-even, pricing) and defended it live.</p>
+  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>6 / 9</span></div>
 </section>
 
-<!-- 9. MASTERS' UNION WORK -->
+<!-- 7. BAJA ENGINEERING -->
 <section class="page">
-  <div class="eyebrow">08 &middot; Case work &middot; Masters&rsquo; Union</div>
-  <h2>Strategy and analytics work since starting the MBA</h2>
-  <div style="zoom:1.2;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:22px;">
-    <div style="border-top:2px solid var(--accent);padding-top:12px;">
-      <div class="lab">Case design &middot; MUCC</div>
-      <h3 style="margin-top:4px;font-size:17px;">VoltEdge Mobility: market-entry case</h3>
-      <p class="muted" style="margin-top:8px;font-size:12px;">Designed a market-entry case for an internal competition around a fictional European premium electric motorcycle maker (&euro;420M revenue) evaluating India entry. Built the full case pack: market sizing, competitive landscape, customer segmentation, value chain and capability analysis, forecast financials and four entry options (greenfield, contract manufacturing, JV, acquisition), plus a judging rubric and live curveball scenarios for ~20&ndash;25 teams.</p>
-      <p style="margin-top:8px;font-size:12px;">Now scaling it into a pan-India, multi-campus case competition (target Oct 2026).</p>
-    </div>
-    <div style="border-top:2px solid var(--accent);padding-top:12px;">
-      <div class="lab">Policy &middot; The Governance Challenge 2026</div>
-      <h3 style="margin-top:4px;font-size:17px;">The Maharashtra Urban Adoption Compact</h3>
-      <p class="muted" style="margin-top:8px;font-size:12px;">Urban Development sector brief from Samagra and the Government of Maharashtra: how does Maharashtra become an urban-innovation hub by 2035? Core thesis: the constraint is not capital, it is the missing pathway from a validated solution to a first government order. Drew on the ARAI certification background to design the Validate lever, a vehicle-certification-style approval pathway.</p>
-      <p style="margin-top:8px;font-size:12px;">Five levers (Discover, Validate, Approve, Buy, Scale), a three-phase 2026&ndash;2035 roadmap and four regulatory asks. Campus round.</p>
-    </div>
-    <div style="border-top:2px solid var(--accent);padding-top:12px;">
-      <div class="lab">Independent build</div>
-      <h3 style="margin-top:4px;font-size:17px;">FactoryFlow AI</h3>
-      <p class="muted" style="margin-top:8px;font-size:12px;">Spotted a gap in Indian SME manufacturing software: ERP tools are built for large enterprises, not the job-work, GST and cash reality of SMEs. Built a working prototype with a plant dashboard, job-work and ITC-04 compliance, receivables tracking, GST compliance and heat-number traceability.</p>
-      <img src="../public/images/factoryflow-dashboard.png" style="height:150px;object-position:left top;margin-top:10px;" alt=""/><div class="cap">FactoryFlow AI, shop-floor control view. Demo data.</div>
-    </div>
+  <div class="eyebrow">06 &middot; Engineering depth &middot; BAJA SAE car E04, 2022-23</div>
+  <h2>Brakes sized to lock all four wheels: 1.02 g, 6.14 m stopping distance</h2>
+  <div style="display:grid;grid-template-columns:1.35fr 1fr;gap:26px;margin-top:26px;">
+    <div><div style="background:#000;"><img src="pdf-assets/wheel.jpg" style="height:380px;object-fit:contain;background:#000;" alt=""/></div><div class="cap">Front wheel assembly, exploded view. From the team&rsquo;s Brakes &amp; Axles documentation.</div></div>
+    <div><div style="background:#fff;border:1px solid var(--line);"><img src="pdf-assets/fea.jpg" style="height:380px;object-fit:contain;background:#fff;" alt=""/></div><div class="cap">Front hub stress analysis: 255 MPa maximum, factor of safety 1.56.</div></div>
   </div>
-  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>9 / 10</span></div>
+  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>7 / 9</span></div>
 </section>
 
-<!-- 10. CREDENTIALS + CONTACT -->
+<!-- 8. STRATEGY WORK -->
 <section class="page">
-  <div class="eyebrow">09 &middot; Credentials, tools and community</div>
-  <h2>Credentials, tools and how to reach me</h2>
-  <div style="display:grid;zoom:1.14;grid-template-columns:1fr 1fr 1fr;gap:34px;margin-top:22px;font-size:12.5px;">
-    <div>
-      <div class="lab">Credentials</div>
-      <div style="margin-top:10px;"><div class="stat" style="font-size:24px;">337 / 340</div><div class="statlab">GRE &middot; Verbal 167, Quant 170</div></div>
-      <div style="margin-top:12px;"><b>Six Sigma Green Belt</b><div class="statlab">Kennesaw State University</div></div>
-      <div style="margin-top:12px;"><b>Operations Analytics</b><div class="statlab">Wharton, University of Pennsylvania</div></div>
-      <div style="margin-top:12px;"><b>Business Foundations Specialization</b><div class="statlab">Wharton</div></div>
-    </div>
-    <div>
-      <div class="lab">Tools and domains</div>
-      <div style="margin-top:8px;"><div class="faint" style="font-size:10px;margin-top:6px;">Analytics</div><span class="chip">Excel Solver</span><span class="chip">Power Query</span><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">Power BI</span>
-      <div class="faint" style="font-size:10px;margin-top:10px;">Strategy</div><span class="chip">Market sizing</span><span class="chip">KPI tracking</span><span class="chip">Implementation strategy</span><span class="chip">Business transformation</span><span class="chip">Stakeholder management</span>
-      <div class="faint" style="font-size:10px;margin-top:10px;">Operations</div><span class="chip">Six Sigma DMAIC</span><span class="chip">Lean</span><span class="chip">CPM</span><span class="chip">5S</span><span class="chip">Kanban</span><span class="chip">SMED</span>
-      <div class="faint" style="font-size:10px;margin-top:10px;">EV / Compliance</div><span class="chip">IS 17017</span><span class="chip">IEC 61851</span><span class="chip">AIS</span><span class="chip">CMVR</span><span class="chip">CCS2</span><span class="chip">EMC</span></div>
-    </div>
-    <div>
-      <div class="lab">Leadership and community</div>
-      <ul class="b" style="font-size:12px;">
-        <li><b>MUCC, core member:</b> 10-sector industry primer deck and Industry Compendium (Issue 01: Indian Aviation).</li>
-        <li><b>MESA, Vice President:</b> grew member engagement 30% YoY by launching the institute&rsquo;s first new competition (78 participants).</li>
-        <li><b>Teach for India:</b> mentored 8 underserved students, 20+ hrs/month.</li>
-        <li><b>DYPCOE alum volunteer:</b> coached 30+ students annually through mock interviews and placement prep.</li>
-      </ul>
-    </div>
+  <div class="eyebrow">07 &middot; Strategy and analytics &middot; Masters&rsquo; Union</div>
+  <h2>Three problems I picked up since starting the MBA</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px;">
+    <div class="card" style="min-height:420px;"><div class="lab">Case design &middot; MUCC</div><div style="font-size:21px;font-weight:800;letter-spacing:-.03em;margin-top:8px;line-height:1.1;">VoltEdge Mobility market-entry case</div>
+      <div class="big" style="margin-top:22px;">4</div><div class="sub">India entry options modelled: greenfield, contract manufacturing, JV, acquisition</div>
+      <div class="sub" style="margin-top:14px;">A &euro;420M fictional electric motorcycle maker. Built the full case pack and judging rubric for ~20&ndash;25 teams. Now scaling to a pan-India competition (Oct 2026).</div></div>
+    <div class="card" style="min-height:420px;"><div class="lab">Policy &middot; Governance Challenge 2026</div><div style="font-size:21px;font-weight:800;letter-spacing:-.03em;margin-top:8px;line-height:1.1;">Maharashtra Urban Adoption Compact</div>
+      <div class="big" style="margin-top:22px;">5 levers</div><div class="sub">Discover &middot; Validate &middot; Approve &middot; Buy &middot; Scale</div>
+      <div class="sub" style="margin-top:14px;">Thesis: the constraint is not capital, it is the missing path from a validated solution to a first government order. The Validate lever borrows from vehicle certification. Campus round.</div></div>
+    <div class="card" style="min-height:420px;padding-bottom:18px;"><div class="lab">Independent build</div><div style="font-size:21px;font-weight:800;letter-spacing:-.03em;margin-top:8px;line-height:1.1;">FactoryFlow AI</div>
+      <div class="sub" style="margin-top:10px;">&ldquo;SAP for Indian SMEs&rdquo;: a working prototype with job-work and ITC-04 compliance, GST and heat-number traceability.</div>
+      <img src="pdf-assets/factoryflow.jpg" style="height:190px;margin-top:14px;object-position:left top;" alt=""/><div class="cap">Shop-floor control view. Demo data.</div></div>
   </div>
-  <div style="position:absolute;left:64px;right:64px;bottom:62px;background:var(--soft);padding:20px 28px;display:flex;justify-content:space-between;align-items:center;">
-    <div><div style="font-size:22px;font-weight:700;letter-spacing:-.03em;">Let&rsquo;s talk</div><div class="muted" style="font-size:12.5px;margin-top:2px;">Open to summer internship and full-time roles in operations &amp; strategy consulting.</div></div>
-    <div class="mono" style="font-size:11.5px;line-height:1.8;text-align:right;">shantanuspatil2002@gmail.com<br/>linkedin.com/in/shantanuspatil1<br/>shantanuspatil2002-tech.github.io/shantanu-portfolio</div>
+  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>8 / 9</span></div>
+</section>
+
+<!-- 9. CREDENTIALS + CONTACT -->
+<section class="page p9">
+  <div class="eyebrow">08 &middot; Credentials and contact</div>
+  <h2>Quant-ready, tool-ready, and easy to reach</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px;">
+    <div class="card"><div class="mid">337 / 340</div><div class="sub">GRE &middot; Verbal 167, Quant 170</div></div>
+    <div class="card"><div class="mid">Green Belt</div><div class="sub">Six Sigma, Kennesaw State University</div></div>
+    <div class="card"><div class="mid">Wharton &times; 2</div><div class="sub">Operations Analytics and Business Foundations</div></div>
+    <div class="card"><div class="mid">1 of 5</div><div class="sub">scholarship recipients in a 470-member batch</div></div>
   </div>
-  <div class="foot"><span>Shantanu Patil &middot; Portfolio</span><span>10 / 10</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:26px;">
+    <div><div class="lab">Tools and methods</div><div style="margin-top:6px;"><span class="chip">Excel Solver</span><span class="chip">Power Query</span><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">Power BI</span><span class="chip">Six Sigma DMAIC</span><span class="chip">Lean</span><span class="chip">Market sizing</span><span class="chip">KPI tracking</span><span class="chip">IS 17017</span><span class="chip">IEC 61851</span><span class="chip">CCS2</span></div></div>
+    <div><div class="lab">Leadership and community</div><div class="sub lbody" style="margin-top:8px;color:var(--ink);line-height:1.7;">MUCC core member &middot; MESA Vice President (+30% engagement, 78 participants) &middot; Teach for India mentor (8 students) &middot; Coached 30+ students a year on placements</div></div>
+  </div>
+  <div style="position:absolute;left:56px;right:56px;bottom:50px;background:var(--ink);color:#fff;padding:26px 34px;display:flex;justify-content:space-between;align-items:center;">
+    <div><div style="font-size:30px;font-weight:800;letter-spacing:-.04em;">Let&rsquo;s talk</div><div style="font-size:13px;color:#cfcdc4;margin-top:2px;">Open to summer internship and full-time roles in operations &amp; strategy consulting.</div></div>
+    <div class="mono" style="font-size:13px;line-height:1.9;text-align:right;">shantanu.patil2027@mastersunion.org<br/>linkedin.com/in/shantanuspatil1<br/>shantanuspatil2002-tech.github.io/shantanu-portfolio</div>
+  </div>
+  <div class="foot"><span></span><span>9 / 9</span></div>
 </section>
 
 </body>
