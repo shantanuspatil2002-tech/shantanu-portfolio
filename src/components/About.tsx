@@ -4,7 +4,7 @@ import { Reveal, Section, SectionHeading, Stat } from './ui'
 
 export default function About() {
   return <Section id="about" blueprint>
-    <SectionHeading index="01" eyebrow="Profile" title={about.heading} lede={about.lede}/>
+    <SectionHeading index="02" eyebrow="Profile" title={about.heading} lede={about.lede}/>
     <div className="grid gap-14 lg:grid-cols-[340px_minmax(0,1fr)] lg:gap-20">
       <Reveal className="lg:sticky lg:top-24 self-start">
         <div className="image-frame">

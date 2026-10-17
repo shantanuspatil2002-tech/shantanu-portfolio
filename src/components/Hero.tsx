@@ -1,4 +1,5 @@
-import { hero } from '../content'
+import { hero, signature } from '../content'
+import { useAudience } from '../hooks/useAudience'
 import { Stat } from './ui'
 
 function SystemMap() {
@@ -26,17 +27,21 @@ function SystemMap() {
 }
 
 export default function Hero() {
+  const audience = useAudience()
   return <section id="top" className="relative overflow-hidden border-b border-line pt-24">
     <div aria-hidden className="blueprint-grid blueprint-grid-fade pointer-events-none absolute inset-0"/>
     <div className="section-shell relative grid min-h-[calc(100vh-6rem)] items-center gap-12 py-16 lg:grid-cols-[1.05fr_.95fr]">
       <div className="relative z-10 max-w-[680px]">
-        <div className="flex items-center gap-3"><span className="stat text-[11px] uppercase tracking-[.2em] text-accent">{hero.kicker}</span></div>
+        <div className="flex items-center gap-3"><span className="stat text-[11px] uppercase tracking-[.2em] text-accent">{audience ? `Prepared for ${audience.name}` : hero.kicker}</span></div>
         <h1 className="mt-7 text-[clamp(3.8rem,7.5vw,7.2rem)] font-semibold leading-[.84] tracking-[-.065em]">{hero.heading}</h1>
         <p className="mt-8 max-w-[620px] text-[clamp(1.45rem,2.5vw,2.25rem)] font-semibold leading-[1.05] tracking-[-.045em]">{hero.statement}</p>
         <p className="mt-5 max-w-[590px] text-base leading-7 text-muted">{hero.positioning}</p>
+        {audience && <p className="mt-6 max-w-[570px] text-sm leading-6 text-muted"><span className="stat mr-2 text-[10px] uppercase tracking-[.18em] text-accent">Relevant to {audience.name}</span>{audience.relevance}</p>}
         <p className="mt-7 max-w-[570px] border-l-2 border-accent pl-4 text-lg font-medium leading-7">{hero.thesisQuote}</p>
         <div className="mt-8 flex flex-wrap gap-3">{hero.ctas.map(cta => <a key={cta.label} href={cta.href} {...('download' in cta && cta.download ? {download:true}:{})} {...('external' in cta && cta.external ? {target:'_blank',rel:'noreferrer'}:{})} className={cta.kind==='primary'?'btn btn-primary':'btn btn-secondary'}>{cta.label}</a>)}</div>
-        <ul className="mt-12 grid grid-cols-2 gap-x-8 border-t border-line pt-6 sm:grid-cols-4">{hero.quickStats.map(s=><li key={s.label}><Stat value={s.value} label={s.label} size="sm"/></li>)}</ul>
+        <p className="mt-5 max-w-[570px] text-sm leading-6 text-muted">{hero.availability}</p>
+        <div className="mt-12 border-t border-line pt-5"><span className="stat mr-3 text-[10px] uppercase tracking-[.18em] text-accent">Signature work</span><span className="text-sm font-medium">{signature}</span></div>
+        <ul className="mt-6 grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4">{hero.quickStats.map(s=><li key={s.label}><Stat value={s.value} label={s.label} size="sm"/></li>)}</ul>
       </div>
       <div className="hidden lg:block"><SystemMap/></div>
     </div>

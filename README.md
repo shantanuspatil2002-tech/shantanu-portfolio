@@ -185,3 +185,7 @@ respected (entrance animations and smooth scroll disabled).
 Semantic landmarks, one `<h1>`, logical `<h2>`/`<h3>` nesting, skip link,
 keyboard-operable nav / theme toggle / exhibit cards, visible focus rings, and
 AA contrast in both themes.
+
+### Personalised links
+
+`/?for=<key>` shows "Prepared for <name>" in the hero kicker, one relevance line, and "Let's talk, <name>." in Contact. Only keys in `audiences` (`src/content.ts`) work, so a crafted link can never put arbitrary text on the page. Add an entry only with a relevance line your resume backs, e.g. `/?for=tata-motors` (live key list: `tata-motors`, `vinfast`, `tesla`, `hero-motocorp`, `spark-minda`).

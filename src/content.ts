@@ -96,6 +96,85 @@ export const hero = {
   ],
 }
 
+/** The one fact a reader should be able to repeat after fifteen seconds. */
+export const signature = 'Enabled Tesla’s first V4 Supercharger launch in India.'
+
+/* -------------------------------------------------- Method */
+// Diagnose -> Structure -> Decide -> Implement -> Measure, shown on three very
+// different problems. Every cell is the resume's own wording; no invented insight.
+
+export const method = {
+  lede: 'The same five moves on three different problems: EV compliance at ARAI, manufacturing at Prodmax and motorsport at BAJA SAE.',
+  columns: [
+    { name: 'ARAI', context: 'EV compliance' },
+    { name: 'Prodmax', context: 'Manufacturing' },
+    { name: 'BAJA SAE', context: 'Motorsport leadership' },
+  ],
+  rows: [
+    {
+      verb: 'Diagnose',
+      cells: [
+        'Advised 15+ OEM engineering teams on certification strategy',
+        'Process mapping, capacity analysis and shopfloor observation',
+        'TAM-SAM-SOM market sizing, break-even and pricing for a 4,000 units/yr investment case',
+      ],
+    },
+    {
+      verb: 'Structure',
+      cells: [
+        'Synthesised global standards into a compliance roadmap',
+        'Linear-programming optimiser across 12 SKUs',
+        'Led a 25-member team across design, manufacturing and marketing',
+      ],
+    },
+    {
+      verb: 'Decide',
+      cells: [
+        'Standardised scheduling across the client portfolio',
+        'Scheduling shifted from volume-based to margin-based',
+        'Design trade-offs across 3 sub-teams',
+      ],
+    },
+    {
+      verb: 'Implement',
+      cells: [
+        'Real-time KPI dashboard across 3 departments; India’s first EV charger certification capability in 10 months',
+        'Trained 20+ operators and supervisors in 5S and Kanban',
+        'Race-day operations across 5 sub-teams, 20+ pit interventions',
+      ],
+    },
+    {
+      verb: 'Measure',
+      cells: [
+        '+20% throughput, -15% turnaround, zero client escalations over 30 months',
+        '+14.4% monthly profit, 70 → 91% utilisation, -17% lead time',
+        '-5.35% vehicle weight, ₹3.76L raised, AIR 1 at eBAJA 2023',
+      ],
+    },
+  ],
+}
+
+/* -------------------------------------------------- Personalised links */
+// /?for=<key> shows "Prepared for <name>" and one relevance line. Allowlist
+// only: unknown keys do nothing, so a crafted link can't put text on the page.
+// Add an entry only with a relevance line the resume backs.
+
+export type Audience = { name: string; relevance: string }
+
+export const audiences: Record<string, Audience> = {
+  'tata-motors': { name: 'Tata Motors', relevance: 'Delivered compliance programs for Tata Motors at ARAI.' },
+  vinfast: { name: 'VinFast', relevance: 'Delivered compliance programs for VinFast at ARAI.' },
+  tesla: { name: 'Tesla', relevance: 'Enabled Tesla’s first V4 Supercharger launch in India.' },
+  'hero-motocorp': {
+    name: 'Hero MotoCorp',
+    relevance: 'Pitched Hero MotoCorp’s executives for Team Predators Racing’s sponsorship.',
+  },
+  'spark-minda': {
+    name: 'Spark Minda',
+    relevance: 'Pitched Spark Minda’s executives for Team Predators Racing’s sponsorship.',
+  },
+}
+
 /* -------------------------------------------------- About / The Arc */
 
 export type ArcImage = {
