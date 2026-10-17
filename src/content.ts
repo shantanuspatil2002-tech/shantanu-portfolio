@@ -317,7 +317,7 @@ export const experience: ExperienceEntry[] = [
   },
   {
     org: 'Masters’ Union, Gurugram',
-    title: 'PGP-TBM (Technology & Business Management), Cohort 7',
+    title: 'PGP-TBM (Technology & Business Management), Cohort 7',
     dates: 'Jun 2026 – present',
     // TODO(shantanu): once you have a graduation date, e.g.
     //   note: 'Expected completion: <month year>.',

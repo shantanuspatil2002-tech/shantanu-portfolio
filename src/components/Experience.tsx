@@ -7,7 +7,7 @@ export default function Experience() {
     <SectionHeading index="03" eyebrow="Track record" title="Experience" lede="A career built at the intersection of engineering systems, operating constraints and business outcomes."/>
     <div className="space-y-5">
       {experience.map((job,index)=><Reveal key={job.org+job.title}><article className="grid overflow-hidden border border-line bg-surface lg:grid-cols-[190px_minmax(0,1fr)]">
-        <div className="border-b border-line bg-surface-2 p-5 lg:border-b-0 lg:border-r"><div className="stat text-[11px] text-accent">{job.dates}</div><div className="mt-5 stat text-[9px] uppercase tracking-[.18em] text-faint">0{index+1} / {experience.length}</div></div>
+        <div className="border-b border-line bg-surface-2 p-5 lg:border-b-0 lg:border-r"><div className="stat whitespace-nowrap text-[11px] text-accent">{job.dates}</div><div className="mt-5 stat text-[9px] uppercase tracking-[.18em] text-faint">0{index+1} / {experience.length}</div></div>
         <div className="p-6 sm:p-8 lg:p-10">
           <div className="max-w-3xl"><h3 className="text-3xl font-semibold tracking-[-.045em]">{job.title}</h3><div className="mt-1 text-sm text-muted">{job.org}</div>{job.note&&<div className="mt-2 text-xs text-faint">{job.note}</div>}</div>
           {job.tiles&&<div className="mt-8 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-3">{job.tiles.map(t=><div key={t.label} className="bg-surface-2 p-5"><Stat value={t.value} label={t.label} size="md"/></div>)}</div>}

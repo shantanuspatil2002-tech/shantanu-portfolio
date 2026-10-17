@@ -84,8 +84,8 @@ export default function Timeline() {
       {/* Mobile and screen readers: the same milestones as a dated list. */}
       <ol className="divide-y divide-line border-y border-line md:sr-only">
         {chronological.map((i) => (
-          <li key={i.id} className="grid grid-cols-[96px_1fr] gap-3 py-3">
-            <div className="stat text-[10px] leading-4 text-faint">{range(i)}</div>
+          <li key={i.id} className="grid grid-cols-[124px_1fr] gap-3 py-3">
+            <div className="stat whitespace-nowrap text-[10px] leading-4 text-faint">{range(i)}</div>
             <div>
               <div className="text-sm font-semibold">
                 {i.name}
@@ -104,7 +104,7 @@ export default function Timeline() {
             {i.image && <PortfolioImage {...i.image} aspectClassName="aspect-[4/3]" className="mb-3" />}
             <div className="stat text-[10px] uppercase tracking-[.18em] text-accent">{i.verb}</div>
             <div className="mt-1 text-sm font-semibold">{i.name}</div>
-            <div className="stat mt-1 text-[9px] text-faint">{range(i)}</div>
+            <div className="stat mt-1 whitespace-nowrap text-[9px] text-faint">{range(i)}</div>
             <p className="mt-2 text-xs leading-5 text-muted">{i.note}</p>
           </li>
         ))}
