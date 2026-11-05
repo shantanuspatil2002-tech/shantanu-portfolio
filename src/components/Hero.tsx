@@ -1,49 +1,69 @@
+import { useCallback, type MouseEvent } from 'react'
 import { hero, signature } from '../content'
 import { useAudience } from '../hooks/useAudience'
-import { Stat } from './ui'
+import CountUp from './CountUp'
 
-function SystemMap() {
-  const nodes = [
-    { code:'01', label:'ENGINEER', text:'Build the system', className:'left-0 top-8' },
-    { code:'02', label:'OPERATE', text:'Find the constraint', className:'right-0 top-[42%]' },
-    { code:'03', label:'STRATEGY', text:'Scale what works', className:'left-[18%] bottom-2' },
-  ]
-  return (
-    <div className="hero-map relative h-[480px] w-full">
-      <div className="absolute inset-[7%] rounded-full border border-line" />
-      <div className="absolute inset-[22%] rounded-full border border-dashed border-accent/40" />
-      <svg className="pointer-events-none absolute inset-0 h-full w-full text-accent/60" viewBox="0 0 560 480" fill="none" aria-hidden>
-        <path d="M90 110C190 50 350 95 470 220C400 350 230 430 105 360C55 300 45 180 90 110Z" stroke="currentColor" strokeWidth="1.2" strokeDasharray="4 8"/>
-        <path d="M94 112L190 190H438V250L300 370" stroke="currentColor" strokeWidth="1"/>
-        <circle cx="94" cy="112" r="4" fill="currentColor"/><circle cx="438" cy="250" r="4" fill="currentColor"/><circle cx="300" cy="370" r="4" fill="currentColor"/>
-      </svg>
-      <div className="absolute left-1/2 top-1/2 flex h-44 w-44 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-accent bg-surface p-7 text-center shadow-[0_24px_80px_rgba(0,0,0,.10)]">
-        <div><div className="stat text-[9px] uppercase tracking-[.2em] text-accent">Operating thesis</div><div className="mt-3 text-2xl font-semibold leading-none tracking-[-.04em]">Make the<br/>system work.</div><div className="mt-3 text-xs leading-relaxed text-muted">Evidence → decision → execution</div></div>
-      </div>
-      {nodes.map(n => <div key={n.code} className={`absolute w-48 border border-line bg-surface p-4 shadow-[0_10px_35px_rgba(0,0,0,.05)] transition-transform duration-300 hover:-translate-y-1 ${n.className}`}><div className="flex items-center justify-between"><span className="stat text-[10px] text-accent">{n.code}</span><span className="h-1.5 w-1.5 rounded-full bg-accent"/></div><div className="mt-4 text-[10px] font-semibold tracking-[.2em]">{n.label}</div><div className="mt-1 text-sm text-muted">{n.text}</div></div>)}
-      <div className="absolute bottom-0 right-0 border-l border-t border-line bg-bg px-4 py-3"><div className="stat text-[9px] uppercase tracking-[.18em] text-faint">FIG. 01</div><div className="mt-1 text-xs text-muted">Blueprint → Boardroom</div></div>
-    </div>
-  )
-}
+const LINE_A = 'Most people get into consulting and then learn an industry.'.split(' ')
+
+/** Delays are pure CSS, so the sequence needs no JS timers and respects reduced motion. */
+const wordStyle = (i: number) => ({ animationDelay: `${0.15 + i * 0.06}s` })
+const aEnd = 0.15 + LINE_A.length * 0.06
+const BEAT = aEnd + 0.5
 
 export default function Hero() {
   const audience = useAudience()
-  return <section id="top" className="relative overflow-hidden border-b border-line pt-24">
-    <div aria-hidden className="blueprint-grid blueprint-grid-fade pointer-events-none absolute inset-0"/>
-    <div className="section-shell relative grid min-h-[calc(100vh-6rem)] items-center gap-12 py-16 lg:grid-cols-[1.05fr_.95fr]">
-      <div className="relative z-10 max-w-[680px]">
-        <div className="flex items-center gap-3"><span className="stat text-[11px] uppercase tracking-[.2em] text-accent">{audience ? `Prepared for ${audience.name}` : hero.kicker}</span></div>
-        <h1 className="mt-7 text-[clamp(3.8rem,7.5vw,7.2rem)] font-semibold leading-[.84] tracking-[-.065em]">{hero.heading}</h1>
-        <p className="mt-8 max-w-[620px] text-[clamp(1.45rem,2.5vw,2.25rem)] font-semibold leading-[1.05] tracking-[-.045em]">{hero.statement}</p>
-        <p className="mt-5 max-w-[590px] text-base leading-7 text-muted">{hero.positioning}</p>
-        {audience && <p className="mt-6 max-w-[570px] text-sm leading-6 text-muted"><span className="stat mr-2 text-[10px] uppercase tracking-[.18em] text-accent">Relevant to {audience.name}</span>{audience.relevance}</p>}
-        <p className="mt-7 max-w-[570px] border-l-2 border-accent pl-4 text-lg font-medium leading-7">{hero.thesisQuote}</p>
-        <div className="mt-8 flex flex-wrap gap-3">{hero.ctas.map(cta => <a key={cta.label} href={cta.href} {...('download' in cta && cta.download ? {download:true}:{})} {...('external' in cta && cta.external ? {target:'_blank',rel:'noreferrer'}:{})} className={cta.kind==='primary'?'btn btn-primary':'btn btn-secondary'}>{cta.label}</a>)}</div>
-        <p className="mt-5 max-w-[570px] text-sm leading-6 text-muted">{hero.availability}</p>
-        <div className="mt-12 border-t border-line pt-5"><span className="stat mr-3 text-[10px] uppercase tracking-[.18em] text-accent">Signature work</span><span className="text-sm font-medium">{signature}</span></div>
-        <ul className="mt-6 grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4">{hero.quickStats.map(s=><li key={s.label}><Stat value={s.value} label={s.label} size="sm"/></li>)}</ul>
+  const onMove = useCallback((e: MouseEvent<HTMLElement>) => {
+    const r = e.currentTarget.getBoundingClientRect()
+    e.currentTarget.style.setProperty('--mx', `${((e.clientX - r.left) / r.width) * 100}%`)
+    e.currentTarget.style.setProperty('--my', `${((e.clientY - r.top) / r.height) * 100}%`)
+  }, [])
+
+  return (
+    <section id="top" onMouseMove={onMove} className="stage spot relative isolate flex min-h-[100svh] flex-col justify-center overflow-hidden pt-24">
+      <div aria-hidden className="blueprint-grid blueprint-grid-fade pointer-events-none absolute inset-0 -z-10" />
+      <div className="section-shell w-full py-16">
+        <div className="stat fade-rise text-[11px] uppercase tracking-[.22em] text-accent" style={{ animationDelay: '0s' }}>
+          {audience ? `Prepared for ${audience.name}` : hero.kicker}
+        </div>
+
+        <p className="mt-7 max-w-4xl font-serif text-[clamp(1.9rem,4.6vw,4.1rem)] font-medium leading-[1.06] tracking-[-.035em] text-muted" aria-label={LINE_A.join(' ')}>
+          {LINE_A.map((w, i) => <span key={i} aria-hidden className="word-in mr-[.28em]" style={wordStyle(i)}>{w}</span>)}
+        </p>
+        <p className="fade-rise mt-3 font-serif text-[clamp(2.6rem,7.4vw,6.6rem)] font-semibold leading-[.95] tracking-[-.05em] text-accent" style={{ animationDelay: `${BEAT}s` }}>
+          I learned the industry first.
+        </p>
+
+        <div className="fade-rise mt-14 grid gap-10 border-t border-line pt-8 lg:grid-cols-[1.2fr_1fr]" style={{ animationDelay: `${BEAT + 0.9}s` }}>
+          <div>
+            <h1 className="text-[clamp(2.4rem,4.4vw,3.8rem)] font-semibold leading-[.95] tracking-[-.05em]">{hero.heading}</h1>
+            <p className="mt-4 max-w-xl text-lg font-medium leading-snug tracking-[-.02em]">{hero.statement}</p>
+            <p className="mt-2 text-sm text-muted">{hero.positioning}</p>
+            {audience && <p className="mt-4 max-w-xl text-sm leading-6 text-muted"><span className="stat mr-2 text-[10px] uppercase tracking-[.18em] text-accent">Relevant to {audience.name}</span>{audience.relevance}</p>}
+            <div className="mt-7 flex flex-wrap gap-3">
+              {hero.ctas.map((cta) => (
+                <a key={cta.label} href={cta.href} {...('download' in cta && cta.download ? { download: true } : {})} {...('external' in cta && cta.external ? { target: '_blank', rel: 'noreferrer' } : {})} className={`btn ${cta.kind === 'primary' ? 'btn-primary' : 'btn-secondary'}`}>{cta.label}</a>
+              ))}
+            </div>
+          </div>
+          <div>
+            <div className="border border-line bg-surface/60 p-5 backdrop-blur-sm">
+              <div className="stat text-[10px] uppercase tracking-[.2em] text-accent">Signature work</div>
+              <div className="mt-2 text-lg font-semibold leading-snug">{signature}</div>
+            </div>
+            <ul className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+              <li><div className="stat text-2xl font-semibold"><CountUp stat={{ to: 500, suffix: '+', label: '' }} /></div><div className="mt-1 text-[10px] uppercase tracking-[.12em] text-faint">programs, zero escalations</div></li>
+              <li><div className="stat text-2xl font-semibold"><CountUp stat={{ to: 14.4, decimals: 1, prefix: '+', suffix: '%', label: '' }} /></div><div className="mt-1 text-[10px] uppercase tracking-[.12em] text-faint">monthly profit, Prodmax</div></li>
+              <li><div className="stat text-2xl font-semibold">AIR 1</div><div className="mt-1 text-[10px] uppercase tracking-[.12em] text-faint">eBAJA 2023</div></li>
+              <li><div className="stat text-2xl font-semibold"><CountUp stat={{ to: 3.76, decimals: 2, prefix: '₹', suffix: 'L', label: '' }} /></div><div className="mt-1 text-[10px] uppercase tracking-[.12em] text-faint">raised, 42% of budget</div></li>
+            </ul>
+          </div>
+        </div>
+        <p className="mt-8 max-w-xl text-xs leading-6 text-faint">{hero.availability}</p>
       </div>
-      <div className="hidden lg:block"><SystemMap/></div>
-    </div>
-  </section>
+      <a href="#story" className="fade-rise absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-faint sm:flex" style={{ animationDelay: `${BEAT + 1.6}s` }} aria-label="Scroll to the story">
+        <span className="stat text-[9px] uppercase tracking-[.24em]">Build · Test · Improve · Scale</span>
+        <span aria-hidden className="text-lg" style={{ animation: 'cue 1.8s ease-in-out infinite' }}>↓</span>
+      </a>
+    </section>
+  )
 }

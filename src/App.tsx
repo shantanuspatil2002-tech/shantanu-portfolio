@@ -8,11 +8,15 @@ import Skills from './components/Skills'
 import Leadership from './components/Leadership'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Chapters from './components/Chapters'
+import RelianceWin from './components/RelianceWin'
+import ScrollProgress from './components/ScrollProgress'
 import { ScaleBar } from './components/ui'
 
 export default function App() {
   return (
     <>
+      <ScrollProgress />
       <Nav />
       <a
         href="#about"
@@ -23,6 +27,8 @@ export default function App() {
 
       <main>
         <Hero />
+        <Chapters />
+        <RelianceWin />
         <Method />
         <About />
         <Experience />

@@ -33,9 +33,9 @@ export const site = {
   name: 'Shantanu Patil',
   role: 'Mechanical Engineer → Operations & Strategy',
   // Leads the hero: one plain statement first, keywords underneath.
-  statement: 'I turn complex automotive and EV operations into measurable outcomes.',
+  statement: 'I find where a business is stuck, and build the system that gets it moving.',
   positioningLine:
-    'Mechanical Engineer → Operations & Strategy | EV, Automotive & Mobility',
+    'Operator turned consultant | EV, Automotive & Mobility',
   // The one line that actually differentiates him. Surfaced in the hero and
   // closing the Arc - do not bury it further down the page again.
   thesisQuote:
@@ -63,17 +63,17 @@ export type NavItem = { id: string; label: string }
 // Kept to five on purpose - Achievements folded into Experience, Motorsport
 // folded into About, Insights removed (see below).
 export const nav: NavItem[] = [
+  { id: 'story', label: 'Story' },
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
   { id: 'work', label: 'Case Studies' },
-  { id: 'skills', label: 'Skills' },
   { id: 'contact', label: 'Contact' },
 ]
 
 /* -------------------------------------------------- Hero */
 
 export const hero = {
-  kicker: 'Portfolio · Blueprint to Boardroom',
+  kicker: 'Selected work · 2021 – 2026',
   heading: 'Shantanu Patil',
   statement: site.statement,
   positioning: site.positioningLine,
@@ -678,3 +678,115 @@ export const contact = {
   line: site.positioningLine,
   sub: site.availability,
 }
+
+
+/* -------------------------------------------------- Experiential story */
+// Four chapters, one per scene. Every number is the resume's own; the
+// count-up animation only animates the same figure shown in the label.
+
+export type ChapterStat = { to?: number; decimals?: number; prefix?: string; suffix?: string; text?: string; label: string }
+export type Chapter = {
+  id: 'build' | 'test' | 'improve' | 'scale'
+  index: string
+  verb: string
+  org: string
+  dates: string
+  headline: string
+  body: string
+  stats: ChapterStat[]
+  image: { src: string; alt: string; caption: string; position?: string }
+  caseId: string
+  caseLabel: string
+}
+
+export const chapters: Chapter[] = [
+  {
+    id: 'build', index: '01', verb: 'Build', org: 'BAJA SAE · Team Predators Racing', dates: 'Jul 2021 – Apr 2023',
+    headline: 'I built a team of 25, funded it, and won.',
+    body: 'Team Leader and Marketing & Manufacturing Lead. Pitched 35+ executives for the budget, built the investment case for a 4,000 units/yr vehicle and defended it live to international investor-judges.',
+    stats: [
+      { text: 'AIR 1', label: 'eBAJA 2023, 1 of 81 teams' },
+      { to: 3.76, decimals: 2, prefix: '₹', suffix: 'L', label: 'raised, 42% of the budget' },
+      { to: 35, suffix: '+', label: 'executives pitched' },
+    ],
+    image: { src: 'images/baja-overall-winner.webp', alt: 'Team Predators Racing with the E4 car and the Overall Winner board', caption: 'Team Predators Racing with car E4 and the Overall Winner board.', position: 'object-center' },
+    caseId: 'baja', caseLabel: 'Read the BAJA case',
+  },
+  {
+    id: 'test', index: '02', verb: 'Test', org: 'ARAI · EV compliance', dates: 'Jul 2023 – Jun 2026',
+    headline: 'I ran a high-stakes operation and never lost a client.',
+    body: 'Research Engineer, EV Compliance & Client Operations. Standardised scheduling, put three departments on one live KPI dashboard and built India’s first DC EMC test setup for EV chargers in 10 months.',
+    stats: [
+      { to: 500, suffix: '+', label: 'compliance programs' },
+      { to: 0, label: 'client escalations in 30 months' },
+      { to: 20, prefix: '+', suffix: '%', label: 'testing throughput' },
+    ],
+    image: { src: 'images/arai-keysight-session.webp', alt: 'ARAI and Keysight session on charging infrastructure requirements and interoperability', caption: 'ARAI and Keysight session on EV charging requirements. The slide maps IS 17017 to IEC.', position: 'object-left' },
+    caseId: 'arai', caseLabel: 'Read the ARAI case',
+  },
+  {
+    id: 'improve', index: '03', verb: 'Improve', org: 'Prodmax Global · pro bono', dates: 'Oct 2023 – Aug 2025',
+    headline: 'I fixed a factory that was running below capacity.',
+    body: 'Independent Operations Consultant. Diagnosed the bottleneck, built a margin-first scheduling model, then trained 20+ operators to keep it running. CEO-verified in writing.',
+    stats: [
+      { to: 14.4, decimals: 1, prefix: '+', suffix: '%', label: 'monthly profit' },
+      { to: 17, prefix: '-', suffix: '%', label: 'lead time' },
+      { to: 13.4, decimals: 1, prefix: '-', suffix: '%', label: 'material waste' },
+    ],
+    image: { src: 'images/shopfloor.webp', alt: 'A manufacturing shopfloor with fabrication stations and marked walkways', caption: 'Manufacturing shopfloor.', position: 'object-center' },
+    caseId: 'dmaic', caseLabel: 'Read the Prodmax case',
+  },
+  {
+    id: 'scale', index: '04', verb: 'Scale', org: 'Masters’ Union · Consulting track', dates: 'Jun 2026 – present',
+    headline: 'Now I am learning to do it for more companies.',
+    body: 'One of 5 scholarship recipients across a 470-member batch. Consulting is the primary track, Supply Chain & Operations the secondary. Case design, policy work and a product build, from day one.',
+    stats: [
+      { text: '1 of 5', label: 'scholarship recipients in 470' },
+      { to: 4, label: 'India entry options modelled for VoltEdge' },
+      { to: 5, label: 'policy levers in the Maharashtra Compact' },
+    ],
+    image: { src: 'images/masters-union-group.webp', alt: 'A group of Masters’ Union students in a classroom in Gurugram', caption: 'Masters’ Union, Gurugram.', position: 'object-center' },
+    caseId: 'voltedge', caseLabel: 'See the case work',
+  },
+]
+
+/** Organisations whose EV-charger programs were worked on at ARAI. Logos belong to their owners. */
+export const clientLogos = [
+  { name: 'Tesla', src: 'images/logos/tesla.png', h: 22 },
+  { name: 'Tata Motors', src: 'images/logos/tata.png', h: 26 },
+  { name: 'Mahindra', src: 'images/logos/mahindra.png', h: 24 },
+  { name: 'Jio', src: 'images/logos/jio.png', h: 54 },
+  { name: 'BPCL', src: 'images/logos/bpcl.png', h: 62 },
+  { name: 'IndianOil', src: 'images/logos/iocl.png', h: 62 },
+  { name: 'BHEL', src: 'images/logos/bhel.png', h: 56 },
+  { name: 'VinFast', src: 'images/logos/vinfast.png', h: 24 },
+]
+
+/** BAJA photo reel shown inside the Build chapter. */
+export const bajaReel = [
+  { src: 'images/baja-flag-off.webp', alt: 'Car 10 at the start line as the chequered flag drops', caption: 'Flag-off, car 10' },
+  { src: 'images/baja-on-course.webp', alt: 'Buggies including car 10 on a dusty off-road course', caption: 'On course' },
+  { src: 'images/baja-sponsor-shirts.webp', alt: 'The eBAJA car at the event with team members in sponsor-branded shirts', caption: 'Sponsor shirts, eBAJA' },
+  { src: 'images/baja-paddock.webp', alt: 'Rows of BAJA buggies lined up in the paddock', caption: 'The paddock' },
+  { src: 'images/baja-build.webp', alt: 'A buggy chassis being assembled in a workshop', caption: 'The build' },
+]
+
+/** Prodmax before/after values for the drag-to-compare slider (resume figures). */
+export const prodmaxCompare = {
+  utilisation: { before: 70, after: 91, unit: '%', label: 'Resource utilisation' },
+  profit: { before: 4.5, after: 5.15, unit: 'L', prefix: '₹', label: 'Monthly profit' },
+}
+
+/**
+ * The Reliance case-competition win. Left null until the facts are supplied:
+ * the section renders nothing while this is null, so nothing is invented.
+ */
+export type RelianceWin = {
+  competition: string
+  date: string
+  role: string
+  result: string
+  summary: string
+  image?: { src: string; alt: string; caption?: string }
+}
+export const relianceWin: RelianceWin | null = null
