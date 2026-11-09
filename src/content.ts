@@ -752,14 +752,14 @@ export const chapters: Chapter[] = [
 
 /** Organisations whose EV-charger programs were worked on at ARAI. Logos belong to their owners. */
 export const clientLogos = [
-  { name: 'Tesla', src: 'images/logos/tesla.png', h: 22 },
-  { name: 'Tata Motors', src: 'images/logos/tata.png', h: 26 },
-  { name: 'Mahindra', src: 'images/logos/mahindra.png', h: 24 },
-  { name: 'Jio', src: 'images/logos/jio.png', h: 54 },
-  { name: 'BPCL', src: 'images/logos/bpcl.png', h: 62 },
-  { name: 'IndianOil', src: 'images/logos/iocl.png', h: 62 },
-  { name: 'BHEL', src: 'images/logos/bhel.png', h: 56 },
-  { name: 'VinFast', src: 'images/logos/vinfast.png', h: 24 },
+  { name: 'Tesla', src: 'images/logos/tesla.png', h: 20 },
+  { name: 'Tata Motors', src: 'images/logos/tata.png', h: 24 },
+  { name: 'Mahindra', src: 'images/logos/mahindra.png', h: 22 },
+  { name: 'Jio', src: 'images/logos/jio.png', h: 48 },
+  { name: 'BPCL', src: 'images/logos/bpcl.png', h: 58 },
+  { name: 'IndianOil', src: 'images/logos/iocl.png', h: 58 },
+  { name: 'BHEL', src: 'images/logos/bhel.png', h: 50 },
+  { name: 'VinFast', src: 'images/logos/vinfast.png', h: 20 },
 ]
 
 /** BAJA photo reel shown inside the Build chapter. */
@@ -792,17 +792,42 @@ export type RelianceWin = {
 export const relianceWin: RelianceWin | null = null
 
 
-/** Institutions with their own marks. Kind = the relationship, in plain words. */
-export const affiliations = [
-  { name: 'Masters’ Union University', logo: 'images/logos/mu.png', h: 46, kind: 'Studying', role: 'PGP in Technology & Business Management, Cohort 7', when: 'Jun 2026 – present' },
-  { name: 'ARAI', logo: 'images/logos/arai.png', h: 70, kind: 'Worked', role: 'Research Engineer, EV Compliance & Client Operations', when: 'Jul 2023 – Jun 2026' },
-  { name: 'BAJA SAEINDIA', logo: 'images/logos/saeindia.png', h: 38, kind: 'Led a team', role: 'Team Leader, Team Predators Racing, BAJA SAEINDIA', when: 'Jul 2021 – Apr 2023' },
-  { name: 'Savitribai Phule Pune University', logo: 'images/logos/sppu.png', h: 26, kind: 'Graduated', role: 'B.E. Mechanical Engineering, D.Y. Patil College of Engineering, Pune (affiliated to the university)', when: 'Dec 2020 – Apr 2023' },
+/** Every organisation named on the site, with its own mark (transparent PNGs in public/images/logos). */
+export type Mark = { name: string; src: string; h: number }
+const mark = (name: string, file: string, h: number): Mark => ({ name, src: `images/logos/${file}.png`, h })
+export const MARKS = {
+  mu: mark('Masters’ Union', 'mu', 40),
+  arai: mark('ARAI', 'arai', 56),
+  saeindia: mark('SAEINDIA, organiser of BAJA', 'saeindia', 26),
+  dypcoe: mark('D.Y. Patil College of Engineering', 'dypcoe', 54),
+  tfi: mark('Teach For India', 'tfi', 24),
+  samagra: mark('Samagra', 'samagra', 40),
+  wharton: mark('Wharton, University of Pennsylvania', 'wharton', 44),
+  kennesaw: mark('Kennesaw State University', 'kennesaw', 50),
+  keysight: mark('Keysight', 'keysight', 26),
+  hero: mark('Hero MotoCorp', 'hero', 34),
+}
+
+export const affiliations: { mark: Mark; kind: string; role: string; when: string }[] = [
+  { mark: MARKS.mu, kind: 'Studying', role: 'PGP in Technology & Business Management, Cohort 7', when: 'Jun 2026 – present' },
+  { mark: MARKS.arai, kind: 'Worked', role: 'Research Engineer, EV Compliance & Client Operations', when: 'Jul 2023 – Jun 2026' },
+  { mark: MARKS.saeindia, kind: 'Led a team', role: 'Team Leader, Team Predators Racing, BAJA SAEINDIA', when: 'Jul 2021 – Apr 2023' },
+  { mark: MARKS.dypcoe, kind: 'Graduated', role: 'B.E. Mechanical Engineering, D.Y. Patil College of Engineering, Pune', when: 'Dec 2020 – Apr 2023' },
+  { mark: MARKS.tfi, kind: 'Volunteered', role: 'Mentored 8 underserved students, 20+ hrs a month', when: 'Teach For India' },
+  { mark: MARKS.wharton, kind: 'Certified', role: 'Operations Analytics and Business Foundations', when: 'University of Pennsylvania' },
+  { mark: MARKS.kennesaw, kind: 'Certified', role: 'Six Sigma Green Belt', when: 'Kennesaw State University' },
+  { mark: MARKS.samagra, kind: 'Competed', role: 'The Governance Challenge 2026, Urban Development track', when: 'Samagra · Govt. of Maharashtra' },
 ]
 
-/** Small logo chip shown on the matching story chapter. */
-export const chapterLogo: Record<string, { src: string; alt: string; h: number }> = {
-  build: { src: 'images/logos/saeindia.png', alt: 'SAEINDIA, organiser of BAJA', h: 22 },
-  test: { src: 'images/logos/arai.png', alt: 'ARAI', h: 34 },
-  scale: { src: 'images/logos/mu.png', alt: 'Masters’ Union', h: 26 },
+/** Marks shown on each story chapter, and on case cards. */
+export const chapterMarks: Record<string, Mark[]> = {
+  build: [MARKS.saeindia],
+  test: [MARKS.arai, MARKS.keysight],
+  scale: [MARKS.mu],
+}
+export const caseMarks: Record<string, Mark[]> = {
+  arai: [MARKS.arai, MARKS.keysight],
+  baja: [MARKS.saeindia],
+  voltedge: [MARKS.mu],
+  governance: [MARKS.samagra],
 }

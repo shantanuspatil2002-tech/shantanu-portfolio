@@ -84,3 +84,6 @@ html.print-mode .word-in, html.print-mode .fade-rise { opacity:1 !important; ani
 .paper { --c-bg:#f3f1ec; --c-surface:#fbfaf7; --c-surface-2:#e9e6df; --c-line:#d2cec4; --c-ink:#14150f; --c-muted:#55564e; --c-faint:#85867d; --c-accent:#b45119; --c-accent-ink:#fffaf4; background:var(--c-bg); color:var(--c-ink); color-scheme:light; }
 .paper .stage { --c-bg:#0d0e0b; --c-ink:#f2efe8; color:var(--c-ink); }
 html, body { background:#0d0e0b; }
+
+/* Dark token set without a background, for overlays that supply their own scrim. */
+.stage-vars { --c-bg:#0d0e0b; --c-surface:#161812; --c-surface-2:#1f221a; --c-line:#33372c; --c-ink:#f2efe8; --c-muted:#b4b5ab; --c-faint:#85867c; --c-accent:#ef9557; --c-accent-ink:#1a0f07; color:var(--c-ink); color-scheme:dark; }

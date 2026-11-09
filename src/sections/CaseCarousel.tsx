@@ -1,6 +1,6 @@
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { caseStudies, type CaseStudy } from '../content'
+import { caseMarks, caseStudies, MARKS, type CaseStudy } from '../content'
 import MediaGrid from '../components/MediaGrid'
 
 const FACE: Record<string, { src?: string; pos?: string; tone: string }> = {
@@ -42,7 +42,11 @@ export default function CaseCarousel() {
     const opener = document.activeElement as HTMLElement | null
     const root = () => dialogRef.current
     const focusables = () => Array.from(root()?.querySelectorAll<HTMLElement>('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])') ?? [])
-    const t = window.setTimeout(() => (focusables()[0] ?? root())?.focus(), 60)
+    const t = window.setTimeout(() => {
+      const ov = root()?.parentElement
+      if (ov) ov.scrollTop = 0
+      ;(focusables()[0] ?? root())?.focus({ preventScroll: true })
+    }, 420)
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') { close(); return }
       if (e.key !== 'Tab') return
@@ -83,7 +87,8 @@ export default function CaseCarousel() {
               aria-label={`Open case: ${cs.title}`}
             >
               <Face cs={cs} />
-              <div className="absolute inset-x-0 top-0 flex items-center justify-between p-5"><span className="stat text-xs text-accent">{cs.index}</span><span className="stat text-[9px] uppercase tracking-[.16em] text-white/70">{cs.frameLabel}</span></div>
+              <div aria-hidden className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/75 to-transparent" />
+              <div className="absolute inset-x-0 top-0 flex items-start justify-between gap-3 p-5"><div><span className="stat text-xs text-accent">{cs.index}</span><div className="stat mt-1 text-[9px] uppercase tracking-[.16em] text-white/70">{cs.frameLabel}</div></div>{caseMarks[cs.id] && <div className="flex items-center gap-3">{caseMarks[cs.id].map((m) => <img key={m.name} src={m.src} alt={m.name} style={{ maxHeight: m.h * 0.5, maxWidth: 90 }} className="w-auto" />)}</div>}</div>
               <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                 <div className="stat text-[clamp(2.4rem,4vw,3.2rem)] font-semibold leading-none">{cs.headlineStat.value}</div>
                 <div className="mt-1 text-[10px] uppercase tracking-[.12em] text-white/70">{cs.headlineStat.label}</div>
@@ -97,10 +102,12 @@ export default function CaseCarousel() {
 
       <AnimatePresence>
         {open && (
-          <motion.div className="stage fixed inset-0 z-[70] flex items-start justify-center overflow-y-auto bg-black/80 p-3 backdrop-blur-sm sm:p-8" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={close} role="dialog" aria-modal="true" aria-label={open.title}>
+          <motion.div className="stage-vars fixed inset-0 z-[70] flex items-start justify-center overflow-y-auto bg-black/85 p-3 sm:p-8" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={close} role="dialog" aria-modal="true" aria-label={open.title}>
             <motion.div ref={dialogRef} tabIndex={-1} layoutId={`card-${open.id}`} onClick={(e) => e.stopPropagation()} className="relative my-auto outline-none w-full max-w-4xl overflow-hidden border border-line bg-[var(--c-surface)]">
               <div className="relative h-48 sm:h-60"><Face cs={open} />
                 <button type="button" onClick={close} aria-label="Close" className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-lg backdrop-blur hover:bg-accent hover:text-accent-ink">×</button>
+                <div aria-hidden className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/70 to-transparent" />
+                {caseMarks[open.id] && <div className="absolute left-6 top-6 flex items-center gap-6 sm:left-8">{caseMarks[open.id].map((m) => <img key={m.name} src={m.src} alt={m.name} style={{ maxHeight: m.h * 0.8, maxWidth: 160 }} className="w-auto" />)}</div>}
                 <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8"><div className="stat text-[10px] uppercase tracking-[.2em] text-accent">{open.index} · {open.frameLabel}</div><h3 className="mt-2 font-serif text-3xl font-semibold leading-tight sm:text-4xl">{open.title}</h3></div>
               </div>
               <div className="p-6 sm:p-8">
@@ -115,6 +122,7 @@ export default function CaseCarousel() {
                   ))}
                 </div>
                 {open.callout && <div className="mt-6 border-l-2 border-accent bg-white/5 px-5 py-4"><div className="stat text-[10px] uppercase tracking-[.18em] text-accent">{open.callout.label}</div><p className="mt-1 text-sm leading-6">{open.callout.text}</p></div>}
+                {open.id === 'baja' && <div className="mt-6 flex flex-wrap items-center gap-5 border-t border-line pt-5"><span className="stat text-[10px] uppercase tracking-[.18em] text-faint">Sponsor pitches included</span><img src={MARKS.hero.src} alt={MARKS.hero.name} style={{ maxHeight: MARKS.hero.h * 0.8 }} className="w-auto" /><span className="text-xs text-muted">and Datatech Labs, Spark Minda</span></div>}
                 {open.media && <MediaGrid groups={open.media} />}
                 {open.link && <a href={open.link.href} target="_blank" rel="noreferrer" className="mt-7 inline-flex bg-accent px-6 py-3 text-xs font-bold uppercase tracking-[.14em] text-accent-ink">{open.link.label} ↗</a>}
               </div>

@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from 'motion/react'
-import { chapterLogo, chapters, type Chapter } from '../content'
+import { chapterMarks, chapters, type Chapter } from '../content'
 import CountUp from '../components/CountUp'
 
 const openCase = (id: string) => {
@@ -14,6 +14,7 @@ function Panel({ c }: { c: Chapter }) {
       <div aria-hidden className="outline-word absolute -left-4 top-6 text-[30vw] lg:text-[22vw]">{c.verb}</div>
       <div className="relative z-10 mx-auto grid w-full max-w-[1180px] items-center gap-8 lg:grid-cols-[1fr_1fr] lg:gap-14">
         <div>
+          {chapterMarks[c.id] && <div className="mb-5 flex items-center gap-6">{chapterMarks[c.id].map((m) => <img key={m.name} src={m.src} alt={m.name} style={{ maxHeight: m.h * 0.7 }} className="w-auto opacity-90" />)}</div>}
           <div className="flex items-center gap-3"><span className="stat text-sm text-accent">{c.index}</span><span className="h-px w-10 bg-accent" /><span className="stat text-[10px] uppercase tracking-[.2em] text-faint">{c.verb}</span></div>
           <h2 id={`p-${c.id}`} className="mt-5 font-serif text-[clamp(2rem,4.2vw,3.8rem)] font-semibold leading-[1.02] tracking-[-.035em]">{c.headline}</h2>
           <div className="mt-3 text-sm text-faint"><span className="font-medium text-muted">{c.org}</span> · <span className="stat">{c.dates}</span></div>
@@ -28,7 +29,6 @@ function Panel({ c }: { c: Chapter }) {
           <button type="button" onClick={() => openCase(c.caseId)} className="mt-7 inline-flex items-center gap-2 border border-white/20 px-5 py-3 text-xs font-bold uppercase tracking-[.14em] transition-colors hover:border-accent hover:text-accent">{c.caseLabel} <span aria-hidden>→</span></button>
         </div>
         <figure className="relative">
-          {chapterLogo[c.id] && <div className="absolute left-3 top-3 z-10 flex h-12 items-center bg-white px-4 shadow-lg"><img src={chapterLogo[c.id].src} alt={chapterLogo[c.id].alt} style={{ maxHeight: chapterLogo[c.id].h }} className="w-auto" /></div>}
           <img src={c.image.src} alt={c.image.alt} loading="lazy" className={`aspect-[4/3] max-h-[52vh] w-full object-cover shadow-[0_30px_90px_rgba(0,0,0,.55)] ${c.image.position ?? ''}`} />
           <figcaption className="stat mt-3 text-[10px] uppercase tracking-[.14em] text-faint">{c.image.caption}</figcaption>
         </figure>
