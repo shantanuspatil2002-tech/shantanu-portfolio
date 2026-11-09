@@ -64,9 +64,9 @@ export type NavItem = { id: string; label: string }
 // folded into About, Insights removed (see below).
 export const nav: NavItem[] = [
   { id: 'story', label: 'Story' },
-  { id: 'about', label: 'About' },
+  { id: 'work', label: 'Work' },
   { id: 'experience', label: 'Experience' },
-  { id: 'work', label: 'Case Studies' },
+  { id: 'credentials', label: 'Toolkit' },
   { id: 'contact', label: 'Contact' },
 ]
 

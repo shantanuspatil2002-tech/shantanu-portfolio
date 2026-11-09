@@ -2,11 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --c-bg:#f3f1ec; --c-surface:#fbfaf7; --c-surface-2:#e9e6df; --c-line:#d2cec4;
-  --c-ink:#171815; --c-muted:#65665f; --c-faint:#85867d; --c-accent:#b45119; --c-accent-ink:#fffaf4;
-  --c-blueprint:rgba(23,24,21,.045); color-scheme:light;
-}
+:root { --c-bg:#0d0e0b; --c-surface:#161812; --c-surface-2:#1f221a; --c-line:#33372c; --c-ink:#f2efe8; --c-muted:#b4b5ab; --c-faint:#85867c; --c-accent:#ef9557; --c-accent-ink:#1a0f07; --c-blueprint:rgba(240,238,232,.05); color-scheme:dark; }
 :root.dark { --c-bg:#111310; --c-surface:#191b17; --c-surface-2:#22251f; --c-line:#363a31; --c-ink:#f0eee8; --c-muted:#a7a89f; --c-faint:#777a70; --c-accent:#ef9557; --c-accent-ink:#21150d; --c-blueprint:rgba(240,238,232,.055); color-scheme:dark; }
 @media (prefers-color-scheme:dark) { :root:not(.light) { --c-bg:#111310; --c-surface:#191b17; --c-surface-2:#22251f; --c-line:#363a31; --c-ink:#f0eee8; --c-muted:#a7a89f; --c-faint:#777a70; --c-accent:#ef9557; --c-accent-ink:#21150d; --c-blueprint:rgba(240,238,232,.055); color-scheme:dark; } }
 :root.light { --c-bg:#f3f1ec; --c-surface:#fbfaf7; --c-surface-2:#e9e6df; --c-line:#d2cec4; --c-ink:#171815; --c-muted:#65665f; --c-faint:#85867d; --c-accent:#b45119; --c-accent-ink:#fffaf4; --c-blueprint:rgba(23,24,21,.045); color-scheme:light; }
@@ -83,3 +79,8 @@ input[type=range].drag::-moz-range-track { height:4px; background:var(--c-line);
 input[type=range].drag::-moz-range-thumb { width:36px; height:36px; border-radius:50%; background:var(--c-accent); border:4px solid var(--c-bg); }
 @media (prefers-reduced-motion:reduce) { .word-in,.fade-rise { opacity:1 !important; animation:none !important; filter:none !important; transform:none !important; } .marquee-track { animation:none; } }
 html.print-mode .word-in, html.print-mode .fade-rise { opacity:1 !important; animation:none !important; }
+
+/* Paper: the one light section, for rhythm. */
+.paper { --c-bg:#f3f1ec; --c-surface:#fbfaf7; --c-surface-2:#e9e6df; --c-line:#d2cec4; --c-ink:#14150f; --c-muted:#55564e; --c-faint:#85867d; --c-accent:#b45119; --c-accent-ink:#fffaf4; background:var(--c-bg); color:var(--c-ink); color-scheme:light; }
+.paper .stage { --c-bg:#0d0e0b; --c-ink:#f2efe8; color:var(--c-ink); }
+html, body { background:#0d0e0b; }
