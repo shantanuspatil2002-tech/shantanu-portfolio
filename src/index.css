@@ -61,13 +61,13 @@ html.print-mode body { padding:28px 0; }
 /* ---------- Experiential layer: the always-dark "stage" ---------- */
 .stage { --c-bg:#0d0e0b; --c-surface:#161812; --c-surface-2:#1f221a; --c-line:#33372c; --c-ink:#f2efe8; --c-muted:#b4b5ab; --c-faint:#85867c; --c-accent:#ef9557; --c-accent-ink:#1a0f07; --c-blueprint:rgba(240,238,232,.05); background:var(--c-bg); color:var(--c-ink); color-scheme:dark; }
 .spot { background:radial-gradient(520px circle at var(--mx,70%) var(--my,30%), rgba(239,149,87,.16), transparent 60%); }
-@keyframes word-in { from { opacity:0; transform:translateY(.55em); filter:blur(6px); } to { opacity:1; transform:none; filter:none; } }
+@keyframes word-in { from { opacity:0; transform:translateY(.4em); } to { opacity:1; transform:none; } }
 @keyframes fade-rise { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
 @keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
 @keyframes line-grow { from { transform:scaleX(0); } to { transform:scaleX(1); } }
 @keyframes cue { 0%,100% { transform:translateY(0); opacity:.5; } 50% { transform:translateY(8px); opacity:1; } }
-.word-in { display:inline-block; opacity:0; animation:word-in .7s cubic-bezier(.2,.7,.2,1) forwards; }
-.fade-rise { opacity:0; animation:fade-rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+.word-in { display:inline-block; opacity:0; animation:word-in .45s cubic-bezier(.2,.7,.2,1) forwards; }
+.fade-rise { opacity:0; animation:fade-rise .55s cubic-bezier(.2,.7,.2,1) forwards; }
 .marquee-track { display:flex; width:max-content; animation:marquee 38s linear infinite; }
 .marquee:hover .marquee-track { animation-play-state:paused; }
 .outline-word { color:transparent; -webkit-text-stroke:1px rgba(242,239,232,.10); font-family:theme('fontFamily.serif'); font-weight:700; letter-spacing:-.05em; line-height:.8; user-select:none; pointer-events:none; }

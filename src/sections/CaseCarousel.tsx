@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect, useState } from 'react'
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { caseStudies, type CaseStudy } from '../content'
 import MediaGrid from '../components/MediaGrid'
@@ -28,6 +28,8 @@ export default function CaseCarousel() {
   const list = caseStudies.filter((c) => c.id !== 'treasurebox')
   const [openId, setOpenId] = useState<string | null>(null)
   const open = list.find((c) => c.id === openId) ?? null
+  const dialogRef = useRef<HTMLDivElement | null>(null)
+  const railRef = useRef<HTMLUListElement | null>(null)
 
   const close = useCallback(() => setOpenId(null), [])
   useEffect(() => {
@@ -37,20 +39,39 @@ export default function CaseCarousel() {
   }, [])
   useEffect(() => {
     if (!open) return
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') close() }
+    const opener = document.activeElement as HTMLElement | null
+    const root = () => dialogRef.current
+    const focusables = () => Array.from(root()?.querySelectorAll<HTMLElement>('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])') ?? [])
+    const t = window.setTimeout(() => (focusables()[0] ?? root())?.focus(), 60)
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { close(); return }
+      if (e.key !== 'Tab') return
+      const f = focusables()
+      if (!f.length) { e.preventDefault(); return }
+      const first = f[0], last = f[f.length - 1]
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus() }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus() }
+    }
     document.body.style.overflow = 'hidden'
     window.addEventListener('keydown', onKey)
-    return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', onKey) }
+    return () => { window.clearTimeout(t); document.body.style.overflow = ''; window.removeEventListener('keydown', onKey); opener?.focus?.() }
   }, [open, close])
+  const scrollRail = (dir: 1 | -1) => railRef.current?.scrollBy({ left: dir * 360, behavior: 'smooth' })
 
   return (
     <section id="work" className="paper relative scroll-mt-0 py-20 sm:py-28">
       <div className="section-shell">
         <div className="stat text-[10px] uppercase tracking-[.22em] text-accent">The work</div>
         <h2 className="mt-4 max-w-3xl font-serif text-[clamp(2.4rem,5vw,4.4rem)] font-semibold leading-[1] tracking-[-.04em]">Six cases. Open any one.</h2>
-        <p className="mt-3 text-sm text-muted">Swipe sideways. Tap a card for the full problem, method and result.</p>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-4">
+          <p className="text-sm text-muted">Swipe, scroll sideways or use the arrows. Open a card for the full problem, method and result.</p>
+          <div className="flex gap-2">
+            <button type="button" onClick={() => scrollRail(-1)} aria-label="Previous cases" className="flex h-11 w-11 items-center justify-center border border-line text-lg hover:border-accent hover:text-accent">←</button>
+            <button type="button" onClick={() => scrollRail(1)} aria-label="More cases" className="flex h-11 w-11 items-center justify-center border border-line text-lg hover:border-accent hover:text-accent">→</button>
+          </div>
+        </div>
       </div>
-      <ul className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-6 sm:px-10 lg:px-[max(2.5rem,calc((100vw-1180px)/2))]" style={{ scrollbarWidth: 'none' }}>
+      <ul ref={railRef} aria-label="Case studies" className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-6 sm:px-10 lg:px-[max(2.5rem,calc((100vw-1180px)/2))]" style={{ scrollbarWidth: 'none' }}>
         {list.map((cs) => (
           <li key={cs.id} className="snap-start">
             <motion.button
@@ -77,7 +98,7 @@ export default function CaseCarousel() {
       <AnimatePresence>
         {open && (
           <motion.div className="stage fixed inset-0 z-[70] flex items-start justify-center overflow-y-auto bg-black/80 p-3 backdrop-blur-sm sm:p-8" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={close} role="dialog" aria-modal="true" aria-label={open.title}>
-            <motion.div layoutId={`card-${open.id}`} onClick={(e) => e.stopPropagation()} className="relative my-auto w-full max-w-4xl overflow-hidden border border-line bg-[var(--c-surface)]">
+            <motion.div ref={dialogRef} tabIndex={-1} layoutId={`card-${open.id}`} onClick={(e) => e.stopPropagation()} className="relative my-auto outline-none w-full max-w-4xl overflow-hidden border border-line bg-[var(--c-surface)]">
               <div className="relative h-48 sm:h-60"><Face cs={open} />
                 <button type="button" onClick={close} aria-label="Close" className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-lg backdrop-blur hover:bg-accent hover:text-accent-ink">×</button>
                 <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8"><div className="stat text-[10px] uppercase tracking-[.2em] text-accent">{open.index} · {open.frameLabel}</div><h3 className="mt-2 font-serif text-3xl font-semibold leading-tight sm:text-4xl">{open.title}</h3></div>

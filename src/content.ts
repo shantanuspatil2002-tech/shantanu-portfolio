@@ -73,7 +73,7 @@ export const nav: NavItem[] = [
 /* -------------------------------------------------- Hero */
 
 export const hero = {
-  kicker: 'Selected work · 2021 – 2026',
+  kicker: 'Selected work and experience · 2021 – 2026',
   heading: 'Shantanu Patil',
   statement: site.statement,
   positioning: site.positioningLine,
@@ -483,7 +483,7 @@ export const caseStudies: CaseStudy[] = [
       'As Team Leader and Marketing & Manufacturing Lead, ran a 25-member cross-functional team across design, manufacturing and marketing. Owned the funding: pitched 35+ executives, including CEOs at Datatech Labs, Hero MotoCorp and Spark Minda. Built the end-to-end investment case to mass-produce the ATV at a mandated 4,000 units/yr (TAM-SAM-SOM market sizing, break-even, pricing) and defended it live before international investor-judges at BAJA SAE USA. Cut vehicle weight 5.35% by driving design tradeoffs across 3 sub-teams.',
     result:
       'Raised ₹3.76L (42% of budget). First team to win both national titles in consecutive years: mBAJA 2022 (1 of 138) and eBAJA 2023 (1 of 81, AIR 1). World Rank 4 of 88 in the BAJA SAE USA sales presentation. 17+ individual event awards.',
-    headlineStat: { value: 'AIR 1', label: 'eBAJA 2023 · 1 of 81 teams' },
+    headlineStat: { value: 'AIR 1', label: 'All India Rank 1, eBAJA 2023 · 1 of 81 teams' },
     metrics: [
       { value: '5.35%', label: 'vehicle weight reduction' },
       { value: '₹3.76L', label: 'raised · 42% of team budget' },
@@ -527,19 +527,19 @@ export const caseStudies: CaseStudy[] = [
     id: 'voltedge',
     index: '04',
     group: 'academic',
-    title: 'VoltEdge Mobility - market-entry case design (MUCC)',
+    title: 'VoltEdge Mobility - a designed case exercise (fictional client)',
     frameLabel: 'Case design, Masters’ Union Consulting Club',
     situation:
       'As a core member of the Masters’ Union Consulting Club, designed a market-entry case for an internal competition ("Consulting Roulette") built around a fictional European premium electric motorcycle maker (€420M revenue) evaluating India entry.',
     approach:
       'Built the full case pack - market sizing, competitive landscape, customer segmentation, value chain / capability analysis, forecast financials, and four market-entry options (greenfield, contract manufacturing, JV, acquisition) - plus a standardised judging rubric and live "curveball" scenario elements for ~20–25 competing teams.',
     result:
-      'Ran the competition end-to-end as designer and organiser. Now scaling the same model into a pan-India, multi-campus case competition (target Oct 2026, hybrid format, finals on the Masters’ Union campus), with active sponsorship outreach to consulting firms and corporates.',
+      'Completed: designed the case and ran the internal competition end-to-end as designer and organiser. Planned, not yet held: scaling the same model into a pan-India, multi-campus case competition (target Oct 2026, hybrid format, finals on the Masters’ Union campus), with sponsorship outreach to consulting firms and corporates.',
     headlineStat: { value: '20–25', label: 'teams competing on the case' },
     metrics: [
       { value: '€420M', label: 'fictional client revenue' },
       { value: '4', label: 'market-entry options modelled' },
-      { value: 'Oct 2026', label: 'pan-India scale-up target' },
+      { value: 'Oct 2026', label: 'planned pan-India scale-up (not yet held)' },
     ],
   },
   {
@@ -547,14 +547,14 @@ export const caseStudies: CaseStudy[] = [
     index: '05',
     group: 'academic',
     title: 'The Maharashtra Urban Adoption Compact',
-    frameLabel: 'The Governance Challenge 2026',
+    frameLabel: 'Proposal, not enacted policy',
     situation:
       'The Governance Challenge 2026, run by Samagra with the Government of Maharashtra, assigned the campus team the Urban Development sector - asking how Maharashtra becomes an urban-innovation hub by 2035.',
     approach:
       'As Team Sankalp - with teammates from Pune and Thane; I’m from Sangli, used deliberately as cross-regional grounding - I built a policy proposal titled "The Maharashtra Urban Adoption Compact". Core thesis: "The constraint is not capital. It is the missing pathway from a validated solution to a first government order." I drew on the ARAI certification background to design the VALIDATE lever - a vehicle-certification-style approval pathway for urban innovation adoption.',
     result:
-      'Proposed a five-lever framework (Discover, Validate, Approve, Buy, Scale) grounded in existing Maharashtra regulatory instruments (UDCPR, MMC Act), with a three-phase 2026–2035 roadmap and four specific regulatory asks. Submitted as a 2-page concept note plus a 3-minute pitch video. The team did not advance past the campus round.',
-    headlineStat: { value: '5 levers', label: 'Discover · Validate · Approve · Buy · Scale' },
+      'Recommended a five-lever framework (Discover, Validate, Approve, Buy, Scale) grounded in existing Maharashtra regulatory instruments (UDCPR, MMC Act), with a three-phase 2026–2035 roadmap and four specific regulatory asks. Submitted as a 2-page concept note plus a 3-minute pitch video. The team did not advance past the campus round.',
+    headlineStat: { value: '5 levers', label: 'proposed: Discover · Validate · Approve · Buy · Scale' },
     metrics: [
       { value: '2026–35', label: 'three-phase roadmap' },
       { value: '4', label: 'specific regulatory asks' },
@@ -705,7 +705,7 @@ export const chapters: Chapter[] = [
     headline: 'I built a team of 25, funded it, and won.',
     body: 'Team Leader and Marketing & Manufacturing Lead. Pitched 35+ executives for the budget, built the investment case for a 4,000 units/yr vehicle and defended it live to international investor-judges.',
     stats: [
-      { text: 'AIR 1', label: 'eBAJA 2023, 1 of 81 teams' },
+      { text: 'AIR 1', label: 'All India Rank 1, eBAJA 2023 · 1 of 81 teams' },
       { to: 3.76, decimals: 2, prefix: '₹', suffix: 'L', label: 'raised, 42% of the budget' },
       { to: 35, suffix: '+', label: 'executives pitched' },
     ],
@@ -721,11 +721,11 @@ export const chapters: Chapter[] = [
       { to: 0, label: 'client escalations in 30 months' },
       { to: 20, prefix: '+', suffix: '%', label: 'testing throughput' },
     ],
-    image: { src: 'images/arai-keysight-session.webp', alt: 'ARAI and Keysight session on charging infrastructure requirements and interoperability', caption: 'ARAI and Keysight session on EV charging requirements. The slide maps IS 17017 to IEC.', position: 'object-left' },
+    image: { src: 'images/arai-keysight-session.webp', alt: 'ARAI and Keysight session on charging infrastructure requirements and interoperability', caption: 'ARAI and Keysight session on EV charging requirements. The slide maps the Indian standard IS 17017 to its IEC counterparts.', position: 'object-left' },
     caseId: 'arai', caseLabel: 'Read the ARAI case',
   },
   {
-    id: 'improve', index: '03', verb: 'Improve', org: 'Prodmax Global · pro bono', dates: 'Oct 2023 – Aug 2025',
+    id: 'improve', index: '03', verb: 'Improve', org: 'Prodmax Global · pro bono, alongside ARAI', dates: 'Oct 2023 – Aug 2025',
     headline: 'I fixed a factory that was running below capacity.',
     body: 'Independent Operations Consultant. Diagnosed the bottleneck, built a margin-first scheduling model, then trained 20+ operators to keep it running. CEO-verified in writing.',
     stats: [

@@ -18,7 +18,7 @@ export default function ScrollQuote() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] })
   const all = [...A, ...B]
   return (
-    <section ref={ref} aria-label="The thesis" className="stage relative border-t border-line" style={{ height: reduce ? 'auto' : '230vh' }}>
+    <section ref={ref} aria-label="The thesis" className="stage relative border-t border-line" style={{ height: reduce ? 'auto' : '170vh' }}>
       <div className={`${reduce ? 'py-24' : 'sticky top-0 flex h-screen items-center'}`}>
         <div className="section-shell">
           <div className="stat mb-8 text-[10px] uppercase tracking-[.24em] text-accent">The thesis</div>

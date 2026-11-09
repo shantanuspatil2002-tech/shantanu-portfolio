@@ -15,7 +15,7 @@ export default function LogoMarquee() {
           ))}
         </div>
       </div>
-      <p className="mt-3 text-[11px] text-faint">Organisations I worked with on EV-charger testing and certification at ARAI. Logos belong to their respective owners.</p>
+      <p className="mt-3 text-[11px] text-faint">Organisations whose EV-charger programs I worked on at ARAI. Logos belong to their owners; no employment by, or endorsement from, these companies is implied.</p>
     </div>
   )
 }

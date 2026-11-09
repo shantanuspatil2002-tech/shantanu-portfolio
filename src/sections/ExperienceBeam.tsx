@@ -12,8 +12,8 @@ export default function ExperienceBeam() {
   return (
     <section id="experience" className="stage relative scroll-mt-0 border-t border-line py-20 sm:py-28">
       <div className="section-shell">
-        <div className="stat text-[10px] uppercase tracking-[.22em] text-accent">The record</div>
-        <h2 className="mt-4 max-w-3xl font-serif text-[clamp(2.4rem,5vw,4.4rem)] font-semibold leading-[1] tracking-[-.04em]">Three roles. Real numbers on each.</h2>
+        <div className="stat text-[10px] uppercase tracking-[.22em] text-accent">Experience and education</div>
+        <h2 className="mt-4 max-w-3xl font-serif text-[clamp(2.4rem,5vw,4.4rem)] font-semibold leading-[1] tracking-[-.04em]">Experience and education, with the numbers.</h2>
 
         <div ref={ref} className="relative mt-14 pl-8 sm:pl-14">
           <div aria-hidden className="absolute bottom-0 left-[7px] top-0 w-px bg-line sm:left-[15px]" />

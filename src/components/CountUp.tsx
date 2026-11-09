@@ -8,10 +8,12 @@ export default function CountUp({ stat, className = '' }: { stat: ChapterStat; c
   const ref = useRef<HTMLSpanElement | null>(null)
   const target = stat.to ?? 0
   const decimals = stat.decimals ?? 0
-  const [value, setValue] = useState(stat.text ? 0 : reduced() ? target : 0)
+  const floor = target * 0.55 // start well above zero so a count never reads as broken data
+  const [value, setValue] = useState(stat.text ? 0 : floor)
 
   useEffect(() => {
-    if (stat.text || reduced()) return
+    if (stat.text) return
+    if (reduced()) { setValue(target); return }
     const el = ref.current
     if (!el) return
     let raf = 0
@@ -23,7 +25,7 @@ export default function CountUp({ stat, className = '' }: { stat: ChapterStat; c
       const dur = 1400
       const tick = (now: number) => {
         const t = Math.min(1, (now - start) / dur)
-        setValue(target * (1 - Math.pow(1 - t, 3)))
+        setValue(floor + (target - floor) * (1 - Math.pow(1 - t, 3)))
         if (t < 1) raf = requestAnimationFrame(tick)
       }
       raf = requestAnimationFrame(tick)

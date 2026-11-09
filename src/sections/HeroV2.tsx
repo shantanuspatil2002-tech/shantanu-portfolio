@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from 'motion/react'
-import { about, hero, signature } from '../content'
+import { about, hero } from '../content'
 import { useAudience } from '../hooks/useAudience'
 import Magnetic from '../fx/Magnetic'
 import LogoMarquee from '../components/LogoMarquee'
@@ -10,7 +10,7 @@ const L1 = words('I find where a business is stuck,')
 const L2 = words('and build the system that gets it moving.')
 
 function Word({ w, i }: { w: string; i: number }) {
-  return <span className="word-in mr-[.26em]" style={{ animationDelay: `${0.15 + i * 0.07}s` }}>{w}</span>
+  return <span className="word-in mr-[.26em]" style={{ animationDelay: `${0.05 + i * 0.045}s` }}>{w}</span>
 }
 
 function Chip({ label, value, className, depth, mx, my }: { label: string; value: string; className: string; depth: number; mx: ReturnType<typeof useSpring>; my: ReturnType<typeof useSpring> }) {
@@ -48,12 +48,12 @@ export default function HeroV2() {
             <br />
             <span aria-hidden className="text-accent">{L2.map((w, i) => <Word key={i} w={w} i={i + L1.length} />)}</span>
           </h1>
-          <p className="fade-rise mt-7 max-w-lg text-lg text-muted" style={{ animationDelay: '1.5s' }}>
-            <b className="text-ink">Shantanu Patil.</b> Operator turned consultant. {signature}
+          <p className="fade-rise mt-7 max-w-xl text-lg text-muted" style={{ animationDelay: '0.5s' }}>
+            <b className="text-ink">Shantanu Patil.</b> Operator turned consultant. Delivered 500+ EV compliance programs at ARAI with zero client escalations; lifted a manufacturer&rsquo;s monthly profit 14.4% (pro bono).
           </p>
           {audience && <p className="mt-3 max-w-lg text-sm text-muted"><span className="stat mr-2 text-[10px] uppercase tracking-[.18em] text-accent">Relevant to {audience.name}</span>{audience.relevance}</p>}
-          <div className="fade-rise mt-9 flex flex-wrap items-center gap-4" style={{ animationDelay: '1.8s' }}>
-            <Magnetic><a href="#story" className="inline-flex bg-accent px-7 py-4 text-sm font-bold text-accent-ink">See the work ↓</a></Magnetic>
+          <div className="fade-rise mt-9 flex flex-wrap items-center gap-4" style={{ animationDelay: '0.7s' }}>
+            <Magnetic><button type="button" onClick={() => { document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' }); window.setTimeout(() => window.dispatchEvent(new CustomEvent('open-case', { detail: 'dmaic' })), 650) }} className="inline-flex bg-accent px-7 py-4 text-sm font-bold text-accent-ink">Read the Prodmax case →</button></Magnetic>
             <Magnetic><a href={hero.ctas[0].href} download className="inline-flex border border-white/20 px-6 py-4 text-sm font-semibold hover:border-accent hover:text-accent">Download resume</a></Magnetic>
             <a href={hero.ctas[2].href} target="_blank" rel="noreferrer" className="px-2 py-4 text-sm font-semibold text-muted hover:text-accent">LinkedIn ↗</a>
           </div>
