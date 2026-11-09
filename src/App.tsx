@@ -1,5 +1,6 @@
 import FloatNav from './sections/FloatNav'
 import HeroV2 from './sections/HeroV2'
+import Affiliations from './sections/Affiliations'
 import ScrollQuote from './sections/ScrollQuote'
 import HorizontalStory from './sections/HorizontalStory'
 import RelianceWin from './components/RelianceWin'
@@ -18,6 +19,7 @@ export default function App() {
       <a href="#story" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:text-accent-ink">Skip to content</a>
       <main>
         <HeroV2 />
+        <Affiliations />
         <ScrollQuote />
         <HorizontalStory />
         <RelianceWin />

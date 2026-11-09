@@ -2,6 +2,11 @@ import { useRef, useState } from 'react'
 import { AnimatePresence, motion, useScroll, useSpring } from 'motion/react'
 import { experience } from '../content'
 
+const LOGO = (org: string) =>
+  org.startsWith('ARAI') ? { src: 'images/logos/arai.png', alt: 'ARAI', h: 24 }
+  : org.startsWith('Masters') ? { src: 'images/logos/mu.png', alt: 'Masters’ Union', h: 20 }
+  : null
+
 /** Career as a vertical timeline with a beam that draws itself as you scroll. */
 export default function ExperienceBeam() {
   const ref = useRef<HTMLDivElement | null>(null)
@@ -22,7 +27,8 @@ export default function ExperienceBeam() {
             {experience.map((job, i) => (
               <motion.li key={job.org} initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-12%' }} transition={{ duration: 0.7, ease: [0.2, 0.7, 0.2, 1] }} className="relative">
                 <span aria-hidden className="absolute -left-[33px] top-2 h-4 w-4 rounded-full border-2 border-accent bg-[var(--c-bg)] sm:-left-[57px] sm:h-5 sm:w-5" />
-                <div className="stat text-[11px] uppercase tracking-[.18em] text-accent">{job.dates}</div>
+                <div className="flex items-center gap-4"><div className="stat text-[11px] uppercase tracking-[.18em] text-accent">{job.dates}</div>
+                  {LOGO(job.org) && <div className="flex h-9 items-center bg-white px-3"><img src={LOGO(job.org)!.src} alt={LOGO(job.org)!.alt} style={{ maxHeight: LOGO(job.org)!.h }} className="w-auto" /></div>}</div>
                 <h3 className="mt-2 font-serif text-[clamp(1.5rem,2.6vw,2.3rem)] font-semibold leading-tight tracking-[-.03em]">{job.title}</h3>
                 <div className="mt-1 text-sm text-muted">{job.org}</div>
                 {job.tiles && (

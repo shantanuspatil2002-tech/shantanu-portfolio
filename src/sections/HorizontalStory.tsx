@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from 'motion/react'
-import { chapters, type Chapter } from '../content'
+import { chapterLogo, chapters, type Chapter } from '../content'
 import CountUp from '../components/CountUp'
 
 const openCase = (id: string) => {
@@ -28,6 +28,7 @@ function Panel({ c }: { c: Chapter }) {
           <button type="button" onClick={() => openCase(c.caseId)} className="mt-7 inline-flex items-center gap-2 border border-white/20 px-5 py-3 text-xs font-bold uppercase tracking-[.14em] transition-colors hover:border-accent hover:text-accent">{c.caseLabel} <span aria-hidden>→</span></button>
         </div>
         <figure className="relative">
+          {chapterLogo[c.id] && <div className="absolute left-3 top-3 z-10 flex h-12 items-center bg-white px-4 shadow-lg"><img src={chapterLogo[c.id].src} alt={chapterLogo[c.id].alt} style={{ maxHeight: chapterLogo[c.id].h }} className="w-auto" /></div>}
           <img src={c.image.src} alt={c.image.alt} loading="lazy" className={`aspect-[4/3] max-h-[52vh] w-full object-cover shadow-[0_30px_90px_rgba(0,0,0,.55)] ${c.image.position ?? ''}`} />
           <figcaption className="stat mt-3 text-[10px] uppercase tracking-[.14em] text-faint">{c.image.caption}</figcaption>
         </figure>

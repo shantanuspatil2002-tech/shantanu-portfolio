@@ -42,7 +42,7 @@ export default function BentoCreds() {
             <div className="stat text-[10px] uppercase tracking-[.2em] text-accent">Education</div>
             <ul className="mt-4 space-y-3 text-sm">
               <li><b>PGP-TBM, Masters&rsquo; Union</b><div className="text-muted">Cohort 7, Gurugram · 2026 – present</div></li>
-              <li><b>B.E. Mechanical, D.Y. Patil, Pune</b><div className="text-muted">8.35 CGPA, top 20%</div></li>
+              <li><b>B.E. Mechanical, D.Y. Patil, Pune</b><div className="text-muted">8.35 CGPA, top 20%</div><div className="mt-2 flex h-9 w-fit items-center bg-white px-3"><img src="images/logos/sppu.png" alt="Savitribai Phule Pune University" className="h-4 w-auto" /></div><div className="mt-1 text-[11px] text-faint">Affiliated to Savitribai Phule Pune University</div></li>
               <li><b>Diploma, Mechanical Engineering</b><div className="text-muted">91.59%, Rank 2 of 178</div></li>
             </ul>
           </Tile>

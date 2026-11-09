@@ -790,3 +790,19 @@ export type RelianceWin = {
   image?: { src: string; alt: string; caption?: string }
 }
 export const relianceWin: RelianceWin | null = null
+
+
+/** Institutions with their own marks. Kind = the relationship, in plain words. */
+export const affiliations = [
+  { name: 'Masters’ Union University', logo: 'images/logos/mu.png', h: 46, kind: 'Studying', role: 'PGP in Technology & Business Management, Cohort 7', when: 'Jun 2026 – present' },
+  { name: 'ARAI', logo: 'images/logos/arai.png', h: 70, kind: 'Worked', role: 'Research Engineer, EV Compliance & Client Operations', when: 'Jul 2023 – Jun 2026' },
+  { name: 'BAJA SAEINDIA', logo: 'images/logos/saeindia.png', h: 38, kind: 'Led a team', role: 'Team Leader, Team Predators Racing, BAJA SAEINDIA', when: 'Jul 2021 – Apr 2023' },
+  { name: 'Savitribai Phule Pune University', logo: 'images/logos/sppu.png', h: 26, kind: 'Graduated', role: 'B.E. Mechanical Engineering, D.Y. Patil College of Engineering, Pune (affiliated to the university)', when: 'Dec 2020 – Apr 2023' },
+]
+
+/** Small logo chip shown on the matching story chapter. */
+export const chapterLogo: Record<string, { src: string; alt: string; h: number }> = {
+  build: { src: 'images/logos/saeindia.png', alt: 'SAEINDIA, organiser of BAJA', h: 22 },
+  test: { src: 'images/logos/arai.png', alt: 'ARAI', h: 34 },
+  scale: { src: 'images/logos/mu.png', alt: 'Masters’ Union', h: 26 },
+}
